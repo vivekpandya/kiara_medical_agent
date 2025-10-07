@@ -1,0 +1,14 @@
+CRITICAL - 2025-08-21 01:53:21 --> DivisionByZeroError: Division by zero
+in APPPATH\Controllers\Billing.php on line 23221.
+ 1 APPPATH\Controllers\Billing.php(21686): App\Controllers\Billing->save_claim_auto_payment_optimized_version_1([])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-21 02:19:20 --> DivisionByZeroError: Division by zero
+in APPPATH\Controllers\Billing.php on line 23241.
+ 1 APPPATH\Controllers\Billing.php(21706): App\Controllers\Billing->save_claim_auto_payment_optimized_version_1([])
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

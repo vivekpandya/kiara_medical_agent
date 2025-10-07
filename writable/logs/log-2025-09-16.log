@@ -1,0 +1,1502 @@
+ERROR - 2025-09-16 01:28:37 --> mysqli_sql_exception: Unknown column 'E.eli_expiration_date' in 'having clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(954): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(1531): App\Models\Reports_model->EligibilityDataExport('2025-09-01', '2025-09-16', '', NULL, 'cli_name', 'asc')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->eligibility_dataExport()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 01:28:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'E.eli_expiration_date' in 'having clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `eli_submitted_status` = :eli_submitted_status :
+AND `eli_hcpc_code_name` != :eli_hcpc_code_name:
+AND `cli_dcc_status` = :cli_dcc_status:
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(954): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(1531): App\Models\Reports_model->EligibilityDataExport('2025-09-01', '2025-09-16', '', null, 'cli_name', 'asc')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->eligibility_dataExport()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 01:28:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'E.eli_expiration_date' in 'having clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `eli_submitted_status` = :eli_submitted_status :
+AND `eli_hcpc_code_name` != :eli_hcpc_code_name:
+AND `cli_dcc_status` = :cli_dcc_status:
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(954): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(1531): App\Models\Reports_model->EligibilityDataExport('2025-09-01', '2025-09-16', '', null, 'cli_name', 'asc')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->eligibility_dataExport()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 01:28:37 --> [Caused by] mysqli_sql_exception: Unknown column 'E.eli_expiration_date' in 'having clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `eli_submitted_status` = :eli_submitted_status :
+AND `eli_hcpc_code_name` != :eli_hcpc_code_name:
+AND `cli_dcc_status` = :cli_dcc_status:
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(954): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(1531): App\Models\Reports_model->EligibilityDataExport('2025-09-01', '2025-09-16', '', null, 'cli_name', 'asc')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->eligibility_dataExport()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 01:30:22 --> mysqli_sql_exception: Unknown column 'E.eli_expiration_date' in 'having clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(967): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(1531): App\Models\Reports_model->EligibilityDataExport('2025-09-01', '2025-09-16', '', NULL, 'cli_name', 'asc')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->eligibility_dataExport()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 01:30:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'E.eli_expiration_date' in 'having clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `eli_submitted_status` = :eli_submitted_status :
+AND `eli_hcpc_code_name` != :eli_hcpc_code_name:
+AND `cli_dcc_status` = :cli_dcc_status:
+AND   (
+`E`.`eli_expiration_date` >= :E.eli_expiration_date:
+AND `E`.`eli_expiration_date` <= :E.eli_expiration_date.1:
+OR    (
+`E`.`eli_expiration_date` LIKE :E.eli_expiration_date.2: ESCAPE \'!\'
+OR  `E`.`eli_expiration_date` LIKE :E.eli_expiration_date.3: ESCAPE \'!\'
+  )
+ )
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(967): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(1531): App\Models\Reports_model->EligibilityDataExport('2025-09-01', '2025-09-16', '', null, 'cli_name', 'asc')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->eligibility_dataExport()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 01:30:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'E.eli_expiration_date' in 'having clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+AND   (
+`E`.`eli_expiration_date` >= \'2025-09-01\'
+AND `E`.`eli_expiration_date` <= \'2025-09-16\'
+OR    (
+`E`.`eli_expiration_date` LIKE \'2025-09-01%\' ESCAPE \'!\'
+OR  `E`.`eli_expiration_date` LIKE \'2025-09-16%\' ESCAPE \'!\'
+  )
+ )
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+AND   (
+`E`.`eli_expiration_date` >= \'2025-09-01\'
+AND `E`.`eli_expiration_date` <= \'2025-09-16\'
+OR    (
+`E`.`eli_expiration_date` LIKE \'2025-09-01%\' ESCAPE \'!\'
+OR  `E`.`eli_expiration_date` LIKE \'2025-09-16%\' ESCAPE \'!\'
+  )
+ )
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `eli_submitted_status` = :eli_submitted_status :
+AND `eli_hcpc_code_name` != :eli_hcpc_code_name:
+AND `cli_dcc_status` = :cli_dcc_status:
+AND   (
+`E`.`eli_expiration_date` >= :E.eli_expiration_date:
+AND `E`.`eli_expiration_date` <= :E.eli_expiration_date.1:
+OR    (
+`E`.`eli_expiration_date` LIKE :E.eli_expiration_date.2: ESCAPE \'!\'
+OR  `E`.`eli_expiration_date` LIKE :E.eli_expiration_date.3: ESCAPE \'!\'
+  )
+ )
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(967): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(1531): App\Models\Reports_model->EligibilityDataExport('2025-09-01', '2025-09-16', '', null, 'cli_name', 'asc')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->eligibility_dataExport()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 01:30:22 --> [Caused by] mysqli_sql_exception: Unknown column 'E.eli_expiration_date' in 'having clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+AND   (
+`E`.`eli_expiration_date` >= \'2025-09-01\'
+AND `E`.`eli_expiration_date` <= \'2025-09-16\'
+OR    (
+`E`.`eli_expiration_date` LIKE \'2025-09-01%\' ESCAPE \'!\'
+OR  `E`.`eli_expiration_date` LIKE \'2025-09-16%\' ESCAPE \'!\'
+  )
+ )
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+AND   (
+`E`.`eli_expiration_date` >= \'2025-09-01\'
+AND `E`.`eli_expiration_date` <= \'2025-09-16\'
+OR    (
+`E`.`eli_expiration_date` LIKE \'2025-09-01%\' ESCAPE \'!\'
+OR  `E`.`eli_expiration_date` LIKE \'2025-09-16%\' ESCAPE \'!\'
+  )
+ )
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = \'81\'
+AND `eli_submitted_status` = \'Approved\'
+AND `eli_hcpc_code_name` != \'0000\'
+AND `cli_dcc_status` = \'Approved\'
+AND   (
+`E`.`eli_expiration_date` >= \'2025-09-01\'
+AND `E`.`eli_expiration_date` <= \'2025-09-16\'
+OR    (
+`E`.`eli_expiration_date` LIKE \'2025-09-01%\' ESCAPE \'!\'
+OR  `E`.`eli_expiration_date` LIKE \'2025-09-16%\' ESCAPE \'!\'
+  )
+ )
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_name`, `I`.`ins_name`, `I`.`ins_payer_id`, `E`.`eli_hmo_mem_id`, CASE WHEN E.eli_submitted_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_submitted_date, "%m/%d/%Y") END AS eli_submitted_date, CASE WHEN E.eli_approved_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_approved_date, "%m/%d/%Y") END AS eli_approved_date, CASE WHEN E.eli_effective_date = "0000-00-00" THEN "" ELSE DATE_FORMAT(E.eli_effective_date, "%m/%d/%Y") END AS eli_effective_date, DATE_FORMAT(E.eli_expiration_date, "%m/%d/%Y") AS eli_expiration_date, `eli_status`, `E`.`eli_hcpc_code_name`
+FROM `tbl_client_eligibility_verification` AS `E`
+LEFT JOIN `tbl_clients` AS `C` ON `C`.`cli_id` = `E`.`eli_cli_id`
+LEFT JOIN `tbl_insurance` AS `I` ON `E`.`eli_insurance_name` = `I`.`ins_id`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `eli_submitted_status` = :eli_submitted_status :
+AND `eli_hcpc_code_name` != :eli_hcpc_code_name:
+AND `cli_dcc_status` = :cli_dcc_status:
+AND   (
+`E`.`eli_expiration_date` >= :E.eli_expiration_date:
+AND `E`.`eli_expiration_date` <= :E.eli_expiration_date.1:
+OR    (
+`E`.`eli_expiration_date` LIKE :E.eli_expiration_date.2: ESCAPE \'!\'
+OR  `E`.`eli_expiration_date` LIKE :E.eli_expiration_date.3: ESCAPE \'!\'
+  )
+ )
+HAVING (`E`.`eli_expiration_date` BETWEEN "2025-09-01" and "2025-09-16" OR `E`.`eli_expiration_date` LIKE "2025-09-01%" OR `E`.`eli_expiration_date` LIKE "2025-09-16%")
+ORDER BY `cli_name` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(967): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(1531): App\Models\Reports_model->EligibilityDataExport('2025-09-01', '2025-09-16', '', null, 'cli_name', 'asc')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->eligibility_dataExport()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 03:17:46 --> Error: Object of class stdClass could not be converted to string
+in APPPATH\Views\clients\facesheet\pa_policy_view.php on line 3.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('clients/facesheet/pa_policy_view', [], true)
+ 4 APPPATH\Controllers\Clients.php(3046): view('clients/facesheet/pa_policy_view', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->show_pa_policy_data()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 03:17:58 --> Error: Object of class stdClass could not be converted to string
+in APPPATH\Views\clients\facesheet\pa_policy_view.php on line 3.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('clients/facesheet/pa_policy_view', [], true)
+ 4 APPPATH\Controllers\Clients.php(3046): view('clients/facesheet/pa_policy_view', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->show_pa_policy_data()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:31:11 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 884.
+ 1 SYSTEMPATH\Model.php(662): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(864): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Clients.php(4166): CodeIgniter\Model->__call('getData', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 04:32:17 --> mysqli_sql_exception: Incorrect DATE value: '' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_sus...', Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 04:32:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 2 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:32:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 4 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:32:17 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 5 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 04:33:38 --> mysqli_sql_exception: Incorrect DATE value: '' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_sus...', Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 04:33:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 2 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:33:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 4 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:33:38 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 5 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 04:34:48 --> mysqli_sql_exception: Incorrect DATE value: '' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_sus...', Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 04:34:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 2 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:34:48 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 4 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:34:48 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 5 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Clients.php(4166): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 04:35:59 --> mysqli_sql_exception: Incorrect DATE value: '' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(4165): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_sus...', Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 04:35:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 2 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Clients.php(4165): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:35:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 4 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Clients.php(4165): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:35:59 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 5 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Clients.php(4165): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 04:36:25 --> mysqli_sql_exception: Incorrect DATE value: '' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(4165): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_sus...', Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 04:36:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 2 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Clients.php(4165): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:36:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 4 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Clients.php(4165): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:36:25 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: ''
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = \'13407\'
+AND `susp_dcc_id` = \'81\'
+AND `susp_start_date` = \'\'
+AND `susp_end_date` = \'2025-09-16\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `susp_id`
+FROM `tbl_clients_suspension`
+WHERE `susp_cli_id` = :susp_cli_id:
+AND `susp_dcc_id` = :susp_dcc_id:
+AND `susp_start_date` = :susp_start_date:
+AND `susp_end_date` = :susp_end_date:', [...], false)
+ 5 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Clients.php(4165): App\Models\Common_model->getDataById('susp_id', 'tbl_clients_suspension', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 04:38:33 --> mysqli_sql_exception: Unknown column 'dis_reason' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `dis_id`...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `dis_id`...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `dis_id`...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `dis_id`...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\MigrationScripts.php(1852): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\MigrationScripts.php(21): App\Controllers\MigrationScripts->migrate_suspension_data()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\MigrationScripts->index('migrate_suspens...')
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MigrationScripts))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 04:38:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'dis_reason' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `dis_id`, `dis_cli_id`, `dis_dcc_id`, `dis_date`, `dis_end_date`, `dis_reason`, `dis_created_on`, `dis_created_by`
+FROM `tbl_discharge_dates`
+WHERE `dis_type` = :dis_type:', [...], false)
+ 2 APPPATH\Controllers\MigrationScripts.php(1852): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\MigrationScripts.php(21): App\Controllers\MigrationScripts->migrate_suspension_data()
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\MigrationScripts->index('migrate_suspension_data')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MigrationScripts))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:38:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'dis_reason' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `dis_id`, `dis_cli_id`, `dis_dcc_id`, `dis_date`, `dis_end_date`, `dis_reason`, `dis_created_on`, `dis_created_by`
+FROM `tbl_discharge_dates`
+WHERE `dis_type` = \'Suspension\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `dis_id`, `dis_cli_id`, `dis_dcc_id`, `dis_date`, `dis_end_date`, `dis_reason`, `dis_created_on`, `dis_created_by`
+FROM `tbl_discharge_dates`
+WHERE `dis_type` = \'Suspension\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `dis_id`, `dis_cli_id`, `dis_dcc_id`, `dis_date`, `dis_end_date`, `dis_reason`, `dis_created_on`, `dis_created_by`
+FROM `tbl_discharge_dates`
+WHERE `dis_type` = :dis_type:', [...], false)
+ 4 APPPATH\Controllers\MigrationScripts.php(1852): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\MigrationScripts.php(21): App\Controllers\MigrationScripts->migrate_suspension_data()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\MigrationScripts->index('migrate_suspension_data')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MigrationScripts))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 04:38:33 --> [Caused by] mysqli_sql_exception: Unknown column 'dis_reason' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `dis_id`, `dis_cli_id`, `dis_dcc_id`, `dis_date`, `dis_end_date`, `dis_reason`, `dis_created_on`, `dis_created_by`
+FROM `tbl_discharge_dates`
+WHERE `dis_type` = \'Suspension\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `dis_id`, `dis_cli_id`, `dis_dcc_id`, `dis_date`, `dis_end_date`, `dis_reason`, `dis_created_on`, `dis_created_by`
+FROM `tbl_discharge_dates`
+WHERE `dis_type` = \'Suspension\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `dis_id`, `dis_cli_id`, `dis_dcc_id`, `dis_date`, `dis_end_date`, `dis_reason`, `dis_created_on`, `dis_created_by`
+FROM `tbl_discharge_dates`
+WHERE `dis_type` = \'Suspension\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `dis_id`, `dis_cli_id`, `dis_dcc_id`, `dis_date`, `dis_end_date`, `dis_reason`, `dis_created_on`, `dis_created_by`
+FROM `tbl_discharge_dates`
+WHERE `dis_type` = :dis_type:', [...], false)
+ 5 APPPATH\Controllers\MigrationScripts.php(1852): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\MigrationScripts.php(21): App\Controllers\MigrationScripts->migrate_suspension_data()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\MigrationScripts->index('migrate_suspension_data')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\MigrationScripts))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:40:13 --> ErrorException: Undefined array key "suspension_report"
+in APPPATH\Views\reports\suspension_report\suspension_report.php on line 61.
+ 1 APPPATH\Views\reports\suspension_report\suspension_report.php(61): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "suspension_report"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\suspension_report\\suspension_report.php', 61)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\suspension_report\\suspension_report.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/suspension_report/suspension_report', [], true)
+ 5 APPPATH\Controllers\Reports.php(22538): view('reports/suspension_report/suspension_report', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 05:45:57 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22719): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22564): App\Controllers\Reports->get_suspension_report_data(Array, '', '', '', 'count')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 05:45:57 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 2 APPPATH\Controllers\Reports.php(22719): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Reports.php(22564): App\Controllers\Reports->get_suspension_report_data([...], '', '', '', 'count')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:45:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 4 APPPATH\Controllers\Reports.php(22719): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Reports.php(22564): App\Controllers\Reports->get_suspension_report_data([...], '', '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:45:57 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 5 APPPATH\Controllers\Reports.php(22719): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Reports.php(22564): App\Controllers\Reports->get_suspension_report_data([...], '', '', '', 'count')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 05:46:09 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22719): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22564): App\Controllers\Reports->get_suspension_report_data(Array, '', '', '', 'count')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 05:46:09 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 2 APPPATH\Controllers\Reports.php(22719): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Reports.php(22564): App\Controllers\Reports->get_suspension_report_data([...], '', '', '', 'count')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:46:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 4 APPPATH\Controllers\Reports.php(22719): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Reports.php(22564): App\Controllers\Reports->get_suspension_report_data([...], '', '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:46:09 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 5 APPPATH\Controllers\Reports.php(22719): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Reports.php(22564): App\Controllers\Reports->get_suspension_report_data([...], '', '', '', 'count')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:50:35 --> ErrorException: Undefined property: App\Controllers\Reports::$Reports_model
+in APPPATH\Controllers\Reports.php on line 22564.
+ 1 APPPATH\Controllers\Reports.php(22564): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Reports::$Reports_model', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 22564)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 05:51:18 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12458): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData(Array, '', '', '', 'count')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-16 05:51:18 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 2 APPPATH\Models\Reports_model.php(12458): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:51:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 4 APPPATH\Models\Reports_model.php(12458): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:51:18 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEF' at line 4
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = \'81\'
+AND `s`.`susp_start_date` >= \'2025-09-01\'
+AND `s`.`susp_start_date` <= \'2025-09-16\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_clients_suspension` `s`
+LEFT JOIN `tbl_clients` `c` ON `s`.`susp_cli_id` = `c`.`cli_id`
+LEFT JOIN `tbl_client_emergency_contact` `pc` ON `s`.`susp_cli_id` = `pc`.`emc_cli_id` AND `pc`.`emc_contact_type` = "Care `Giver"` AND `pc`.`emc_caregiver_type` = "Primary" AND `pc`.`emc_status` = "ACTIVE"
+LEFT JOIN `tbl_client_emergency_contact` `ac` ON `s`.`susp_cli_id` = `ac`.`emc_cli_id` AND `ac`.`emc_contact_type` = "Care `Giver"` AND `ac`.`emc_caregiver_type` = "Back-up" AND `ac`.`emc_status` = "ACTIVE"
+WHERE `s`.`susp_dcc_id` = :s.susp_dcc_id:
+AND `s`.`susp_start_date` >= :s.susp_start_date:
+AND `s`.`susp_start_date` <= :s.susp_start_date.1:', [...], false)
+ 5 APPPATH\Models\Reports_model.php(12458): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 05:54:46 --> mysqli_sql_exception: Unknown column 'c.cus_name' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12472): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData(Array, '', '', '', 'count')
+#5 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-09-16 05:54:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'c.cus_name' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Reports_model.php(12472): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT s.*, c.cus_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = ? AND s.susp_start_date >= ? AND s.susp_start_date <= ? ORDER BY s.susp_start_date DESC) as count_query', [...])
+ 2 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:54:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'c.cus_name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) as total FROM (SELECT s.*, c.cus_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) as total FROM (SELECT s.*, c.cus_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query')
+ 3 APPPATH\Models\Reports_model.php(12472): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT s.*, c.cus_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = ? AND s.susp_start_date >= ? AND s.susp_start_date <= ? ORDER BY s.susp_start_date DESC) as count_query', [...])
+ 4 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:54:46 --> [Caused by] mysqli_sql_exception: Unknown column 'c.cus_name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) as total FROM (SELECT s.*, c.cus_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) as total FROM (SELECT s.*, c.cus_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) as total FROM (SELECT s.*, c.cus_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query')
+ 4 APPPATH\Models\Reports_model.php(12472): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT s.*, c.cus_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = ? AND s.susp_start_date >= ? AND s.susp_start_date <= ? ORDER BY s.susp_start_date DESC) as count_query', [...])
+ 5 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-16 05:56:20 --> mysqli_sql_exception: Unknown column 'emc_contact_name' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12472): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData(Array, '', '', '', 'count')
+#5 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-09-16 05:56:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'emc_contact_name' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Reports_model.php(12472): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT s.*, c.cli_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = ? AND s.susp_start_date >= ? AND s.susp_start_date <= ? ORDER BY s.susp_start_date DESC) as count_query', [...])
+ 2 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:56:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'emc_contact_name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) as total FROM (SELECT s.*, c.cli_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) as total FROM (SELECT s.*, c.cli_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query')
+ 3 APPPATH\Models\Reports_model.php(12472): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT s.*, c.cli_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = ? AND s.susp_start_date >= ? AND s.susp_start_date <= ? ORDER BY s.susp_start_date DESC) as count_query', [...])
+ 4 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 05:56:20 --> [Caused by] mysqli_sql_exception: Unknown column 'emc_contact_name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) as total FROM (SELECT s.*, c.cli_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) as total FROM (SELECT s.*, c.cli_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) as total FROM (SELECT s.*, c.cli_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = \'81\' AND s.susp_start_date >= \'2025-09-01\' AND s.susp_start_date <= \'2025-09-16\' ORDER BY s.susp_start_date DESC) as count_query')
+ 4 APPPATH\Models\Reports_model.php(12472): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT s.*, c.cli_name,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Primary\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as primary_caregiver,
+                       (SELECT emc_contact_name FROM tbl_client_emergency_contact 
+                        WHERE emc_cli_id = s.susp_cli_id 
+                        AND emc_contact_type = \'Care Giver\' 
+                        AND emc_caregiver_type = \'Back-up\' 
+                        AND emc_status = \'ACTIVE\' 
+                        LIMIT 1) as alternative_caregiver
+                FROM tbl_clients_suspension s
+                LEFT JOIN tbl_clients c ON s.susp_cli_id = c.cli_id
+                WHERE s.susp_dcc_id = ? AND s.susp_start_date >= ? AND s.susp_start_date <= ? ORDER BY s.susp_start_date DESC) as count_query', [...])
+ 5 APPPATH\Controllers\Reports.php(22564): App\Models\Reports_model->getSuspensionReportData([...], '', '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 06:09:37 --> Error: Object of class DateTime could not be converted to string
+in APPPATH\Views\reports\suspension_report\suspension_report_pagi.php on line 61.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/suspension_report/suspension_report_pagi', [], true)
+ 4 APPPATH\Controllers\Reports.php(22567): view('reports/suspension_report/suspension_report_pagi', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 06:09:48 --> Error: Object of class DateTime could not be converted to string
+in APPPATH\Views\reports\suspension_report\suspension_report_pagi.php on line 61.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/suspension_report/suspension_report_pagi', [], true)
+ 4 APPPATH\Controllers\Reports.php(22567): view('reports/suspension_report/suspension_report_pagi', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 07:25:19 --> ErrorException: Undefined property: stdClass::$cus_name
+in APPPATH\Controllers\Reports.php on line 22692.
+ 1 APPPATH\Controllers\Reports.php(22692): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$cus_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 22692)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_dataExport()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-16 07:25:31 --> ErrorException: Undefined property: stdClass::$cus_name
+in APPPATH\Controllers\Reports.php on line 22692.
+ 1 APPPATH\Controllers\Reports.php(22692): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$cus_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 22692)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_dataExport()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

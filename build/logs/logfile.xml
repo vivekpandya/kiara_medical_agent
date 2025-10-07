@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" tests="16" assertions="34" errors="0" warnings="0" failures="0" skipped="0" time="0.302375">
+    <testcase name="testDailyTotalCalculation" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="26" assertions="2" time="0.082562"/>
+    <testcase name="testWeeklyTotalCalculation" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="39" assertions="2" time="0.012266"/>
+    <testcase name="testDccTimeclockDetailsRetrieval" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="53" assertions="1" time="0.009865"/>
+    <testcase name="testDailyTimecardsForWeekRetrieval" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="64" assertions="1" time="0.012362"/>
+    <testcase name="testTimecardSubmittedUsersRetrieval" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="77" assertions="1" time="0.011713"/>
+    <testcase name="testDateValidationForCronjob" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="88" assertions="4" time="0.012545"/>
+    <testcase name="testDayOfWeekValidation" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="102" assertions="9" time="0.011976"/>
+    <testcase name="testWeekStartDateCalculation" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="121" assertions="2" time="0.014569"/>
+    <testcase name="testWeekEndDateCalculation" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="138" assertions="1" time="0.046796"/>
+    <testcase name="testTimecardDataAggregation" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="148" assertions="1" time="0.015758"/>
+    <testcase name="testTimecardApprovalStatusProcessing" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="165" assertions="2" time="0.011891"/>
+    <testcase name="testMissingTimecardDetection" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="182" assertions="1" time="0.009802"/>
+    <testcase name="testTimecardDataValidation" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="194" assertions="2" time="0.010755"/>
+    <testcase name="testCronjobExecutionTiming" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="220" assertions="1" time="0.015157"/>
+    <testcase name="testCronjobErrorHandling" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="232" assertions="3" time="0.012613"/>
+    <testcase name="testTimecardProcessingPerformance" class="TimecardCronjobTest" classname="TimecardCronjobTest" file="D:\wamp\www\new_adult_foster_care_pro\tests\unit\TimecardCronjobTest.php" line="246" assertions="1" time="0.011743"/>
+  </testsuite>
+</testsuites>

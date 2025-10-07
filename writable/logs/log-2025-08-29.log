@@ -1,0 +1,1266 @@
+CRITICAL - 2025-08-29 02:14:04 --> ErrorException: Undefined array key "assigned_type"
+in APPPATH\Models\User_model.php on line 448.
+ 1 APPPATH\Models\User_model.php(448): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "assigned_type"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Models\\User_model.php', 448)
+ 2 APPPATH\Controllers\User.php(2065): App\Models\User_model->getClientListByUserId([...], 'count', 20, 0)
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\User->assign_client_list()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 02:14:15 --> ErrorException: Undefined array key "assigned_type"
+in APPPATH\Models\User_model.php on line 448.
+ 1 APPPATH\Models\User_model.php(448): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "assigned_type"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Models\\User_model.php', 448)
+ 2 APPPATH\Controllers\User.php(2065): App\Models\User_model->getClientListByUserId([...], 'count', 20, 0)
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\User->assign_client_list()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 02:58:41 --> ErrorException: Cannot redeclare App\Models\Reports_model::getFormsCombinedList()
+in APPPATH\Models\Reports_model.php on line 12054.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2025-08-29 03:59:05 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`asc`' at line 5 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `cli_id`...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10799): App\Models\Common_model->getAllData('cli_id, cli_nam...', 'tbl_clients', Array, '', 'cli_name asc', '')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-29 03:59:05 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`asc`' at line 5
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_status` != :cli_dcc_status:
+AND `cli_dcc_id` = :cli_dcc_id:
+GROUP BY `cli_name` `asc`', [...], false)
+ 2 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(10799): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], '', 'cli_name asc', '')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 03:59:05 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`asc`' at line 5
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_status` != \'Discharged\'
+AND `cli_dcc_id` = \'81\'
+GROUP BY `cli_name` `asc`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_status` != \'Discharged\'
+AND `cli_dcc_id` = \'81\'
+GROUP BY `cli_name` `asc`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_status` != :cli_dcc_status:
+AND `cli_dcc_id` = :cli_dcc_id:
+GROUP BY `cli_name` `asc`', [...], false)
+ 4 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(10799): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], '', 'cli_name asc', '')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 03:59:05 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`asc`' at line 5
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_status` != \'Discharged\'
+AND `cli_dcc_id` = \'81\'
+GROUP BY `cli_name` `asc`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_status` != \'Discharged\'
+AND `cli_dcc_id` = \'81\'
+GROUP BY `cli_name` `asc`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_status` != \'Discharged\'
+AND `cli_dcc_id` = \'81\'
+GROUP BY `cli_name` `asc`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_status` != :cli_dcc_status:
+AND `cli_dcc_id` = :cli_dcc_id:
+GROUP BY `cli_name` `asc`', [...], false)
+ 5 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(10799): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], '', 'cli_name asc', '')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-29 03:59:30 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', undefined' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id...')
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', 'undefined', 'undefined', '', '', 'cli_name', 'ASC', NULL, NULL)
+#5 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-08-29 03:59:30 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', undefined' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 2 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', 'undefined', 'undefined', '', '', 'cli_name', 'ASC', null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 03:59:30 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', undefined' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 3 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 4 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', 'undefined', 'undefined', '', '', 'cli_name', 'ASC', null, null)
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 03:59:30 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', undefined' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 4 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 5 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', 'undefined', 'undefined', '', '', 'cli_name', 'ASC', null, null)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-29 03:59:42 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', undefined' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id...')
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', 'undefined', 'undefined', '', '', 'cli_name', 'ASC', NULL, NULL)
+#5 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-08-29 03:59:42 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', undefined' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 2 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', 'undefined', 'undefined', '', '', 'cli_name', 'ASC', null, null)
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 03:59:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', undefined' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 3 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 4 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', 'undefined', 'undefined', '', '', 'cli_name', 'ASC', null, null)
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 03:59:42 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', undefined' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 4 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_schedule_shift = undefined AND C.cli_dcc_id = 81 LIMIT , undefined')
+ 5 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', 'undefined', 'undefined', '', '', 'cli_name', 'ASC', null, null)
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:02:52 --> ErrorException: Undefined array key "admission_report"
+in APPPATH\Views\reports\view_due_items_report\view_due_items_data.php on line 170.
+ 1 APPPATH\Views\reports\view_due_items_report\view_due_items_data.php(170): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "admission_report"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\view_due_items_report\\view_due_items_data.php', 170)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\view_due_items_report\\view_due_items_data.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/view_due_items_report/view_due_items_data', [], true)
+ 5 APPPATH\Controllers\Reports.php(10801): view('reports/view_due_items_report/view_due_items_data', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-29 04:11:32 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', PENDING' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id...')
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', NULL, 'PENDING', '', '', 'due_date', 'DESC', 'Approved', 'undefined')
+#5 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-08-29 04:11:32 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', PENDING' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 LIMIT , PENDING')
+ 2 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', null, 'PENDING', '', '', 'due_date', 'DESC', 'Approved', 'undefined')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:11:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', PENDING' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 LIMIT , PENDING')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 LIMIT , PENDING')
+ 3 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 LIMIT , PENDING')
+ 4 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', null, 'PENDING', '', '', 'due_date', 'DESC', 'Approved', 'undefined')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:11:32 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', PENDING' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 LIMIT , PENDING', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 LIMIT , PENDING')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 LIMIT , PENDING')
+ 4 APPPATH\Models\Reports_model.php(4979): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCP.ccp_id AS ID,case WHEN CCP.ccp_id != 0 THEN "Care Plan" ELSE "" END AS assessment_type,CCP.ccp_next_due_date AS due_date, case WHEN CCP.ccp_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_careplan AS CCP ON C.cli_id=CCP.ccp_cli_id WHERE (CCP.ccp_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCP.ccp_next_due_date LIKE "2025-08-01%" OR CCP.ccp_next_due_date LIKE "2025-08-29%") AND CCP.ccp_complete_status = "PENDING" AND CCP.ccp_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,CCC.ccc_id AS ID,case WHEN CCC.ccc_id != 0 THEN "Care Plan - Check List" ELSE "" END AS assessment_type,CCC.ccc_next_due_date AS due_date, case WHEN CCC.ccc_id != 0 THEN "careplan" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_checklist_careplan AS CCC ON C.cli_id=CCC.ccc_cli_id WHERE (CCC.ccc_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR CCC.ccc_next_due_date LIKE "2025-08-01%" OR CCC.ccc_next_due_date LIKE "2025-08-29%") AND CCC.ccc_complete_status = "PENDING" AND CCC.ccc_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 UNION SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,RNN.vis_id AS ID,case WHEN RNN.vis_id != 0 THEN "RN Nurse" ELSE "" END AS assessment_type,RNN.vis_next_due_date AS due_date, case WHEN RNN.vis_id != 0 THEN "rn_nurse" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_nurse_visit AS RNN ON C.cli_id=RNN.vis_cli_id WHERE (RNN.vis_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR RNN.vis_next_due_date LIKE "2025-08-01%" OR RNN.vis_next_due_date LIKE "2025-08-29%") AND RNN.vis_status = "ACTIVE" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 LIMIT , PENDING')
+ 5 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', 'All', '', null, 'PENDING', '', '', 'due_date', 'DESC', 'Approved', 'undefined')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-29 04:12:20 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', PENDING' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(4989): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id...')
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', '925', '', NULL, 'PENDING', '', '', 'due_date', 'DESC', 'Approved', 'Custom')
+#5 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-08-29 04:12:20 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', PENDING' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Reports_model.php(4989): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 AND QAM.qam_system_form_id = "925" LIMIT , PENDING')
+ 2 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', '925', '', null, 'PENDING', '', '', 'due_date', 'DESC', 'Approved', 'Custom')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:12:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', PENDING' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 AND QAM.qam_system_form_id = "925" LIMIT , PENDING')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 AND QAM.qam_system_form_id = "925" LIMIT , PENDING')
+ 3 APPPATH\Models\Reports_model.php(4989): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 AND QAM.qam_system_form_id = "925" LIMIT , PENDING')
+ 4 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', '925', '', null, 'PENDING', '', '', 'due_date', 'DESC', 'Approved', 'Custom')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:12:20 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', PENDING' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 AND QAM.qam_system_form_id = "925" LIMIT , PENDING', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 AND QAM.qam_system_form_id = "925" LIMIT , PENDING')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 AND QAM.qam_system_form_id = "925" LIMIT , PENDING')
+ 4 APPPATH\Models\Reports_model.php(4989): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%") AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND (C.cli_dcc_status = "Approved" OR C.cli_dcc_status ="Visitor") AND C.cli_dcc_id = 81 AND QAM.qam_system_form_id = "925" LIMIT , PENDING')
+ 5 APPPATH\Controllers\Reports.php(10833): App\Models\Reports_model->view_due_items_report_data_list('2025-08-01', '2025-08-29', '925', '', null, 'PENDING', '', '', 'due_date', 'DESC', 'Approved', 'Custom')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:41:32 --> ErrorException: Undefined array key "assessment_status"
+in APPPATH\Models\Reports_model.php on line 12064.
+ 1 APPPATH\Models\Reports_model.php(12064): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "assessment_status"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Models\\Reports_model.php', 12064)
+ 2 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-29 04:42:15 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND QAM.qam_type !='Custom Form' AND QAM.qam_complete_status = "PENDING" AND Q' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id...')
+#3 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12112): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id...')
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData(Array, '', '', 'count')
+#5 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-08-29 04:42:15 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND QAM.qam_type !='Custom Form' AND QAM.qam_complete_status = "PENDING" AND Q' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Reports_model.php(12112): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%")OR ((QAM.qam_assessment_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_assessment_date LIKE "2025-08-01%" OR QAM.qam_assessment_date LIKE "2025-08-29%"))) AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND C.cli_dcc_status = "Approved" AND C.cli_dcc_id = 81')
+ 2 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:42:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND QAM.qam_type !='Custom Form' AND QAM.qam_complete_status = "PENDING" AND Q' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%")OR ((QAM.qam_assessment_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_assessment_date LIKE "2025-08-01%" OR QAM.qam_assessment_date LIKE "2025-08-29%"))) AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND C.cli_dcc_status = "Approved" AND C.cli_dcc_id = 81')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%")OR ((QAM.qam_assessment_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_assessment_date LIKE "2025-08-01%" OR QAM.qam_assessment_date LIKE "2025-08-29%"))) AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND C.cli_dcc_status = "Approved" AND C.cli_dcc_id = 81')
+ 3 APPPATH\Models\Reports_model.php(12112): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%")OR ((QAM.qam_assessment_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_assessment_date LIKE "2025-08-01%" OR QAM.qam_assessment_date LIKE "2025-08-29%"))) AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND C.cli_dcc_status = "Approved" AND C.cli_dcc_id = 81')
+ 4 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:42:15 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND QAM.qam_type !='Custom Form' AND QAM.qam_complete_status = "PENDING" AND Q' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%")OR ((QAM.qam_assessment_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_assessment_date LIKE "2025-08-01%" OR QAM.qam_assessment_date LIKE "2025-08-29%"))) AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND C.cli_dcc_status = "Approved" AND C.cli_dcc_id = 81', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%")OR ((QAM.qam_assessment_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_assessment_date LIKE "2025-08-01%" OR QAM.qam_assessment_date LIKE "2025-08-29%"))) AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND C.cli_dcc_status = "Approved" AND C.cli_dcc_id = 81')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%")OR ((QAM.qam_assessment_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_assessment_date LIKE "2025-08-01%" OR QAM.qam_assessment_date LIKE "2025-08-29%"))) AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND C.cli_dcc_status = "Approved" AND C.cli_dcc_id = 81')
+ 4 APPPATH\Models\Reports_model.php(12112): CodeIgniter\Database\BaseConnection->query('SELECT C.cli_id,C.cli_name,C.cli_schedule_shift,QAM.qam_id AS ID,QAM.qam_form_name AS assessment_type,QAM.qam_next_due_date AS due_date,case WHEN QAM.qam_id != 0 THEN "assessment" ELSE "" END AS custom_type FROM tbl_clients AS C JOIN tbl_client_qtly_assessment_master AS QAM ON C.cli_id = QAM.qam_cli_id WHERE (QAM.qam_next_due_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_next_due_date LIKE "2025-08-01%" OR QAM.qam_next_due_date LIKE "2025-08-29%")OR ((QAM.qam_assessment_date BETWEEN "2025-08-01"and "2025-08-29" OR QAM.qam_assessment_date LIKE "2025-08-01%" OR QAM.qam_assessment_date LIKE "2025-08-29%"))) AND QAM.qam_type !=\'Custom Form\' AND QAM.qam_complete_status = "PENDING" AND QAM.qam_status = "ACTIVE" AND QAM.qam_type != "Care Note" AND QAM.qam_type != "Clinical Visit Form" AND QAM.qam_type != "General Visit Form" AND C.cli_dcc_status = "Approved" AND C.cli_dcc_id = 81')
+ 5 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-29 04:47:57 --> mysqli_sql_exception: Unknown column 'QAM.qam_completed_status' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12144): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData(Array, '', '', 'count')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-29 04:47:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'QAM.qam_completed_status' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_completed_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:', [...], false)
+ 2 APPPATH\Models\Reports_model.php(12144): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:47:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'QAM.qam_completed_status' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_completed_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_completed_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_completed_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:', [...], false)
+ 4 APPPATH\Models\Reports_model.php(12144): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:47:57 --> [Caused by] mysqli_sql_exception: Unknown column 'QAM.qam_completed_status' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_completed_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_completed_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_completed_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_completed_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:', [...], false)
+ 5 APPPATH\Models\Reports_model.php(12144): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-29 04:48:37 --> mysqli_sql_exception: Unknown column 'CASE WHEN QAM.qam_system_form_id > 0 THEN "System" ELSE "Custom" END' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12144): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData(Array, '', '', 'count')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-29 04:48:37 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'CASE WHEN QAM.qam_system_form_id > 0 THEN "System" ELSE "Custom" END' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:', [...], false)
+ 2 APPPATH\Models\Reports_model.php(12144): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:48:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'CASE WHEN QAM.qam_system_form_id > 0 THEN "System" ELSE "Custom" END' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:', [...], false)
+ 4 APPPATH\Models\Reports_model.php(12144): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:48:37 --> [Caused by] mysqli_sql_exception: Unknown column 'CASE WHEN QAM.qam_system_form_id > 0 THEN "System" ELSE "Custom" END' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `CASE WHEN QAM`.`qam_system_form_id > 0 THEN "System" ELSE "Custom" END` AS `form_type`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:', [...], false)
+ 5 APPPATH\Models\Reports_model.php(12144): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(10829): App\Models\Reports_model->getAssessmentDueData([...], '', '', 'count')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-29 04:49:50 --> mysqli_sql_exception: Unknown column 'due_date' in 'order clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12145): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(10830): App\Models\Reports_model->getAssessmentDueData(Array, 0, 20, 'grid')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-29 04:49:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'due_date' in 'order clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `QAM`.`qam_system_form_id`, `QAM`.`qam_custom_form_id`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:
+ORDER BY `due_date` DESC
+ LIMIT 20', [...], false)
+ 2 APPPATH\Models\Reports_model.php(12145): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(10830): App\Models\Reports_model->getAssessmentDueData([...], 0, 20, 'grid')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:49:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'due_date' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `QAM`.`qam_system_form_id`, `QAM`.`qam_custom_form_id`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'
+ORDER BY `due_date` DESC
+ LIMIT 20')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `QAM`.`qam_system_form_id`, `QAM`.`qam_custom_form_id`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'
+ORDER BY `due_date` DESC
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `QAM`.`qam_system_form_id`, `QAM`.`qam_custom_form_id`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:
+ORDER BY `due_date` DESC
+ LIMIT 20', [...], false)
+ 4 APPPATH\Models\Reports_model.php(12145): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(10830): App\Models\Reports_model->getAssessmentDueData([...], 0, 20, 'grid')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:49:50 --> [Caused by] mysqli_sql_exception: Unknown column 'due_date' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `QAM`.`qam_system_form_id`, `QAM`.`qam_custom_form_id`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'
+ORDER BY `due_date` DESC
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `QAM`.`qam_system_form_id`, `QAM`.`qam_custom_form_id`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'
+ORDER BY `due_date` DESC
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `QAM`.`qam_system_form_id`, `QAM`.`qam_custom_form_id`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= \'2025-08-01\'
+AND `QAM`.`qam_next_due_date` <= \'2025-08-29\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= \'2025-08-01\'
+AND `QAM`.`qam_assessment_date` <= \'2025-08-29\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-01%\' ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE \'2025-08-29%\' ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = \'PENDING\'
+AND `QAM`.`qam_status` = \'ACTIVE\'
+AND `QAM`.`qam_type` NOT IN (\'Care Note\',\'Clinical Visit Form\',\'General Visit Form\')
+AND `C`.`cli_dcc_status` = \'Approved\'
+AND `C`.`cli_dcc_id` = \'81\'
+ORDER BY `due_date` DESC
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `C`.`cli_id`, `C`.`cli_name`, `QAM`.`qam_complete_status`, `QAM`.`qam_id` AS `ID`, `QAM`.`qam_form_name`, `QAM`.`qam_next_due_date`, `QAM`.`qam_assessment_date`, `QAM`.`qam_system_form_id`, `QAM`.`qam_custom_form_id`
+FROM `tbl_clients` AS `C`
+INNER JOIN `tbl_client_qtly_assessment_master` AS `QAM` ON `C`.`cli_id` = `QAM`.`qam_cli_id`
+WHERE   (
+   (
+`QAM`.`qam_next_due_date` >= :QAM.qam_next_due_date:
+AND `QAM`.`qam_next_due_date` <= :QAM.qam_next_due_date.1:
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.2: ESCAPE \'!\'
+  )
+OR    (
+`QAM`.`qam_next_due_date` LIKE :QAM.qam_next_due_date.3: ESCAPE \'!\'
+  )
+OR    (
+    (
+`QAM`.`qam_assessment_date` >= :QAM.qam_assessment_date:
+AND `QAM`.`qam_assessment_date` <= :QAM.qam_assessment_date.1:
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.2: ESCAPE \'!\'
+   )
+OR     (
+`QAM`.`qam_assessment_date` LIKE :QAM.qam_assessment_date.3: ESCAPE \'!\'
+   )
+  )
+ )
+AND `QAM`.`qam_complete_status` = :QAM.qam_complete_status:
+AND `QAM`.`qam_status` = :QAM.qam_status:
+AND `QAM`.`qam_type` NOT IN :QAM.qam_type:
+AND `C`.`cli_dcc_status` = :C.cli_dcc_status:
+AND `C`.`cli_dcc_id` = :C.cli_dcc_id:
+ORDER BY `due_date` DESC
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\Reports_model.php(12145): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(10830): App\Models\Reports_model->getAssessmentDueData([...], 0, 20, 'grid')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 04:57:48 --> ErrorException: Undefined property: stdClass::$assessment_type
+in APPPATH\Views\reports\view_due_items_report\view_due_items_data_pagi.php on line 27.
+ 1 APPPATH\Views\reports\view_due_items_report\view_due_items_data_pagi.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$assessment_type', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\view_due_items_report\\view_due_items_data_pagi.php', 27)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\view_due_items_report\\view_due_items_data_pagi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/view_due_items_report/view_due_items_data_pagi', [], true)
+ 5 APPPATH\Controllers\Reports.php(10833): view('reports/view_due_items_report/view_due_items_data_pagi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_data_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 06:29:46 --> ErrorException: Undefined property: stdClass::$qam_next_due_date
+in APPPATH\Controllers\Reports.php on line 10968.
+ 1 APPPATH\Controllers\Reports.php(10968): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$qam_next_due_date', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 10968)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->view_due_items_report_dataExport()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 09:06:28 --> ErrorException: Undefined property: CodeIgniter\View\View::$C
+in APPPATH\Views\settings\user\loadUsersClientsInfo.php on line 796.
+ 1 APPPATH\Views\settings\user\loadUsersClientsInfo.php(796): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$C', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\settings\\user\\loadUsersClientsInfo.php', 796)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\settings\\user\\loadUsersClientsInfo.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('settings/user/loadUsersClientsInfo', [], true)
+ 5 APPPATH\Controllers\User.php(1875): view('settings/user/loadUsersClientsInfo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\User->loadUsersClientsInfo('2785')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 09:06:44 --> ErrorException: Undefined property: CodeIgniter\View\View::$C
+in APPPATH\Views\settings\user\loadUsersClientsInfo.php on line 796.
+ 1 APPPATH\Views\settings\user\loadUsersClientsInfo.php(796): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$C', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\settings\\user\\loadUsersClientsInfo.php', 796)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\settings\\user\\loadUsersClientsInfo.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('settings/user/loadUsersClientsInfo', [], true)
+ 5 APPPATH\Controllers\User.php(1875): view('settings/user/loadUsersClientsInfo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\User->loadUsersClientsInfo('2785')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-29 09:07:56 --> ErrorException: Undefined property: stdClass::$user_portal_id
+in APPPATH\Views\settings\user\loadUsersClientsInfo.php on line 799.
+ 1 APPPATH\Views\settings\user\loadUsersClientsInfo.php(799): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$user_portal_id', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\settings\\user\\loadUsersClientsInfo.php', 799)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\settings\\user\\loadUsersClientsInfo.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('settings/user/loadUsersClientsInfo', [], true)
+ 5 APPPATH\Controllers\User.php(1875): view('settings/user/loadUsersClientsInfo', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\User->loadUsersClientsInfo('2785')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

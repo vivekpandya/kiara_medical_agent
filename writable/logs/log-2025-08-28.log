@@ -1,0 +1,51 @@
+CRITICAL - 2025-08-28 03:33:08 --> ParseError: syntax error, unexpected token "|"
+in APPPATH\Views\clients\assmnt\nursing_quarterly_assessment_list_pagi.php on line 281.
+ 1 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('clients/assmnt/nursing_quarterly_assessment_list_pagi', [], true)
+ 3 APPPATH\Controllers\ClientsAssesments.php(296): view('clients/assmnt/nursing_quarterly_assessment_list_pagi', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsAssesments->quarterlyAssessmentListPagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsAssesments))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-28 08:07:15 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 884.
+ 1 SYSTEMPATH\Model.php(662): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(864): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Reports.php(17858): CodeIgniter\Model->__call('getFollowupNotesDataList', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->folloup_note_dataPrint()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-28 08:07:32 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 884.
+ 1 SYSTEMPATH\Model.php(662): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(864): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Reports.php(17858): CodeIgniter\Model->__call('getFollowupNotesDataList', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->folloup_note_dataPrint()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-28 09:49:05 --> ErrorException: Undefined property: stdClass::$alternative_nurse 
+in APPPATH\Helpers\site_helper.php on line 16472.
+ 1 APPPATH\Helpers\site_helper.php(16472): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$alternative_nurse ', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Helpers\\site_helper.php', 16472)
+ 2 APPPATH\Views\settings\user\loadUsersClientsInfo.php(78): getCareTeamLableByKey('alternative_nurse ')
+ 3 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\settings\\user\\loadUsersClientsInfo.php')
+ 4 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('settings/user/loadUsersClientsInfo', [], true)
+ 6 APPPATH\Controllers\User.php(1875): view('settings/user/loadUsersClientsInfo', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\User->loadUsersClientsInfo('2785')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-28 09:49:16 --> ErrorException: Undefined property: stdClass::$alternative_nurse 
+in APPPATH\Helpers\site_helper.php on line 16472.
+ 1 APPPATH\Helpers\site_helper.php(16472): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$alternative_nurse ', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Helpers\\site_helper.php', 16472)
+ 2 APPPATH\Views\settings\user\loadUsersClientsInfo.php(78): getCareTeamLableByKey('alternative_nurse ')
+ 3 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\settings\\user\\loadUsersClientsInfo.php')
+ 4 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 5 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('settings/user/loadUsersClientsInfo', [], true)
+ 6 APPPATH\Controllers\User.php(1875): view('settings/user/loadUsersClientsInfo', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\User->loadUsersClientsInfo('2785')
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

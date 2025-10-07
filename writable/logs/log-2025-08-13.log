@@ -1,0 +1,769 @@
+CRITICAL - 2025-08-13 01:55:44 --> ErrorException: Undefined array key "default_sorting"
+in APPPATH\Controllers\Common.php on line 23.
+ 1 APPPATH\Controllers\Common.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "default_sorting"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Common.php', 23)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Common->showExportPrintSettings()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Common))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 02:39:32 --> ErrorException: mkdir(): No such file or directory
+in APPPATH\Controllers\Common.php on line 138.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): No such file or directory', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Common.php', 138)
+ 2 APPPATH\Controllers\Common.php(138): mkdir('localhost/new_adult_foster_care_pro/uploads/form_print_logo')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Common->saveExportPrintSettings()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Common))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 03:04:10 --> ErrorException: mkdir(): No such file or directory
+in APPPATH\Controllers\Common.php on line 138.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mkdir(): No such file or directory', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Common.php', 138)
+ 2 APPPATH\Controllers\Common.php(138): mkdir('localhost/new_adult_foster_care_pro/uploads/form_print_logo')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Common->saveExportPrintSettings()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Common))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 04:53:30 --> ErrorException: Undefined property: stdClass::$usr_name
+in APPPATH\Views\reports\careteam_attendance_data.php on line 208.
+ 1 APPPATH\Views\reports\careteam_attendance_data.php(208): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$usr_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\careteam_attendance_data.php', 208)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\careteam_attendance_data.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/careteam_attendance_data', [], true)
+ 5 APPPATH\Controllers\Reports.php(27109): view('reports/careteam_attendance_data', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 04:53:42 --> ErrorException: Undefined property: stdClass::$usr_name
+in APPPATH\Views\reports\careteam_attendance_data.php on line 208.
+ 1 APPPATH\Views\reports\careteam_attendance_data.php(208): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$usr_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\careteam_attendance_data.php', 208)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\careteam_attendance_data.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/careteam_attendance_data', [], true)
+ 5 APPPATH\Controllers\Reports.php(27109): view('reports/careteam_attendance_data', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-13 04:54:19 --> mysqli_sql_exception: Unknown column 'usr_name' in 'order clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-13 04:54:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 04:54:19 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 04:54:19 --> [Caused by] mysqli_sql_exception: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-13 04:54:54 --> mysqli_sql_exception: Unknown column 'usr_name' in 'order clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(27096): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '20', 0, 'usr_name', 'ASC', 'grid', 'gt0')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-13 04:54:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20', [...], false)
+ 2 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(27096): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '20', 0, 'usr_name', 'ASC', 'grid', 'gt0')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 04:54:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20', [...], false)
+ 4 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(27096): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '20', 0, 'usr_name', 'ASC', 'grid', 'gt0')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 04:54:54 --> [Caused by] mysqli_sql_exception: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(27096): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '20', 0, 'usr_name', 'ASC', 'grid', 'gt0')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-13 04:58:17 --> mysqli_sql_exception: Unknown column 'usr_name' in 'order clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(27096): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '20', 0, 'usr_name', 'asc', 'grid', 'gt0')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-13 04:58:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20', [...], false)
+ 2 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(27096): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '20', 0, 'usr_name', 'asc', 'grid', 'gt0')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 04:58:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20', [...], false)
+ 4 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(27096): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '20', 0, 'usr_name', 'asc', 'grid', 'gt0')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 04:58:17 --> [Caused by] mysqli_sql_exception: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC
+ LIMIT 20', [...], false)
+ 5 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(27096): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '20', 0, 'usr_name', 'asc', 'grid', 'gt0')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_data()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:03:01 --> ErrorException: Undefined property: stdClass::$employee_name
+in APPPATH\Views\reports\careteam_attendance_expand.php on line 47.
+ 1 APPPATH\Views\reports\careteam_attendance_expand.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$employee_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\careteam_attendance_expand.php', 47)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\careteam_attendance_expand.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/careteam_attendance_expand', [], true)
+ 5 APPPATH\Controllers\Reports.php(27544): view('reports/careteam_attendance_expand', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_expand()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:03:02 --> ErrorException: Undefined property: stdClass::$employee_name
+in APPPATH\Views\reports\careteam_attendance_expand.php on line 47.
+ 1 APPPATH\Views\reports\careteam_attendance_expand.php(47): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$employee_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\careteam_attendance_expand.php', 47)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\careteam_attendance_expand.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/careteam_attendance_expand', [], true)
+ 5 APPPATH\Controllers\Reports.php(27544): view('reports/careteam_attendance_expand', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_expand()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-13 05:04:08 --> mysqli_sql_exception: Unknown column 'usr_name' in 'order clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-13 05:04:08 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:04:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:04:08 --> [Caused by] mysqli_sql_exception: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-13 05:04:15 --> mysqli_sql_exception: Unknown column 'usr_name' in 'order clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-13 05:04:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:04:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:04:15 --> [Caused by] mysqli_sql_exception: Unknown column 'usr_name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = \'68\'
+AND `U`.`usr_status` != \'DELETED\'
+AND `U`.`user_portal_id` != \'1\'
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`, CONCAT(U.usr_first_name, " ", U.usr_last_name) as employee_name, `U`.`user_employee_id` as `employee_id`, `U`.`user_payroll_id` as `payroll_id`, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as total_hours_decimal, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as total_rounded_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) as actual_hours, COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.roundedOffHrs ELSE 0 END), 0) as rounded_hours
+FROM `tbl_users` AS `U`
+LEFT JOIN `timecard_punching_log` AS `TPL` ON `TPL`.`userId` = `U`.`usr_id` AND `TPL`.`isActive` = "Y"
+LEFT JOIN `timecard_punching_log_total` AS `TPL_TOTAL` ON `TPL_TOTAL`.`timecardPunchingLogId` = `TPL`.`timecardPunchingLogId` AND `TPL_TOTAL`.`isActive` = "Y"
+WHERE `U`.`usr_dcc_id` = :U.usr_dcc_id:
+AND `U`.`usr_status` != :U.usr_status:
+AND `U`.`user_portal_id` != :U.user_portal_id:
+AND (`TPL`.`inTime` IS NULL OR (`TPL`.`inTime` >= "2025-08-01 00:00:00" AND TPL.inTime <= "2025-08-13 23:59:59"))
+GROUP BY `U`.`usr_id`, `U`.`usr_first_name`, `U`.`usr_last_name`, `U`.`usr_status`
+HAVING COALESCE(SUM(CASE WHEN TPL.inTime IS NOT NULL THEN TPL_TOTAL.totalHrs ELSE 0 END), 0) > 0
+ORDER BY `usr_name` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(11836): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(27129): App\Models\Reports_model->getCareTeamWeeklyAttendance('68', '2025-08-01', '2025-08-13', '', '', '', '', 'usr_name', 'asc', 'detail', 'gt0')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_print()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:06:51 --> ErrorException: Undefined property: stdClass::$usr_name
+in APPPATH\Controllers\Reports.php on line 27404.
+ 1 APPPATH\Controllers\Reports.php(27404): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$usr_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 27404)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_export()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:06:58 --> ErrorException: Undefined property: stdClass::$usr_name
+in APPPATH\Controllers\Reports.php on line 27404.
+ 1 APPPATH\Controllers\Reports.php(27404): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$usr_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 27404)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_export()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:07:19 --> ErrorException: Undefined property: stdClass::$usr_name
+in APPPATH\Controllers\Reports.php on line 27415.
+ 1 APPPATH\Controllers\Reports.php(27415): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$usr_name', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 27415)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_export()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:23:35 --> ErrorException: fopen(localhost/new_adult_foster_care_pro/uploads/temp_folder/careteam_attendance_detail_report.xlsx): Failed to open stream: No such file or directory
+in FCPATH\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\BaseWriter.php on line 128.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'fopen(localhost/new_adult_foster_care_pro/uploads/temp_folder/careteam_attendance_detail_report.xlsx): Failed to open stream: No such file or directory', 'D:\\wamp\\www\\new_adult_foster_care_pro\\vendor\\phpoffice\\phpspreadsheet\\src\\PhpSpreadsheet\\Writer\\BaseWriter.php', 128)
+ 2 FCPATH\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\BaseWriter.php(128): fopen('localhost/new_adult_foster_care_pro/uploads/temp_folder/careteam_attendance_detail_report.xlsx', 'wb')
+ 3 FCPATH\vendor\phpoffice\phpspreadsheet\src\PhpSpreadsheet\Writer\Xlsx.php(546): PhpOffice\PhpSpreadsheet\Writer\BaseWriter->openFileHandle('localhost/new_adult_foster_care_pro/uploads/temp_folder/careteam_attendance_detail_report.xlsx')
+ 4 APPPATH\Controllers\Reports.php(27754): PhpOffice\PhpSpreadsheet\Writer\Xlsx->save('localhost/new_adult_foster_care_pro/uploads/temp_folder/careteam_attendance_detail_report.xlsx')
+ 5 APPPATH\Controllers\Reports.php(27366): App\Controllers\Reports->careteam_attendance_detail_export()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_export()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 05:33:52 --> ErrorException: Undefined variable $sorted_settings
+in APPPATH\Controllers\Reports.php on line 27372.
+ 1 APPPATH\Controllers\Reports.php(27372): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sorted_settings', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 27372)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->careteam_attendance_export()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 09:32:02 --> ErrorException: Undefined property: stdClass::$serviceId
+in APPPATH\Views\attending_care\current_timecard_punching_log_view.php on line 516.
+ 1 APPPATH\Views\attending_care\current_timecard_punching_log_view.php(516): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$serviceId', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\attending_care\\current_timecard_punching_log_view.php', 516)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\attending_care\\current_timecard_punching_log_view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('attending_care/current_timecard_punching_log_view', [], true)
+ 5 APPPATH\Controllers\AttendingCare.php(285): view('attending_care/current_timecard_punching_log_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\AttendingCare->get_timecard()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AttendingCare))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-13 09:32:11 --> ErrorException: Undefined property: stdClass::$serviceId
+in APPPATH\Views\attending_care\current_timecard_punching_log_view.php on line 516.
+ 1 APPPATH\Views\attending_care\current_timecard_punching_log_view.php(516): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$serviceId', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\attending_care\\current_timecard_punching_log_view.php', 516)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\attending_care\\current_timecard_punching_log_view.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('attending_care/current_timecard_punching_log_view', [], true)
+ 5 APPPATH\Controllers\AttendingCare.php(285): view('attending_care/current_timecard_punching_log_view', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\AttendingCare->get_timecard()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AttendingCare))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

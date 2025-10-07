@@ -1,0 +1,31 @@
+CRITICAL - 2025-08-22 01:53:15 --> ErrorException: Undefined variable $id
+in APPPATH\Views\billing\remit_payment\client_details_section.php on line 304.
+ 1 APPPATH\Views\billing\remit_payment\client_details_section.php(304): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\remit_payment\\client_details_section.php', 304)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\remit_payment\\client_details_section.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('billing/remit_payment/client_details_section', [], true)
+ 5 APPPATH\Controllers\Billing.php(23774): view('billing/remit_payment/client_details_section', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_client_details('173')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-22 02:13:15 --> ErrorException: Undefined variable $cli_summary_id
+in APPPATH\Views\billing\remit_payment\client_details_section.php on line 85.
+ 1 APPPATH\Views\billing\remit_payment\client_details_section.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cli_summary_id', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\remit_payment\\client_details_section.php', 85)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\remit_payment\\client_details_section.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('billing/remit_payment/client_details_section', [], true)
+ 5 APPPATH\Controllers\Billing.php(23804): view('billing/remit_payment/client_details_section', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_client_details_level_one('108')
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-22 02:48:29 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 884.
+ 1 SYSTEMPATH\Model.php(662): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(864): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Billing.php(23751): CodeIgniter\Model->__call('getGroupedPaymentHistoryByClaimId', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_client_details('131')
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

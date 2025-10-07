@@ -1,0 +1,47 @@
+CRITICAL - 2025-10-03 02:45:42 --> ErrorException: Undefined property: stdClass::$cli_id
+in APPPATH\Views\billing\reports\claim_denied_report\list.php on line 100.
+ 1 APPPATH\Views\billing\reports\claim_denied_report\list.php(100): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$cli_id', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\reports\\claim_denied_report\\list.php', 100)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\reports\\claim_denied_report\\list.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('billing/reports/claim_denied_report/list', [], true)
+ 5 APPPATH\Controllers\Billing_report.php(448): view('billing/reports/claim_denied_report/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing_report->claim_denied()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing_report))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-03 03:14:39 --> ErrorException: Undefined property: stdClass::$payment_payerctlno
+in APPPATH\Views\billing\reports\claim_denied_report\pagination.php on line 147.
+ 1 APPPATH\Views\billing\reports\claim_denied_report\pagination.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$payment_payerctlno', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\reports\\claim_denied_report\\pagination.php', 147)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\reports\\claim_denied_report\\pagination.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('billing/reports/claim_denied_report/pagination', [], true)
+ 5 APPPATH\Controllers\Billing_report.php(479): view('billing/reports/claim_denied_report/pagination', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing_report->claim_deniedPagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing_report))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-03 03:14:49 --> ErrorException: Undefined property: stdClass::$payment_payerctlno
+in APPPATH\Views\billing\reports\claim_denied_report\pagination.php on line 147.
+ 1 APPPATH\Views\billing\reports\claim_denied_report\pagination.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$payment_payerctlno', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\reports\\claim_denied_report\\pagination.php', 147)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\billing\\reports\\claim_denied_report\\pagination.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('billing/reports/claim_denied_report/pagination', [], true)
+ 5 APPPATH\Controllers\Billing_report.php(479): view('billing/reports/claim_denied_report/pagination', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing_report->claim_deniedPagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing_report))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-03 09:30:12 --> Error: Call to a member function addField() on null
+in APPPATH\Controllers\License.php on line 117.
+ 1 APPPATH\Controllers\License.php(189): App\Controllers\License->ensureLogTable()
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\License->save()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\License))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-03 09:34:55 --> Error: Call to a member function addField() on null
+in APPPATH\Controllers\License.php on line 120.
+ 1 APPPATH\Controllers\License.php(192): App\Controllers\License->ensureLogTable()
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\License->save()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\License))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

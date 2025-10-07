@@ -1,0 +1,18 @@
+Timecard Cronjob
+ [x] Daily total calculation
+ [x] Weekly total calculation
+ [x] Dcc timeclock details retrieval
+ [x] Daily timecards for week retrieval
+ [x] Timecard submitted users retrieval
+ [x] Date validation for cronjob
+ [x] Day of week validation
+ [x] Week start date calculation
+ [x] Week end date calculation
+ [x] Timecard data aggregation
+ [x] Timecard approval status processing
+ [x] Missing timecard detection
+ [x] Timecard data validation
+ [x] Cronjob execution timing
+ [x] Cronjob error handling
+ [x] Timecard processing performance
+

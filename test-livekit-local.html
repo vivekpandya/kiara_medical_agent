@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveKit Local Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>LiveKit Local SDK Test</h1>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5>LiveKit SDK Status</h5>
+                <div id="status">Loading...</div>
+                <button class="btn btn-primary mt-3" onclick="testLiveKit()">Test LiveKit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load LiveKit SDK locally -->
+    <script src="assets/js/livekit/livekit-client.umd.min.js" 
+            onerror="this.onerror=null; this.src='https://unpkg.com/livekit-client@latest/dist/livekit-client.umd.js';"></script>
+    
+    <script>
+        function testLiveKit() {
+            const statusDiv = document.getElementById('status');
+            
+            if (typeof LiveKit === 'undefined') {
+                statusDiv.innerHTML = '<div class="alert alert-danger">❌ LiveKit SDK not loaded!</div>';
+                return;
+            }
+            
+            statusDiv.innerHTML = '<div class="alert alert-success">✅ LiveKit SDK loaded successfully!</div>';
+            
+            // Test basic LiveKit functionality
+            try {
+                const room = new LiveKit.Room();
+                statusDiv.innerHTML += '<div class="alert alert-info">✅ LiveKit Room object created successfully!</div>';
+            } catch (error) {
+                statusDiv.innerHTML += '<div class="alert alert-warning">⚠️ LiveKit Room creation failed: ' + error.message + '</div>';
+            }
+        }
+        
+        // Auto-test on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(testLiveKit, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "intelephense.maxFileSize": 0,
+    "editor.cursorStyle": "line",
+    "editor.fontSize": 16,
+    "editor.minimap.sectionHeaderFontSize": 10,
+    "workbench.colorTheme": "Visual Studio Dark"
+}

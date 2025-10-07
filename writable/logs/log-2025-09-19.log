@@ -1,0 +1,1164 @@
+CRITICAL - 2025-09-19 03:39:53 --> ErrorException: Undefined variable $primaryPhysicianList
+in APPPATH\Controllers\ClientsAdmission.php on line 10817.
+ 1 APPPATH\Controllers\ClientsAdmission.php(10817): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $primaryPhysicianList', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\ClientsAdmission.php', 10817)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsAdmission->get_systemFormData()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsAdmission))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-19 03:54:54 --> mysqli_sql_exception: Unknown column 'cli_mr_number' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `tbl_cli...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_cli...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_cli...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_cli...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(45): CodeIgniter\Database\BaseBuilder->update(Array, Array)
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(4250): App\Models\Common_model->updateData('tbl_clients', Array, Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-19 03:54:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'cli_mr_number' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_clients` SET `cli_id` = :cli_id:, `cli_name` = :cli_name:, `cli_client_id` = :cli_client_id:, `cli_first_name` = :cli_first_name:, `cli_last_name` = :cli_last_name:, `cli_middle_name` = :cli_middle_name:, `cli_sex` = :cli_sex:, `cli_phone` = :cli_phone:, `cli_dob` = :cli_dob:, `cli_security` = :cli_security:, `cli_adm_date` = :cli_adm_date:, `cli_address` = :cli_address:, `cli_latitude` = :cli_latitude:, `cli_longitude` = :cli_longitude:, `cli_zip` = :cli_zip:, `cli_zip_plus_4` = :cli_zip_plus_4:, `cli_material_status` = :cli_material_status:, `cli_primary_lang` = :cli_primary_lang:, `cli_secondary_lang` = :cli_secondary_lang:, `cli_ethenicity` = :cli_ethenicity:, `cli_ethenicity1` = :cli_ethenicity1:, `cli_religion` = :cli_religion:, `cli_program_name` = :cli_program_name:, `cli_mr_number` = :cli_mr_number:, `cli_comments` = :cli_comments:, `visit_note` = :visit_note:, `cli_referral_date` = :cli_referral_date:, `cli_referral_source` = :cli_referral_source:, `ref_organization_name` = :ref_organization_name:, `ref_organization_contact_name` = :ref_organization_contact_name:, `ref_organization_contact_email` = :ref_organization_contact_email:, `ref_organization_contact_phone` = :ref_organization_contact_phone:, `cli_medicaid` = :cli_medicaid:, `cli_medicare` = :cli_medicare:, `cli_allergies` = :cli_allergies:, `cli_adv_dir_cir` = :cli_adv_dir_cir:, `cli_hospital_preference` = :cli_hospital_preference:, `cli_hospital_phone_no` = :cli_hospital_phone_no:, `cli_add_history` = :cli_add_history:, `cli_access_agency` = :cli_access_agency:, `cli_computer_access` = :cli_computer_access:, `cli_dementia` = :cli_dementia:, `cli_safety_monitoring` = :cli_safety_monitoring:, `cli_fire_safety_plan` = :cli_fire_safety_plan:, `cli_safety_precautions` = :cli_safety_precautions:, `cli_fire_medication` = :cli_fire_medication:, `cli_fire_dmes` = :cli_fire_dmes:, `cli_current_level` = :cli_current_level:, `cli_able_to_sign` = :cli_able_to_sign:, `cli_signature_pin` = :cli_signature_pin:, `cli_display_name_sign` = :cli_display_name_sign:, `cli_signature_font` = :cli_signature_font:, `cli_signature_image_path` = :cli_signature_image_path:, `cli_sign_reason` = :cli_sign_reason:, `cli_emp_one` = :cli_emp_one:, `alternative_nurse` = :alternative_nurse:, `cli_emp_two` = :cli_emp_two:, `alternative_cm` = :alternative_cm:, `cli_qc_id` = :cli_qc_id:, `cli_qc_id_cm` = :cli_qc_id_cm:, `cli_emp_five` = :cli_emp_five:, `cli_emp_six` = :cli_emp_six:, `cli_dcc_status` = :cli_dcc_status:, `cli_updated_by_id` = :cli_updated_by_id:, `cli_case_profile_covid` = :cli_case_profile_covid:, `cli_case_profile_covid_isolation` = :cli_case_profile_covid_isolation:, `cli_case_profile_covid_exposure` = :cli_case_profile_covid_exposure:, `cli_case_profile_total_covid` = :cli_case_profile_total_covid:, `cli_case_profile_dementia` = :cli_case_profile_dementia:, `cli_case_profile_living_alone` = :cli_case_profile_living_alone:, `cli_case_profile_living_alone_dementia` = :cli_case_profile_living_alone_dementia:, `cli_case_profile_behavior` = :cli_case_profile_behavior:, `cli_case_profile_homeless` = :cli_case_profile_homeless:, `cli_updated_on` = :cli_updated_on:, `cli_country` = :cli_country:, `cli_mem_country` = :cli_mem_country:, `cli_note_title` = :cli_note_title:, `cli_note_description` = :cli_note_description:, `cli_note_date` = :cli_note_date:
+WHERE `cli_id` = :cli_id.1:', [...], false)
+ 2 APPPATH\Models\Common_model.php(45): CodeIgniter\Database\BaseBuilder->update([...], [...])
+ 3 APPPATH\Controllers\Clients.php(4250): App\Models\Common_model->updateData('tbl_clients', [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 03:54:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'cli_mr_number' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_clients` SET `cli_id` = \'13402\', `cli_name` = \'Andre Russell\', `cli_client_id` = \'321\', `cli_first_name` = \'Andre\', `cli_last_name` = \'Russell\', `cli_middle_name` = \'\', `cli_sex` = \'Male\', `cli_phone` = \'334-343-3334\', `cli_dob` = \'1930-01-01\', `cli_security` = \'231-32-3333\', `cli_adm_date` = \'2024-01-01\', `cli_address` = \'One Park Ave\', `cli_latitude` = NULL, `cli_longitude` = NULL, `cli_zip` = \'07651\', `cli_zip_plus_4` = \'1234\', `cli_material_status` = \'Separated\', `cli_primary_lang` = \'English\', `cli_secondary_lang` = \'French\', `cli_ethenicity` = \'Not Applicable\', `cli_ethenicity1` = \'Not Hispanic or Latino\', `cli_religion` = \'\', `cli_program_name` = \'1\', `cli_mr_number` = \'1234567890\', `cli_comments` = \'\', `visit_note` = \'\', `cli_referral_date` = \'\', `cli_referral_source` = \'\', `ref_organization_name` = \'\', `ref_organization_contact_name` = \'\', `ref_organization_contact_email` = \'\', `ref_organization_contact_phone` = \'\', `cli_medicaid` = \'MEDCD12345\', `cli_medicare` = \'\', `cli_allergies` = \'Dust and Insect\', `cli_adv_dir_cir` = \'Unknown\', `cli_hospital_preference` = \'Magnet Hospital\', `cli_hospital_phone_no` = \'201-343-4355\', `cli_add_history` = \'Test Care Plan 2\', `cli_access_agency` = \'1157\', `cli_computer_access` = \'YES\', `cli_dementia` = \'YES\', `cli_safety_monitoring` = \'YES\', `cli_fire_safety_plan` = \'Fire Safety Plan\', `cli_safety_precautions` = \'Safety Precautions/Care Note Memo\', `cli_fire_medication` = \'Medication 123\', `cli_fire_dmes` = \'\', `cli_current_level` = \'1\', `cli_able_to_sign` = \'YES\', `cli_signature_pin` = \'1234\', `cli_display_name_sign` = \'Andre Russell\', `cli_signature_font` = \'Pacifico-Regular\', `cli_signature_image_path` = \'data:image/png;base64,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\', `cli_sign_reason` = \'\', `cli_emp_one` = \'2396\', `alternative_nurse` = \'2989\', `cli_emp_two` = \'2805\', `alternative_cm` = \'2397\', `cli_qc_id` = \'2339\', `cli_qc_id_cm` = \'2340\', `cli_emp_five` = \'\', `cli_emp_six` = \'\', `cli_dcc_status` = \'Approved\', `cli_updated_by_id` = \'1161\', `cli_case_profile_covid` = NULL, `cli_case_profile_covid_isolation` = NULL, `cli_case_profile_covid_exposure` = NULL, `cli_case_profile_total_covid` = NULL, `cli_case_profile_dementia` = NULL, `cli_case_profile_living_alone` = NULL, `cli_case_profile_living_alone_dementia` = NULL, `cli_case_profile_behavior` = NULL, `cli_case_profile_homeless` = NULL, `cli_updated_on` = \'2025-09-19 03:54:54\', `cli_country` = \'231\', `cli_mem_country` = \'231\', `cli_note_title` = \'Approved\', `cli_note_description` = \'\', `cli_note_date` = \'2024-03-16\'
+WHERE `cli_id` = \'13402\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_clients` SET `cli_id` = \'13402\', `cli_name` = \'Andre Russell\', `cli_client_id` = \'321\', `cli_first_name` = \'Andre\', `cli_last_name` = \'Russell\', `cli_middle_name` = \'\', `cli_sex` = \'Male\', `cli_phone` = \'334-343-3334\', `cli_dob` = \'1930-01-01\', `cli_security` = \'231-32-3333\', `cli_adm_date` = \'2024-01-01\', `cli_address` = \'One Park Ave\', `cli_latitude` = NULL, `cli_longitude` = NULL, `cli_zip` = \'07651\', `cli_zip_plus_4` = \'1234\', `cli_material_status` = \'Separated\', `cli_primary_lang` = \'English\', `cli_secondary_lang` = \'French\', `cli_ethenicity` = \'Not Applicable\', `cli_ethenicity1` = \'Not Hispanic or Latino\', `cli_religion` = \'\', `cli_program_name` = \'1\', `cli_mr_number` = \'1234567890\', `cli_comments` = \'\', `visit_note` = \'\', `cli_referral_date` = \'\', `cli_referral_source` = \'\', `ref_organization_name` = \'\', `ref_organization_contact_name` = \'\', `ref_organization_contact_email` = \'\', `ref_organization_contact_phone` = \'\', `cli_medicaid` = \'MEDCD12345\', `cli_medicare` = \'\', `cli_allergies` = \'Dust and Insect\', `cli_adv_dir_cir` = \'Unknown\', `cli_hospital_preference` = \'Magnet Hospital\', `cli_hospital_phone_no` = \'201-343-4355\', `cli_add_history` = \'Test Care Plan 2\', `cli_access_agency` = \'1157\', `cli_computer_access` = \'YES\', `cli_dementia` = \'YES\', `cli_safety_monitoring` = \'YES\', `cli_fire_safety_plan` = \'Fire Safety Plan\', `cli_safety_precautions` = \'Safety Precautions/Care Note Memo\', `cli_fire_medication` = \'Medication 123\', `cli_fire_dmes` = \'\', `cli_current_level` = \'1\', `cli_able_to_sign` = \'YES\', `cli_signature_pin` = \'1234\', `cli_display_name_sign` = \'Andre Russell\', `cli_signature_font` = \'Pacifico-Regular\', `cli_signature_image_path` = \'data:image/png;base64,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\', `cli_sign_reason` = \'\', `cli_emp_one` = \'2396\', `alternative_nurse` = \'2989\', `cli_emp_two` = \'2805\', `alternative_cm` = \'2397\', `cli_qc_id` = \'2339\', `cli_qc_id_cm` = \'2340\', `cli_emp_five` = \'\', `cli_emp_six` = \'\', `cli_dcc_status` = \'Approved\', `cli_updated_by_id` = \'1161\', `cli_case_profile_covid` = NULL, `cli_case_profile_covid_isolation` = NULL, `cli_case_profile_covid_exposure` = NULL, `cli_case_profile_total_covid` = NULL, `cli_case_profile_dementia` = NULL, `cli_case_profile_living_alone` = NULL, `cli_case_profile_living_alone_dementia` = NULL, `cli_case_profile_behavior` = NULL, `cli_case_profile_homeless` = NULL, `cli_updated_on` = \'2025-09-19 03:54:54\', `cli_country` = \'231\', `cli_mem_country` = \'231\', `cli_note_title` = \'Approved\', `cli_note_description` = \'\', `cli_note_date` = \'2024-03-16\'
+WHERE `cli_id` = \'13402\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_clients` SET `cli_id` = :cli_id:, `cli_name` = :cli_name:, `cli_client_id` = :cli_client_id:, `cli_first_name` = :cli_first_name:, `cli_last_name` = :cli_last_name:, `cli_middle_name` = :cli_middle_name:, `cli_sex` = :cli_sex:, `cli_phone` = :cli_phone:, `cli_dob` = :cli_dob:, `cli_security` = :cli_security:, `cli_adm_date` = :cli_adm_date:, `cli_address` = :cli_address:, `cli_latitude` = :cli_latitude:, `cli_longitude` = :cli_longitude:, `cli_zip` = :cli_zip:, `cli_zip_plus_4` = :cli_zip_plus_4:, `cli_material_status` = :cli_material_status:, `cli_primary_lang` = :cli_primary_lang:, `cli_secondary_lang` = :cli_secondary_lang:, `cli_ethenicity` = :cli_ethenicity:, `cli_ethenicity1` = :cli_ethenicity1:, `cli_religion` = :cli_religion:, `cli_program_name` = :cli_program_name:, `cli_mr_number` = :cli_mr_number:, `cli_comments` = :cli_comments:, `visit_note` = :visit_note:, `cli_referral_date` = :cli_referral_date:, `cli_referral_source` = :cli_referral_source:, `ref_organization_name` = :ref_organization_name:, `ref_organization_contact_name` = :ref_organization_contact_name:, `ref_organization_contact_email` = :ref_organization_contact_email:, `ref_organization_contact_phone` = :ref_organization_contact_phone:, `cli_medicaid` = :cli_medicaid:, `cli_medicare` = :cli_medicare:, `cli_allergies` = :cli_allergies:, `cli_adv_dir_cir` = :cli_adv_dir_cir:, `cli_hospital_preference` = :cli_hospital_preference:, `cli_hospital_phone_no` = :cli_hospital_phone_no:, `cli_add_history` = :cli_add_history:, `cli_access_agency` = :cli_access_agency:, `cli_computer_access` = :cli_computer_access:, `cli_dementia` = :cli_dementia:, `cli_safety_monitoring` = :cli_safety_monitoring:, `cli_fire_safety_plan` = :cli_fire_safety_plan:, `cli_safety_precautions` = :cli_safety_precautions:, `cli_fire_medication` = :cli_fire_medication:, `cli_fire_dmes` = :cli_fire_dmes:, `cli_current_level` = :cli_current_level:, `cli_able_to_sign` = :cli_able_to_sign:, `cli_signature_pin` = :cli_signature_pin:, `cli_display_name_sign` = :cli_display_name_sign:, `cli_signature_font` = :cli_signature_font:, `cli_signature_image_path` = :cli_signature_image_path:, `cli_sign_reason` = :cli_sign_reason:, `cli_emp_one` = :cli_emp_one:, `alternative_nurse` = :alternative_nurse:, `cli_emp_two` = :cli_emp_two:, `alternative_cm` = :alternative_cm:, `cli_qc_id` = :cli_qc_id:, `cli_qc_id_cm` = :cli_qc_id_cm:, `cli_emp_five` = :cli_emp_five:, `cli_emp_six` = :cli_emp_six:, `cli_dcc_status` = :cli_dcc_status:, `cli_updated_by_id` = :cli_updated_by_id:, `cli_case_profile_covid` = :cli_case_profile_covid:, `cli_case_profile_covid_isolation` = :cli_case_profile_covid_isolation:, `cli_case_profile_covid_exposure` = :cli_case_profile_covid_exposure:, `cli_case_profile_total_covid` = :cli_case_profile_total_covid:, `cli_case_profile_dementia` = :cli_case_profile_dementia:, `cli_case_profile_living_alone` = :cli_case_profile_living_alone:, `cli_case_profile_living_alone_dementia` = :cli_case_profile_living_alone_dementia:, `cli_case_profile_behavior` = :cli_case_profile_behavior:, `cli_case_profile_homeless` = :cli_case_profile_homeless:, `cli_updated_on` = :cli_updated_on:, `cli_country` = :cli_country:, `cli_mem_country` = :cli_mem_country:, `cli_note_title` = :cli_note_title:, `cli_note_description` = :cli_note_description:, `cli_note_date` = :cli_note_date:
+WHERE `cli_id` = :cli_id.1:', [...], false)
+ 4 APPPATH\Models\Common_model.php(45): CodeIgniter\Database\BaseBuilder->update([...], [...])
+ 5 APPPATH\Controllers\Clients.php(4250): App\Models\Common_model->updateData('tbl_clients', [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 03:54:54 --> [Caused by] mysqli_sql_exception: Unknown column 'cli_mr_number' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `tbl_clients` SET `cli_id` = \'13402\', `cli_name` = \'Andre Russell\', `cli_client_id` = \'321\', `cli_first_name` = \'Andre\', `cli_last_name` = \'Russell\', `cli_middle_name` = \'\', `cli_sex` = \'Male\', `cli_phone` = \'334-343-3334\', `cli_dob` = \'1930-01-01\', `cli_security` = \'231-32-3333\', `cli_adm_date` = \'2024-01-01\', `cli_address` = \'One Park Ave\', `cli_latitude` = NULL, `cli_longitude` = NULL, `cli_zip` = \'07651\', `cli_zip_plus_4` = \'1234\', `cli_material_status` = \'Separated\', `cli_primary_lang` = \'English\', `cli_secondary_lang` = \'French\', `cli_ethenicity` = \'Not Applicable\', `cli_ethenicity1` = \'Not Hispanic or Latino\', `cli_religion` = \'\', `cli_program_name` = \'1\', `cli_mr_number` = \'1234567890\', `cli_comments` = \'\', `visit_note` = \'\', `cli_referral_date` = \'\', `cli_referral_source` = \'\', `ref_organization_name` = \'\', `ref_organization_contact_name` = \'\', `ref_organization_contact_email` = \'\', `ref_organization_contact_phone` = \'\', `cli_medicaid` = \'MEDCD12345\', `cli_medicare` = \'\', `cli_allergies` = \'Dust and Insect\', `cli_adv_dir_cir` = \'Unknown\', `cli_hospital_preference` = \'Magnet Hospital\', `cli_hospital_phone_no` = \'201-343-4355\', `cli_add_history` = \'Test Care Plan 2\', `cli_access_agency` = \'1157\', `cli_computer_access` = \'YES\', `cli_dementia` = \'YES\', `cli_safety_monitoring` = \'YES\', `cli_fire_safety_plan` = \'Fire Safety Plan\', `cli_safety_precautions` = \'Safety Precautions/Care Note Memo\', `cli_fire_medication` = \'Medication 123\', `cli_fire_dmes` = \'\', `cli_current_level` = \'1\', `cli_able_to_sign` = \'YES\', `cli_signature_pin` = \'1234\', `cli_display_name_sign` = \'Andre Russell\', `cli_signature_font` = \'Pacifico-Regular\', `cli_signature_image_path` = \'data:image/png;base64,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\', `cli_sign_reason` = \'\', `cli_emp_one` = \'2396\', `alternative_nurse` = \'2989\', `cli_emp_two` = \'2805\', `alternative_cm` = \'2397\', `cli_qc_id` = \'2339\', `cli_qc_id_cm` = \'2340\', `cli_emp_five` = \'\', `cli_emp_six` = \'\', `cli_dcc_status` = \'Approved\', `cli_updated_by_id` = \'1161\', `cli_case_profile_covid` = NULL, `cli_case_profile_covid_isolation` = NULL, `cli_case_profile_covid_exposure` = NULL, `cli_case_profile_total_covid` = NULL, `cli_case_profile_dementia` = NULL, `cli_case_profile_living_alone` = NULL, `cli_case_profile_living_alone_dementia` = NULL, `cli_case_profile_behavior` = NULL, `cli_case_profile_homeless` = NULL, `cli_updated_on` = \'2025-09-19 03:54:54\', `cli_country` = \'231\', `cli_mem_country` = \'231\', `cli_note_title` = \'Approved\', `cli_note_description` = \'\', `cli_note_date` = \'2024-03-16\'
+WHERE `cli_id` = \'13402\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `tbl_clients` SET `cli_id` = \'13402\', `cli_name` = \'Andre Russell\', `cli_client_id` = \'321\', `cli_first_name` = \'Andre\', `cli_last_name` = \'Russell\', `cli_middle_name` = \'\', `cli_sex` = \'Male\', `cli_phone` = \'334-343-3334\', `cli_dob` = \'1930-01-01\', `cli_security` = \'231-32-3333\', `cli_adm_date` = \'2024-01-01\', `cli_address` = \'One Park Ave\', `cli_latitude` = NULL, `cli_longitude` = NULL, `cli_zip` = \'07651\', `cli_zip_plus_4` = \'1234\', `cli_material_status` = \'Separated\', `cli_primary_lang` = \'English\', `cli_secondary_lang` = \'French\', `cli_ethenicity` = \'Not Applicable\', `cli_ethenicity1` = \'Not Hispanic or Latino\', `cli_religion` = \'\', `cli_program_name` = \'1\', `cli_mr_number` = \'1234567890\', `cli_comments` = \'\', `visit_note` = \'\', `cli_referral_date` = \'\', `cli_referral_source` = \'\', `ref_organization_name` = \'\', `ref_organization_contact_name` = \'\', `ref_organization_contact_email` = \'\', `ref_organization_contact_phone` = \'\', `cli_medicaid` = \'MEDCD12345\', `cli_medicare` = \'\', `cli_allergies` = \'Dust and Insect\', `cli_adv_dir_cir` = \'Unknown\', `cli_hospital_preference` = \'Magnet Hospital\', `cli_hospital_phone_no` = \'201-343-4355\', `cli_add_history` = \'Test Care Plan 2\', `cli_access_agency` = \'1157\', `cli_computer_access` = \'YES\', `cli_dementia` = \'YES\', `cli_safety_monitoring` = \'YES\', `cli_fire_safety_plan` = \'Fire Safety Plan\', `cli_safety_precautions` = \'Safety Precautions/Care Note Memo\', `cli_fire_medication` = \'Medication 123\', `cli_fire_dmes` = \'\', `cli_current_level` = \'1\', `cli_able_to_sign` = \'YES\', `cli_signature_pin` = \'1234\', `cli_display_name_sign` = \'Andre Russell\', `cli_signature_font` = \'Pacifico-Regular\', `cli_signature_image_path` = \'data:image/png;base64,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\', `cli_sign_reason` = \'\', `cli_emp_one` = \'2396\', `alternative_nurse` = \'2989\', `cli_emp_two` = \'2805\', `alternative_cm` = \'2397\', `cli_qc_id` = \'2339\', `cli_qc_id_cm` = \'2340\', `cli_emp_five` = \'\', `cli_emp_six` = \'\', `cli_dcc_status` = \'Approved\', `cli_updated_by_id` = \'1161\', `cli_case_profile_covid` = NULL, `cli_case_profile_covid_isolation` = NULL, `cli_case_profile_covid_exposure` = NULL, `cli_case_profile_total_covid` = NULL, `cli_case_profile_dementia` = NULL, `cli_case_profile_living_alone` = NULL, `cli_case_profile_living_alone_dementia` = NULL, `cli_case_profile_behavior` = NULL, `cli_case_profile_homeless` = NULL, `cli_updated_on` = \'2025-09-19 03:54:54\', `cli_country` = \'231\', `cli_mem_country` = \'231\', `cli_note_title` = \'Approved\', `cli_note_description` = \'\', `cli_note_date` = \'2024-03-16\'
+WHERE `cli_id` = \'13402\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `tbl_clients` SET `cli_id` = \'13402\', `cli_name` = \'Andre Russell\', `cli_client_id` = \'321\', `cli_first_name` = \'Andre\', `cli_last_name` = \'Russell\', `cli_middle_name` = \'\', `cli_sex` = \'Male\', `cli_phone` = \'334-343-3334\', `cli_dob` = \'1930-01-01\', `cli_security` = \'231-32-3333\', `cli_adm_date` = \'2024-01-01\', `cli_address` = \'One Park Ave\', `cli_latitude` = NULL, `cli_longitude` = NULL, `cli_zip` = \'07651\', `cli_zip_plus_4` = \'1234\', `cli_material_status` = \'Separated\', `cli_primary_lang` = \'English\', `cli_secondary_lang` = \'French\', `cli_ethenicity` = \'Not Applicable\', `cli_ethenicity1` = \'Not Hispanic or Latino\', `cli_religion` = \'\', `cli_program_name` = \'1\', `cli_mr_number` = \'1234567890\', `cli_comments` = \'\', `visit_note` = \'\', `cli_referral_date` = \'\', `cli_referral_source` = \'\', `ref_organization_name` = \'\', `ref_organization_contact_name` = \'\', `ref_organization_contact_email` = \'\', `ref_organization_contact_phone` = \'\', `cli_medicaid` = \'MEDCD12345\', `cli_medicare` = \'\', `cli_allergies` = \'Dust and Insect\', `cli_adv_dir_cir` = \'Unknown\', `cli_hospital_preference` = \'Magnet Hospital\', `cli_hospital_phone_no` = \'201-343-4355\', `cli_add_history` = \'Test Care Plan 2\', `cli_access_agency` = \'1157\', `cli_computer_access` = \'YES\', `cli_dementia` = \'YES\', `cli_safety_monitoring` = \'YES\', `cli_fire_safety_plan` = \'Fire Safety Plan\', `cli_safety_precautions` = \'Safety Precautions/Care Note Memo\', `cli_fire_medication` = \'Medication 123\', `cli_fire_dmes` = \'\', `cli_current_level` = \'1\', `cli_able_to_sign` = \'YES\', `cli_signature_pin` = \'1234\', `cli_display_name_sign` = \'Andre Russell\', `cli_signature_font` = \'Pacifico-Regular\', `cli_signature_image_path` = \'data:image/png;base64,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\', `cli_sign_reason` = \'\', `cli_emp_one` = \'2396\', `alternative_nurse` = \'2989\', `cli_emp_two` = \'2805\', `alternative_cm` = \'2397\', `cli_qc_id` = \'2339\', `cli_qc_id_cm` = \'2340\', `cli_emp_five` = \'\', `cli_emp_six` = \'\', `cli_dcc_status` = \'Approved\', `cli_updated_by_id` = \'1161\', `cli_case_profile_covid` = NULL, `cli_case_profile_covid_isolation` = NULL, `cli_case_profile_covid_exposure` = NULL, `cli_case_profile_total_covid` = NULL, `cli_case_profile_dementia` = NULL, `cli_case_profile_living_alone` = NULL, `cli_case_profile_living_alone_dementia` = NULL, `cli_case_profile_behavior` = NULL, `cli_case_profile_homeless` = NULL, `cli_updated_on` = \'2025-09-19 03:54:54\', `cli_country` = \'231\', `cli_mem_country` = \'231\', `cli_note_title` = \'Approved\', `cli_note_description` = \'\', `cli_note_date` = \'2024-03-16\'
+WHERE `cli_id` = \'13402\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2474): CodeIgniter\Database\BaseConnection->query('UPDATE `tbl_clients` SET `cli_id` = :cli_id:, `cli_name` = :cli_name:, `cli_client_id` = :cli_client_id:, `cli_first_name` = :cli_first_name:, `cli_last_name` = :cli_last_name:, `cli_middle_name` = :cli_middle_name:, `cli_sex` = :cli_sex:, `cli_phone` = :cli_phone:, `cli_dob` = :cli_dob:, `cli_security` = :cli_security:, `cli_adm_date` = :cli_adm_date:, `cli_address` = :cli_address:, `cli_latitude` = :cli_latitude:, `cli_longitude` = :cli_longitude:, `cli_zip` = :cli_zip:, `cli_zip_plus_4` = :cli_zip_plus_4:, `cli_material_status` = :cli_material_status:, `cli_primary_lang` = :cli_primary_lang:, `cli_secondary_lang` = :cli_secondary_lang:, `cli_ethenicity` = :cli_ethenicity:, `cli_ethenicity1` = :cli_ethenicity1:, `cli_religion` = :cli_religion:, `cli_program_name` = :cli_program_name:, `cli_mr_number` = :cli_mr_number:, `cli_comments` = :cli_comments:, `visit_note` = :visit_note:, `cli_referral_date` = :cli_referral_date:, `cli_referral_source` = :cli_referral_source:, `ref_organization_name` = :ref_organization_name:, `ref_organization_contact_name` = :ref_organization_contact_name:, `ref_organization_contact_email` = :ref_organization_contact_email:, `ref_organization_contact_phone` = :ref_organization_contact_phone:, `cli_medicaid` = :cli_medicaid:, `cli_medicare` = :cli_medicare:, `cli_allergies` = :cli_allergies:, `cli_adv_dir_cir` = :cli_adv_dir_cir:, `cli_hospital_preference` = :cli_hospital_preference:, `cli_hospital_phone_no` = :cli_hospital_phone_no:, `cli_add_history` = :cli_add_history:, `cli_access_agency` = :cli_access_agency:, `cli_computer_access` = :cli_computer_access:, `cli_dementia` = :cli_dementia:, `cli_safety_monitoring` = :cli_safety_monitoring:, `cli_fire_safety_plan` = :cli_fire_safety_plan:, `cli_safety_precautions` = :cli_safety_precautions:, `cli_fire_medication` = :cli_fire_medication:, `cli_fire_dmes` = :cli_fire_dmes:, `cli_current_level` = :cli_current_level:, `cli_able_to_sign` = :cli_able_to_sign:, `cli_signature_pin` = :cli_signature_pin:, `cli_display_name_sign` = :cli_display_name_sign:, `cli_signature_font` = :cli_signature_font:, `cli_signature_image_path` = :cli_signature_image_path:, `cli_sign_reason` = :cli_sign_reason:, `cli_emp_one` = :cli_emp_one:, `alternative_nurse` = :alternative_nurse:, `cli_emp_two` = :cli_emp_two:, `alternative_cm` = :alternative_cm:, `cli_qc_id` = :cli_qc_id:, `cli_qc_id_cm` = :cli_qc_id_cm:, `cli_emp_five` = :cli_emp_five:, `cli_emp_six` = :cli_emp_six:, `cli_dcc_status` = :cli_dcc_status:, `cli_updated_by_id` = :cli_updated_by_id:, `cli_case_profile_covid` = :cli_case_profile_covid:, `cli_case_profile_covid_isolation` = :cli_case_profile_covid_isolation:, `cli_case_profile_covid_exposure` = :cli_case_profile_covid_exposure:, `cli_case_profile_total_covid` = :cli_case_profile_total_covid:, `cli_case_profile_dementia` = :cli_case_profile_dementia:, `cli_case_profile_living_alone` = :cli_case_profile_living_alone:, `cli_case_profile_living_alone_dementia` = :cli_case_profile_living_alone_dementia:, `cli_case_profile_behavior` = :cli_case_profile_behavior:, `cli_case_profile_homeless` = :cli_case_profile_homeless:, `cli_updated_on` = :cli_updated_on:, `cli_country` = :cli_country:, `cli_mem_country` = :cli_mem_country:, `cli_note_title` = :cli_note_title:, `cli_note_description` = :cli_note_description:, `cli_note_date` = :cli_note_date:
+WHERE `cli_id` = :cli_id.1:', [...], false)
+ 5 APPPATH\Models\Common_model.php(45): CodeIgniter\Database\BaseBuilder->update([...], [...])
+ 6 APPPATH\Controllers\Clients.php(4250): App\Models\Common_model->updateData('tbl_clients', [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->update_client()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 08:59:59 --> ErrorException: Undefined property: CodeIgniter\View\View::$Common_model
+in APPPATH\Views\reports\leave_record_report\leave_record_report.php on line 39.
+ 1 APPPATH\Views\reports\leave_record_report\leave_record_report.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\View\\View::$Common_model', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\leave_record_report\\leave_record_report.php', 39)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\leave_record_report\\leave_record_report.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/leave_record_report/leave_record_report', [], true)
+ 5 APPPATH\Controllers\Reports.php(22742): view('reports/leave_record_report/leave_record_report', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:03:06 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 884.
+ 1 SYSTEMPATH\Model.php(662): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(864): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\Reports.php(22744): CodeIgniter\Model->__call('getData', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-19 09:19:36 --> mysqli_sql_exception: Unknown column 'cli_status' in 'where clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `cli_id`...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22744): App\Models\Common_model->getAllData('cli_id, cli_nam...', 'tbl_clients', Array, 'cli_name', 'asc')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-19 09:19:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'cli_status' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `cli_status` = :cli_status:
+GROUP BY `asc`
+ORDER BY `cli_name`', [...], false)
+ 2 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(22744): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], 'cli_name', 'asc')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:19:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'cli_status' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `cli_status` = :cli_status:
+GROUP BY `asc`
+ORDER BY `cli_name`', [...], false)
+ 4 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(22744): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], 'cli_name', 'asc')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:19:36 --> [Caused by] mysqli_sql_exception: Unknown column 'cli_status' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `cli_status` = :cli_status:
+GROUP BY `asc`
+ORDER BY `cli_name`', [...], false)
+ 5 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(22744): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], 'cli_name', 'asc')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-19 09:19:51 --> mysqli_sql_exception: Unknown column 'asc' in 'group statement' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `cli_id`...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22744): App\Models\Common_model->getAllData('cli_id, cli_nam...', 'tbl_clients', Array, 'cli_name', 'asc')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-19 09:19:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'asc' in 'group statement'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `cli_dcc_status` = :cli_dcc_status:
+GROUP BY `asc`
+ORDER BY `cli_name`', [...], false)
+ 2 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(22744): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], 'cli_name', 'asc')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:19:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'asc' in 'group statement'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_dcc_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_dcc_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `cli_dcc_status` = :cli_dcc_status:
+GROUP BY `asc`
+ORDER BY `cli_name`', [...], false)
+ 4 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(22744): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], 'cli_name', 'asc')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:19:51 --> [Caused by] mysqli_sql_exception: Unknown column 'asc' in 'group statement'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_dcc_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_dcc_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = \'68\'
+AND `cli_dcc_status` = \'ACTIVE\'
+GROUP BY `asc`
+ORDER BY `cli_name`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cli_id`, `cli_name`
+FROM `tbl_clients`
+WHERE `cli_dcc_id` = :cli_dcc_id:
+AND `cli_dcc_status` = :cli_dcc_status:
+GROUP BY `asc`
+ORDER BY `cli_name`', [...], false)
+ 5 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(22744): App\Models\Common_model->getAllData('cli_id, cli_name', 'tbl_clients', [...], 'cli_name', 'asc')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:20:32 --> Error: Undefined constant "App\Models\TBL_PA_POLICY"
+in APPPATH\Models\Reports_model.php on line 12607.
+ 1 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:20:44 --> Error: Undefined constant "App\Models\TBL_PA_POLICY"
+in APPPATH\Models\Reports_model.php on line 12607.
+ 1 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-19 09:25:44 --> mysqli_sql_exception: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '=' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12649): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData(Array, '', '', '', 'count')
+#5 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2025-09-19 09:25:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 APPPATH\Models\Reports_model.php(12649): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT 
+                    pp.*,
+                    c.cli_name,
+                    c.cli_dcc_id,
+                    c.cli_adm_date,
+                    c.cli_dcc_status,
+                    
+                    -- Vacation/Alternative Caregiver claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status = \'Pending\') as vacation_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Rej_payer\', \'Paid\', \'Denied\')) as vacation_claim_submitted_count,
+                     
+                    -- Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as medical_leave_claim_submitted_count,
+                     
+                    -- Non-Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as non_medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as non_medical_leave_claim_submitted_count,
+                     
+                    -- Stipend counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.alternative_placement_modifier)) as vacation_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.medical_leave_modifier)) as medical_leave_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.non_medical_leave_modifier)) as non_medical_leave_stipend_generated_count
+                     
+                FROM tbl_pa_policy_client pp
+                JOIN tbl_clients c ON pp.client_id = c.cli_id
+                WHERE c.cli_dcc_id = ? AND pp.year = ? ORDER BY c.cli_name DESC) as count_query', [...])
+ 2 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:25:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) as total FROM (SELECT 
+                    pp.*,
+                    c.cli_name,
+                    c.cli_dcc_id,
+                    c.cli_adm_date,
+                    c.cli_dcc_status,
+                    
+                    -- Vacation/Alternative Caregiver claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status = \'Pending\') as vacation_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Rej_payer\', \'Paid\', \'Denied\')) as vacation_claim_submitted_count,
+                     
+                    -- Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as medical_leave_claim_submitted_count,
+                     
+                    -- Non-Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as non_medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as non_medical_leave_claim_submitted_count,
+                     
+                    -- Stipend counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.alternative_placement_modifier)) as vacation_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.medical_leave_modifier)) as medical_leave_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.non_medical_leave_modifier)) as non_medical_leave_stipend_generated_count
+                     
+                FROM tbl_pa_policy_client pp
+                JOIN tbl_clients c ON pp.client_id = c.cli_id
+                WHERE c.cli_dcc_id = \'68\' AND pp.year = \'2025\' ORDER BY c.cli_name DESC) as count_query')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) as total FROM (SELECT 
+                    pp.*,
+                    c.cli_name,
+                    c.cli_dcc_id,
+                    c.cli_adm_date,
+                    c.cli_dcc_status,
+                    
+                    -- Vacation/Alternative Caregiver claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status = \'Pending\') as vacation_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Rej_payer\', \'Paid\', \'Denied\')) as vacation_claim_submitted_count,
+                     
+                    -- Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as medical_leave_claim_submitted_count,
+                     
+                    -- Non-Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as non_medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as non_medical_leave_claim_submitted_count,
+                     
+                    -- Stipend counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.alternative_placement_modifier)) as vacation_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.medical_leave_modifier)) as medical_leave_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.non_medical_leave_modifier)) as non_medical_leave_stipend_generated_count
+                     
+                FROM tbl_pa_policy_client pp
+                JOIN tbl_clients c ON pp.client_id = c.cli_id
+                WHERE c.cli_dcc_id = \'68\' AND pp.year = \'2025\' ORDER BY c.cli_name DESC) as count_query')
+ 3 APPPATH\Models\Reports_model.php(12649): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT 
+                    pp.*,
+                    c.cli_name,
+                    c.cli_dcc_id,
+                    c.cli_adm_date,
+                    c.cli_dcc_status,
+                    
+                    -- Vacation/Alternative Caregiver claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status = \'Pending\') as vacation_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Rej_payer\', \'Paid\', \'Denied\')) as vacation_claim_submitted_count,
+                     
+                    -- Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as medical_leave_claim_submitted_count,
+                     
+                    -- Non-Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as non_medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as non_medical_leave_claim_submitted_count,
+                     
+                    -- Stipend counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.alternative_placement_modifier)) as vacation_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.medical_leave_modifier)) as medical_leave_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.non_medical_leave_modifier)) as non_medical_leave_stipend_generated_count
+                     
+                FROM tbl_pa_policy_client pp
+                JOIN tbl_clients c ON pp.client_id = c.cli_id
+                WHERE c.cli_dcc_id = ? AND pp.year = ? ORDER BY c.cli_name DESC) as count_query', [...])
+ 4 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:25:44 --> [Caused by] mysqli_sql_exception: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) as total FROM (SELECT 
+                    pp.*,
+                    c.cli_name,
+                    c.cli_dcc_id,
+                    c.cli_adm_date,
+                    c.cli_dcc_status,
+                    
+                    -- Vacation/Alternative Caregiver claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status = \'Pending\') as vacation_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Rej_payer\', \'Paid\', \'Denied\')) as vacation_claim_submitted_count,
+                     
+                    -- Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as medical_leave_claim_submitted_count,
+                     
+                    -- Non-Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as non_medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as non_medical_leave_claim_submitted_count,
+                     
+                    -- Stipend counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.alternative_placement_modifier)) as vacation_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.medical_leave_modifier)) as medical_leave_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.non_medical_leave_modifier)) as non_medical_leave_stipend_generated_count
+                     
+                FROM tbl_pa_policy_client pp
+                JOIN tbl_clients c ON pp.client_id = c.cli_id
+                WHERE c.cli_dcc_id = \'68\' AND pp.year = \'2025\' ORDER BY c.cli_name DESC) as count_query', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) as total FROM (SELECT 
+                    pp.*,
+                    c.cli_name,
+                    c.cli_dcc_id,
+                    c.cli_adm_date,
+                    c.cli_dcc_status,
+                    
+                    -- Vacation/Alternative Caregiver claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status = \'Pending\') as vacation_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Rej_payer\', \'Paid\', \'Denied\')) as vacation_claim_submitted_count,
+                     
+                    -- Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as medical_leave_claim_submitted_count,
+                     
+                    -- Non-Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as non_medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as non_medical_leave_claim_submitted_count,
+                     
+                    -- Stipend counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.alternative_placement_modifier)) as vacation_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.medical_leave_modifier)) as medical_leave_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.non_medical_leave_modifier)) as non_medical_leave_stipend_generated_count
+                     
+                FROM tbl_pa_policy_client pp
+                JOIN tbl_clients c ON pp.client_id = c.cli_id
+                WHERE c.cli_dcc_id = \'68\' AND pp.year = \'2025\' ORDER BY c.cli_name DESC) as count_query')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) as total FROM (SELECT 
+                    pp.*,
+                    c.cli_name,
+                    c.cli_dcc_id,
+                    c.cli_adm_date,
+                    c.cli_dcc_status,
+                    
+                    -- Vacation/Alternative Caregiver claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status = \'Pending\') as vacation_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Rej_payer\', \'Paid\', \'Denied\')) as vacation_claim_submitted_count,
+                     
+                    -- Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as medical_leave_claim_submitted_count,
+                     
+                    -- Non-Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as non_medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as non_medical_leave_claim_submitted_count,
+                     
+                    -- Stipend counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.alternative_placement_modifier)) as vacation_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.medical_leave_modifier)) as medical_leave_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.non_medical_leave_modifier)) as non_medical_leave_stipend_generated_count
+                     
+                FROM tbl_pa_policy_client pp
+                JOIN tbl_clients c ON pp.client_id = c.cli_id
+                WHERE c.cli_dcc_id = \'68\' AND pp.year = \'2025\' ORDER BY c.cli_name DESC) as count_query')
+ 4 APPPATH\Models\Reports_model.php(12649): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) as total FROM (SELECT 
+                    pp.*,
+                    c.cli_name,
+                    c.cli_dcc_id,
+                    c.cli_adm_date,
+                    c.cli_dcc_status,
+                    
+                    -- Vacation/Alternative Caregiver claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status = \'Pending\') as vacation_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.alternative_placement_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.alternative_placement_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Rej_payer\', \'Paid\', \'Denied\')) as vacation_claim_submitted_count,
+                     
+                    -- Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as medical_leave_claim_submitted_count,
+                     
+                    -- Non-Medical Leave claim counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Pending\', \'Acknowledged\', \'Hold\', \'Denied\', \'Follow-up\', \'Rej_payer\', \'Error\', \'Ack_final\')) as non_medical_leave_claim_pending_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_claim_summary cs 
+                     WHERE cs.cs_patient_id = pp.client_id 
+                     AND cs.cs_status = \'ACTIVE\'
+                     AND cs.cs_healthcare_code_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(cs.cs_shift_date) = 2025
+                     AND (cs.cs_eli_modifier_1 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_2 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_3 = pp.non_medical_leave_modifier 
+                          OR cs.cs_eli_modifier_4 = pp.non_medical_leave_modifier)
+                     AND cs.cs_claim_status IN (\'Submitted\', \'Submitted - Error\', \'Paid\', \'Validated\', \'Info\', \'Modified\')) as non_medical_leave_claim_submitted_count,
+                     
+                    -- Stipend counts (EXACT SAME LOGIC as show_pa_policy_data)
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.alternative_placement_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.alternative_placement_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.alternative_placement_modifier)) as vacation_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.medical_leave_modifier)) as medical_leave_stipend_generated_count,
+                     
+                    (SELECT COUNT(*) FROM tbl_stipend_payment_detail sp 
+                     WHERE sp.stipend_client_id = pp.client_id 
+                     AND sp.stipend_hcpc_name = pp.non_medical_leave_hcpcs_code 
+                     AND YEAR(sp.stipend_date) = 2025
+                     AND (sp.stipend_hcpc_modifier1 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier2 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier3 = pp.non_medical_leave_modifier 
+                          OR sp.stipend_hcpc_modifier4 = pp.non_medical_leave_modifier)) as non_medical_leave_stipend_generated_count
+                     
+                FROM tbl_pa_policy_client pp
+                JOIN tbl_clients c ON pp.client_id = c.cli_id
+                WHERE c.cli_dcc_id = ? AND pp.year = ? ORDER BY c.cli_name DESC) as count_query', [...])
+ 5 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-19 09:39:34 --> ErrorException: Undefined property: stdClass::$vacation_scheduled_days
+in APPPATH\Views\reports\leave_record_report\leave_record_report_pagi.php on line 56.
+ 1 APPPATH\Views\reports\leave_record_report\leave_record_report_pagi.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$vacation_scheduled_days', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\leave_record_report\\leave_record_report_pagi.php', 56)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\leave_record_report\\leave_record_report_pagi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/leave_record_report/leave_record_report_pagi', [], true)
+ 5 APPPATH\Controllers\Reports.php(22775): view('reports/leave_record_report/leave_record_report_pagi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

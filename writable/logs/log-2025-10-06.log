@@ -1,0 +1,31 @@
+CRITICAL - 2025-10-06 00:21:39 --> Error: Class "Livekit\RoomServiceClient" not found
+in APPPATH\Controllers\LivekitAgent.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\LivekitAgent->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-06 00:23:48 --> Error: Class "Livekit\RoomServiceClient" not found
+in APPPATH\Controllers\LivekitAgent.php on line 28.
+ 1 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\LivekitAgent->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 2 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-06 00:31:05 --> TypeError: Livekit\RoomServiceAbstractClient::__construct(): Argument #2 ($httpClient) must be of type ?Psr\Http\Client\ClientInterface, string given, called in D:\wamp\www\new_adult_foster_care_pro\app\Controllers\LivekitAgent.php on line 31
+in FCPATH\vendor\agence104\livekit-server-sdk\src\proto\Livekit\RoomServiceAbstractClient.php on line 54.
+ 1 APPPATH\Controllers\LivekitAgent.php(31): Livekit\RoomServiceAbstractClient->__construct('wss://your-livekit-server.com', 'your-api-key', 'your-api-secret')
+ 2 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\LivekitAgent->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 3 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-06 02:28:28 --> ErrorException: Undefined variable $config
+in APPPATH\Views\web\contact_us.php on line 347.
+ 1 APPPATH\Views\web\contact_us.php(347): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $config', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\web\\contact_us.php', 347)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\web\\contact_us.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('web/contact_us', [], true)
+ 5 APPPATH\Controllers\Home.php(213): view('web/contact_us', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Home->contactus()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\wamp\\www\\new_adult_foster_care_pro\\public\\index.php')

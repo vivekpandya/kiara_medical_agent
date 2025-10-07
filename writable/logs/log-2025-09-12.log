@@ -1,0 +1,218 @@
+ERROR - 2025-09-12 02:28:15 --> mysqli_sql_exception: Incorrect DATE value: '09/01/2025' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `A`.`shi...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `A`.`shi...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `A`.`shi...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `A`.`shi...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Billing_model.php(1034): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Billing.php(1385): App\Models\Billing_model->getClientSchedulesData(Array, 'cal_cli_id', '', Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Billing->save_claimbatches()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-12 02:28:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: '09/01/2025'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `A`.`shift_id`, `A`.`shift_name`, `A`.`shift_start_time`, `A`.`shift_end_time`, `A`.`shift_color`, `A`.`shift_hcpc_code`, `B`.`cal_id`, `B`.`cal_date`, `B`.`cal_contact_id`, `B`.`cal_shift_id`, `B`.`cal_cli_id`, `B`.`cal_is_claim_generated`, `C`.`emc_name`, `C`.`emc_contact`, `HC`.*
+FROM `tbl_cal_shift` AS `A`
+JOIN `tbl_cal_shift_assign` AS `B` ON `B`.`cal_shift_id` = `A`.`shift_id` AND `cal_status` = "ACTIVE" AND `cal_date` >= \'09/01/2025\' AND `cal_date` <= \'09/12/2025\'
+JOIN `tbl_client_emergency_contact` AS `C` ON `C`.`emc_id` = `B`.`cal_contact_id`
+JOIN `tbl_clients` AS `CL` ON `CL`.`cli_id` = `B`.`cal_cli_id`
+JOIN `tbl_hcpc_codes` AS `HC` ON `A`.`shift_hcpc_code` = `HC`.`hcpc_id`
+WHERE `B`.`cal_cli_id` IN :B.cal_cli_id:
+AND `A`.`shift_type_status` = :A.shift_type_status:
+AND `B`.`cal_status` = :B.cal_status:
+AND `B`.`cal_dcc_id` = :B.cal_dcc_id:
+GROUP BY `cal_cli_id`, `cal_shift_id`, `cal_date`
+ORDER BY `B`.`cal_date` ASC', [...], false)
+ 2 APPPATH\Models\Billing_model.php(1034): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Billing.php(1385): App\Models\Billing_model->getClientSchedulesData([...], 'cal_cli_id', '', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->save_claimbatches()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-12 02:28:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATE value: '09/01/2025'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `A`.`shift_id`, `A`.`shift_name`, `A`.`shift_start_time`, `A`.`shift_end_time`, `A`.`shift_color`, `A`.`shift_hcpc_code`, `B`.`cal_id`, `B`.`cal_date`, `B`.`cal_contact_id`, `B`.`cal_shift_id`, `B`.`cal_cli_id`, `B`.`cal_is_claim_generated`, `C`.`emc_name`, `C`.`emc_contact`, `HC`.*
+FROM `tbl_cal_shift` AS `A`
+JOIN `tbl_cal_shift_assign` AS `B` ON `B`.`cal_shift_id` = `A`.`shift_id` AND `cal_status` = "ACTIVE" AND `cal_date` >= \'09/01/2025\' AND `cal_date` <= \'09/12/2025\'
+JOIN `tbl_client_emergency_contact` AS `C` ON `C`.`emc_id` = `B`.`cal_contact_id`
+JOIN `tbl_clients` AS `CL` ON `CL`.`cli_id` = `B`.`cal_cli_id`
+JOIN `tbl_hcpc_codes` AS `HC` ON `A`.`shift_hcpc_code` = `HC`.`hcpc_id`
+WHERE `B`.`cal_cli_id` IN (\'12697\')
+AND `A`.`shift_type_status` = \'Claim\'
+AND `B`.`cal_status` = \'ACTIVE\'
+AND `B`.`cal_dcc_id` = \'68\'
+GROUP BY `cal_cli_id`, `cal_shift_id`, `cal_date`
+ORDER BY `B`.`cal_date` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `A`.`shift_id`, `A`.`shift_name`, `A`.`shift_start_time`, `A`.`shift_end_time`, `A`.`shift_color`, `A`.`shift_hcpc_code`, `B`.`cal_id`, `B`.`cal_date`, `B`.`cal_contact_id`, `B`.`cal_shift_id`, `B`.`cal_cli_id`, `B`.`cal_is_claim_generated`, `C`.`emc_name`, `C`.`emc_contact`, `HC`.*
+FROM `tbl_cal_shift` AS `A`
+JOIN `tbl_cal_shift_assign` AS `B` ON `B`.`cal_shift_id` = `A`.`shift_id` AND `cal_status` = "ACTIVE" AND `cal_date` >= \'09/01/2025\' AND `cal_date` <= \'09/12/2025\'
+JOIN `tbl_client_emergency_contact` AS `C` ON `C`.`emc_id` = `B`.`cal_contact_id`
+JOIN `tbl_clients` AS `CL` ON `CL`.`cli_id` = `B`.`cal_cli_id`
+JOIN `tbl_hcpc_codes` AS `HC` ON `A`.`shift_hcpc_code` = `HC`.`hcpc_id`
+WHERE `B`.`cal_cli_id` IN (\'12697\')
+AND `A`.`shift_type_status` = \'Claim\'
+AND `B`.`cal_status` = \'ACTIVE\'
+AND `B`.`cal_dcc_id` = \'68\'
+GROUP BY `cal_cli_id`, `cal_shift_id`, `cal_date`
+ORDER BY `B`.`cal_date` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `A`.`shift_id`, `A`.`shift_name`, `A`.`shift_start_time`, `A`.`shift_end_time`, `A`.`shift_color`, `A`.`shift_hcpc_code`, `B`.`cal_id`, `B`.`cal_date`, `B`.`cal_contact_id`, `B`.`cal_shift_id`, `B`.`cal_cli_id`, `B`.`cal_is_claim_generated`, `C`.`emc_name`, `C`.`emc_contact`, `HC`.*
+FROM `tbl_cal_shift` AS `A`
+JOIN `tbl_cal_shift_assign` AS `B` ON `B`.`cal_shift_id` = `A`.`shift_id` AND `cal_status` = "ACTIVE" AND `cal_date` >= \'09/01/2025\' AND `cal_date` <= \'09/12/2025\'
+JOIN `tbl_client_emergency_contact` AS `C` ON `C`.`emc_id` = `B`.`cal_contact_id`
+JOIN `tbl_clients` AS `CL` ON `CL`.`cli_id` = `B`.`cal_cli_id`
+JOIN `tbl_hcpc_codes` AS `HC` ON `A`.`shift_hcpc_code` = `HC`.`hcpc_id`
+WHERE `B`.`cal_cli_id` IN :B.cal_cli_id:
+AND `A`.`shift_type_status` = :A.shift_type_status:
+AND `B`.`cal_status` = :B.cal_status:
+AND `B`.`cal_dcc_id` = :B.cal_dcc_id:
+GROUP BY `cal_cli_id`, `cal_shift_id`, `cal_date`
+ORDER BY `B`.`cal_date` ASC', [...], false)
+ 4 APPPATH\Models\Billing_model.php(1034): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Billing.php(1385): App\Models\Billing_model->getClientSchedulesData([...], 'cal_cli_id', '', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->save_claimbatches()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-12 02:28:15 --> [Caused by] mysqli_sql_exception: Incorrect DATE value: '09/01/2025'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `A`.`shift_id`, `A`.`shift_name`, `A`.`shift_start_time`, `A`.`shift_end_time`, `A`.`shift_color`, `A`.`shift_hcpc_code`, `B`.`cal_id`, `B`.`cal_date`, `B`.`cal_contact_id`, `B`.`cal_shift_id`, `B`.`cal_cli_id`, `B`.`cal_is_claim_generated`, `C`.`emc_name`, `C`.`emc_contact`, `HC`.*
+FROM `tbl_cal_shift` AS `A`
+JOIN `tbl_cal_shift_assign` AS `B` ON `B`.`cal_shift_id` = `A`.`shift_id` AND `cal_status` = "ACTIVE" AND `cal_date` >= \'09/01/2025\' AND `cal_date` <= \'09/12/2025\'
+JOIN `tbl_client_emergency_contact` AS `C` ON `C`.`emc_id` = `B`.`cal_contact_id`
+JOIN `tbl_clients` AS `CL` ON `CL`.`cli_id` = `B`.`cal_cli_id`
+JOIN `tbl_hcpc_codes` AS `HC` ON `A`.`shift_hcpc_code` = `HC`.`hcpc_id`
+WHERE `B`.`cal_cli_id` IN (\'12697\')
+AND `A`.`shift_type_status` = \'Claim\'
+AND `B`.`cal_status` = \'ACTIVE\'
+AND `B`.`cal_dcc_id` = \'68\'
+GROUP BY `cal_cli_id`, `cal_shift_id`, `cal_date`
+ORDER BY `B`.`cal_date` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `A`.`shift_id`, `A`.`shift_name`, `A`.`shift_start_time`, `A`.`shift_end_time`, `A`.`shift_color`, `A`.`shift_hcpc_code`, `B`.`cal_id`, `B`.`cal_date`, `B`.`cal_contact_id`, `B`.`cal_shift_id`, `B`.`cal_cli_id`, `B`.`cal_is_claim_generated`, `C`.`emc_name`, `C`.`emc_contact`, `HC`.*
+FROM `tbl_cal_shift` AS `A`
+JOIN `tbl_cal_shift_assign` AS `B` ON `B`.`cal_shift_id` = `A`.`shift_id` AND `cal_status` = "ACTIVE" AND `cal_date` >= \'09/01/2025\' AND `cal_date` <= \'09/12/2025\'
+JOIN `tbl_client_emergency_contact` AS `C` ON `C`.`emc_id` = `B`.`cal_contact_id`
+JOIN `tbl_clients` AS `CL` ON `CL`.`cli_id` = `B`.`cal_cli_id`
+JOIN `tbl_hcpc_codes` AS `HC` ON `A`.`shift_hcpc_code` = `HC`.`hcpc_id`
+WHERE `B`.`cal_cli_id` IN (\'12697\')
+AND `A`.`shift_type_status` = \'Claim\'
+AND `B`.`cal_status` = \'ACTIVE\'
+AND `B`.`cal_dcc_id` = \'68\'
+GROUP BY `cal_cli_id`, `cal_shift_id`, `cal_date`
+ORDER BY `B`.`cal_date` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `A`.`shift_id`, `A`.`shift_name`, `A`.`shift_start_time`, `A`.`shift_end_time`, `A`.`shift_color`, `A`.`shift_hcpc_code`, `B`.`cal_id`, `B`.`cal_date`, `B`.`cal_contact_id`, `B`.`cal_shift_id`, `B`.`cal_cli_id`, `B`.`cal_is_claim_generated`, `C`.`emc_name`, `C`.`emc_contact`, `HC`.*
+FROM `tbl_cal_shift` AS `A`
+JOIN `tbl_cal_shift_assign` AS `B` ON `B`.`cal_shift_id` = `A`.`shift_id` AND `cal_status` = "ACTIVE" AND `cal_date` >= \'09/01/2025\' AND `cal_date` <= \'09/12/2025\'
+JOIN `tbl_client_emergency_contact` AS `C` ON `C`.`emc_id` = `B`.`cal_contact_id`
+JOIN `tbl_clients` AS `CL` ON `CL`.`cli_id` = `B`.`cal_cli_id`
+JOIN `tbl_hcpc_codes` AS `HC` ON `A`.`shift_hcpc_code` = `HC`.`hcpc_id`
+WHERE `B`.`cal_cli_id` IN (\'12697\')
+AND `A`.`shift_type_status` = \'Claim\'
+AND `B`.`cal_status` = \'ACTIVE\'
+AND `B`.`cal_dcc_id` = \'68\'
+GROUP BY `cal_cli_id`, `cal_shift_id`, `cal_date`
+ORDER BY `B`.`cal_date` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `A`.`shift_id`, `A`.`shift_name`, `A`.`shift_start_time`, `A`.`shift_end_time`, `A`.`shift_color`, `A`.`shift_hcpc_code`, `B`.`cal_id`, `B`.`cal_date`, `B`.`cal_contact_id`, `B`.`cal_shift_id`, `B`.`cal_cli_id`, `B`.`cal_is_claim_generated`, `C`.`emc_name`, `C`.`emc_contact`, `HC`.*
+FROM `tbl_cal_shift` AS `A`
+JOIN `tbl_cal_shift_assign` AS `B` ON `B`.`cal_shift_id` = `A`.`shift_id` AND `cal_status` = "ACTIVE" AND `cal_date` >= \'09/01/2025\' AND `cal_date` <= \'09/12/2025\'
+JOIN `tbl_client_emergency_contact` AS `C` ON `C`.`emc_id` = `B`.`cal_contact_id`
+JOIN `tbl_clients` AS `CL` ON `CL`.`cli_id` = `B`.`cal_cli_id`
+JOIN `tbl_hcpc_codes` AS `HC` ON `A`.`shift_hcpc_code` = `HC`.`hcpc_id`
+WHERE `B`.`cal_cli_id` IN :B.cal_cli_id:
+AND `A`.`shift_type_status` = :A.shift_type_status:
+AND `B`.`cal_status` = :B.cal_status:
+AND `B`.`cal_dcc_id` = :B.cal_dcc_id:
+GROUP BY `cal_cli_id`, `cal_shift_id`, `cal_date`
+ORDER BY `B`.`cal_date` ASC', [...], false)
+ 5 APPPATH\Models\Billing_model.php(1034): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Billing.php(1385): App\Models\Billing_model->getClientSchedulesData([...], 'cal_cli_id', '', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->save_claimbatches()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-12 03:31:17 --> mysqli_sql_exception: Unknown column 'shift_item_code' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `shift_i...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `shift_i...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `shift_i...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `shift_i...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Billing.php(1399): App\Models\Common_model->getDataById('shift_id,shift_...', 'tbl_cal_shift', Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Billing->save_claimbatches()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-12 03:31:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift_item_code' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `shift_id`, `shift_item_code`
+FROM `tbl_cal_shift`
+WHERE `shift_level` = :shift_level:
+AND `shift_type` = :shift_type:
+AND `shift_status` = :shift_status:
+AND `shift_type_status` = :shift_type_status:', [...], false)
+ 2 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Billing.php(1399): App\Models\Common_model->getDataById('shift_id,shift_item_code', 'tbl_cal_shift', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->save_claimbatches()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-12 03:31:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'shift_item_code' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `shift_id`, `shift_item_code`
+FROM `tbl_cal_shift`
+WHERE `shift_level` = \'1\'
+AND `shift_type` = \'Attendance\'
+AND `shift_status` = \'Active\'
+AND `shift_type_status` = \'Claim\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `shift_id`, `shift_item_code`
+FROM `tbl_cal_shift`
+WHERE `shift_level` = \'1\'
+AND `shift_type` = \'Attendance\'
+AND `shift_status` = \'Active\'
+AND `shift_type_status` = \'Claim\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `shift_id`, `shift_item_code`
+FROM `tbl_cal_shift`
+WHERE `shift_level` = :shift_level:
+AND `shift_type` = :shift_type:
+AND `shift_status` = :shift_status:
+AND `shift_type_status` = :shift_type_status:', [...], false)
+ 4 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Billing.php(1399): App\Models\Common_model->getDataById('shift_id,shift_item_code', 'tbl_cal_shift', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->save_claimbatches()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-12 03:31:17 --> [Caused by] mysqli_sql_exception: Unknown column 'shift_item_code' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `shift_id`, `shift_item_code`
+FROM `tbl_cal_shift`
+WHERE `shift_level` = \'1\'
+AND `shift_type` = \'Attendance\'
+AND `shift_status` = \'Active\'
+AND `shift_type_status` = \'Claim\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `shift_id`, `shift_item_code`
+FROM `tbl_cal_shift`
+WHERE `shift_level` = \'1\'
+AND `shift_type` = \'Attendance\'
+AND `shift_status` = \'Active\'
+AND `shift_type_status` = \'Claim\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `shift_id`, `shift_item_code`
+FROM `tbl_cal_shift`
+WHERE `shift_level` = \'1\'
+AND `shift_type` = \'Attendance\'
+AND `shift_status` = \'Active\'
+AND `shift_type_status` = \'Claim\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `shift_id`, `shift_item_code`
+FROM `tbl_cal_shift`
+WHERE `shift_level` = :shift_level:
+AND `shift_type` = :shift_type:
+AND `shift_status` = :shift_status:
+AND `shift_type_status` = :shift_type_status:', [...], false)
+ 5 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Billing.php(1399): App\Models\Common_model->getDataById('shift_id,shift_item_code', 'tbl_cal_shift', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->save_claimbatches()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,73 @@
+/* Request For Information pages - scoped styles */
+:root { --rfi-primary:#122867; --rfi-accent:#6C9A40; --rfi-text:#ffffff; }
+
+body.rfi-page { min-height:100vh; display:flex; flex-direction:column; }
+.rfi-page .main { flex:1 0 auto; }
+
+/* Header (navbar) */
+.navbar.rfi-navbar .navbar-inner { background: var(--rfi-primary) !important; border: none; box-shadow: none; }
+.navbar.rfi-navbar .brand { color: var(--rfi-text) !important; font-weight: 600; margin-left: 0px; }
+.navbar.rfi-navbar .brand img { max-height: 28px; vertical-align: middle; }
+.navbar.rfi-navbar .nav > li > a { color: var(--rfi-text); }
+
+/* Footer */
+.rfi-footer .footer-inner { background: var(--rfi-primary); color: var(--rfi-text); padding: 12px 0; }
+.rfi-footer .footer-inner .span12 {  font-size: 13px; }
+
+/* Widgets color accent within RFI pages only */
+.rfi-page .widget-header { background: var(--rfi-accent); color:#fff; }
+.rfi-page .widget-header h3 { color:#fff; text-shadow: none; font-size: 1.3rem; }
+
+/* RFI form base layout */
+.rfi-page .main { padding:20px; }
+.rfi-page .main-inner { max-width: 1200px; margin: 0 auto; }
+.rfi-page .widget-content { padding:20px; background:#fff; border:1px solid #ddd; border-top:none; border-radius:0 0 5px 5px; }
+.rfi-page .form-section { border:1px solid #ddd; padding:20px; margin-bottom:20px; border-radius:5px; background:#f9f9f9; }
+.rfi-page .location-section { background:#f8f9fa; border-left:4px solid var(--rfi-accent); }
+.rfi-page .billing-section { background:#f8f9fa; border-left:4px solid var(--rfi-accent); }
+.rfi-page #billingLocationsContainer .billing-section.form-section { border: none; }
+.rfi-page .select2-container { width:100% !important; }
+.rfi-page .error { color:#b94a48; font-size:12px; margin-top:5px; }
+.rfi-page .require { color:#b94a48; }
+.rfi-page input.error, .rfi-page select.error { border-color:#b94a48 !important; background:#f2dede !important; }
+.rfi-page .select2-container.error .select2-choice { border-color:#b94a48 !important; background:#f2dede !important; }
+/* Ensure select2 errors stack nicely below the widget */
+.rfi-page .select2-container + label.error { display:block; margin-top:5px; }
+
+/* Utilities */
+@media (max-width: 767px) {
+  body.rfi-page { padding: 0px;  }
+  .navbar.rfi-navbar .brand span { display:none; }
+  .navbar.rfi-navbar .btn-navbar { display: none !important; }
+}
+
+/* Theme variants (set CSS variables by body class) */
+body.rfi-theme-adcc { --rfi-primary:#6C9A40; --rfi-accent:#6C9A40; }
+body.rfi-theme-afc { --rfi-primary:#122867; --rfi-accent:#122867; }
+body.rfi-theme-home-care { --rfi-primary:#122867; --rfi-accent:#122867; }
+body.rfi-theme-behavior-health, body.rfi-theme-behaviour-health { --rfi-primary:#6C9A40; --rfi-accent:#6C9A40; }
+
+/* Primary button color within RFI pages (uses theme variable) */
+.rfi-page .btn.btn-primary,
+.rfi-page button.btn.btn-primary,
+.rfi-page a.btn.btn-primary {
+  background-color: var(--rfi-primary) !important;
+  border-color: var(--rfi-primary) !important;
+}
+.rfi-page .btn.btn-primary:hover,
+.rfi-page .btn.btn-primary:focus,
+.rfi-page .btn.btn-primary:active,
+.rfi-page .btn.btn-primary.active {
+  background-color: var(--rfi-primary) !important;
+  border-color: var(--rfi-primary) !important;
+}
+
+.rfi-page  .contact-info h5{
+font-size: 20px !important;
+margin-top: 20px;
+margin-bottom: 10px;
+}
+.rfi-page .message{
+  font-size: 20px !important;
+  margin-bottom: 10px;
+  }

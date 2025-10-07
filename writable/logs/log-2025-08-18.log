@@ -1,0 +1,16 @@
+CRITICAL - 2025-08-18 02:40:22 --> ErrorException: Undefined variable $batch_size
+in APPPATH\Controllers\Billing.php on line 21458.
+ 1 APPPATH\Controllers\Billing.php(21458): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $batch_size', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Billing.php', 21458)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-18 08:32:25 --> ParseError: syntax error, unexpected token "public"
+in APPPATH\Controllers\Billing.php on line 21715.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(288): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Billing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Billing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Billing')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\Billing', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

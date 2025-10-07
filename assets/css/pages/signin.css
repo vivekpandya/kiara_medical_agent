@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+/*------------------------------------------------------------------
+Bootstrap Admin Template by EGrappler.com
+------------------------------------------------------------------*/
+
+
+
+
+/** Base Body Styles **/
+body{ background: url(../../img/body-bg.png); color:#000; }
+
+@font-face {
+    font-family: 'Helvetica', sans-serif;
+    src: url('../fonts/Helvetica.ttf');
+}
+body {
+	font: 13px/1.7em;
+	font-family: 'Helvetica', sans-serif!important;
+}
+.account-container {
+ width: 400px;  
+	/* width: 100%; */
+	display: block;
+	margin: 20px auto 10px auto;
+	background: #fff;
+	/* background: #f9f9f9; */
+	border: 1px solid #d5d5d5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow:  0px 0px 2px #dadada, inset 0px -3px 0px #e6e6e6;
+	/* padding: 34px 0;	 */
+	padding: 4px 0;
+}
+.dbtn,.dbtn:hover{
+	background-color:#FFF5A6;
+	color: #000;
+}
+.mt-8{
+	margin-top: 8px!important;
+}
+.justify-content-end{
+	justify-content: end;
+}
+.d-flex{
+	display: flex;
+}
+.content {
+	padding: 16px 28px 23px;
+	 text-align: center;
+} 
+
+.login-fields .field {
+	margin-bottom: 1.25em;
+}
+
+.login-fields label {
+	display: none;
+}
+
+.login-fields input {
+	font-family: 'Helvetica', sans-serif!important;
+	font-size: 13px;
+	color:  #000;
+	padding: 11px 15px 10px 50px;
+	background-color: #fdfdfd;
+	width: 255px;
+	display: block;
+	margin: 0 auto;
+	box-shadow: inset 2px 2px 4px #f1f1f1;
+}
+
+.username-field { background: url(../../img/signin/user.png) no-repeat; }
+
+.password-field { background: url(../../img/signin/password.png) no-repeat; }
+
+
+
+.login-actions {
+	float: left;
+	
+	width: 100%;
+	
+	margin-top: -1em;
+	margin-bottom: 1.25em;
+}
+
+.login-social {
+	float: left;
+	
+	padding: 10px 0 15px;
+	
+	border: 1px dotted #CCC;
+	border-right: none;
+	border-left: none;	
+}
+
+span.login-checkbox {
+	float: left;
+	margin-top: 31px;
+}
+
+span.login-checkbox > input[type='checkbox'] {
+    opacity: 0;
+    float: left;
+    width: 15px;
+}
+
+span.login-checkbox > input[type='checkbox'] + label {    
+    clear: none;
+    
+	height: 15px; 
+	display: block;
+    padding: 0 0 0 22px;
+    margin: 0;
+    
+    font-size: 12px;
+    line-height: 1.2em;
+    
+    background: url(../../img/signin/check.png) no-repeat 0 0;
+    
+    cursor: pointer;
+}
+
+span.login-checkbox > input[type='checkbox']:checked + label {	
+	background-position: 0 -15px;
+}
+
+/** Text Under Box**/
+.login-extra {
+	display: block; 
+	width: 300px; 
+	margin: 1.5em auto;
+	 
+	text-align: left;
+	line-height: 19px; 
+	
+	text-shadow: 1px 1px 0px #fff; 	
+}
+
+
+.account-container h1 {
+	margin-bottom: .4em;
+	
+	color: #525252;
+}
+
+/** Buttons **/
+.twitter, .fb {
+	position: relative;
+	
+	height: 32px; 
+	width: 157px; 
+	display: block;
+	
+	background: url(../../img/signin/twitter_btn.png) no-repeat; 
+	
+}
+
+.fb {
+	width: 162px; 
+	
+	background: url(../../img/signin/fb_btn.png) no-repeat; 	
+}
+
+.twitter:active, .fb:active {
+	top: 1px;
+}
+
+.twitter:hover, .fb:hover {
+	background-position: 0 -32px;
+}
+
+.twitter a, .fb a {
+	padding: 5px 0 0 35px; 
+	text-shadow: -1px -1px 0px rgba(0,0,0,.3); 
+	color:#fff; 
+	font-weight: bold; 
+	font-size: 11px; 
+	height: 32px; 
+	display: block;	
+}
+
+.fb a {
+	padding: 5px 0 0 31px; 
+	
+}
+
+.twitter, .fb {
+	display: inline-block;
+}
+
+.twitter a:hover, .fb a:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.button {-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; display: inline-block; float: none; margin-top: 18px;}
+
+
+
+
+
+
+.register .login-social {
+	margin-bottom: 1em;
+}
+
+.register .login-actions {
+	margin-bottom: 0;
+}
+
+.register .login-fields input {
+	width: 299px;
+	padding-left: 6px;
+}
+
+.register h1 {
+	color: #444;
+}
+
+.register span.login-checkbox {
+	position: relative;
+	top: -6px;
+	
+	width: 200px;
+}
+
+.register span.login-checkbox > input[type="checkbox"] + label {
+	
+	position: relative;
+	
+	line-height: 1.3em;
+}
+
+
+
+@media (max-width: 480px) {
+	
+	/* .account-container {
+		width: 280px;	
+		margin-top: 35px;
+	} */
+	
+	.login-fields input {
+		width: 160px;
+	}
+	
+	.login-social {
+		width: 100%;
+	}
+	
+	.twitter {
+		display: block;
+		margin-bottom: 1em;
+	}
+	
+	.register .login-fields input {
+		width: 204px;
+		padding-left: 6px;
+	}
+	
+}
+
+/* login new page css start */
+.login_row{
+	display: flex;
+	width: 100%!important;
+  }
+  .loginleftside{
+	width: 60%!important;
+	margin: 4px;
+  }
+  
+  .loginrightside{
+	width: 40%!important;
+	margin: 4px;
+  }
+  h1.newlogin {
+    margin-bottom: 0.4em;
+    color: #122867!important;
+    font-size: 30px;
+    line-height: 36px;
+}
+.account-container-left {
+	display: block;
+	margin: 20px auto 10px auto;
+	padding: 15px;
+	background: #fff;
+	border: 1px solid #d5d5d5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow:  0px 0px 2px #dadada, inset 0px -3px 0px #e6e6e6;
+}
+
+.login-actions.new{
+	float: none!important;
+	width: 80%!important;
+	margin: 10px auto!important;
+}
+.medical_bill_listbox{
+	background-color: #f9f6f1;
+	border-radius: 4px;
+	height: 80px;
+	display: flex;
+    align-items: center;
+	padding: 10px 20px;
+	margin-bottom: 5px;
+}
+.medical_bill_listbox2{
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	margin-top: 16px;
+	
+}
+.medbookbtn{
+    background-image: linear-gradient(rgba(126, 178, 22, 0), rgba(0, 0, 0, 0.1));
+    background-color:  #122867;
+    /* border-color: #6e9b13 #6e9b13 #3e570b; */
+    border-color: rgba(0, 0, 0, 0.05) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.15);
+    color: white;
+    text-shadow: 1px 1px 0 rgb(0 0 0 / 15%);
+	padding: 10px 20px;
+	border-radius: 3px;
+    display: inline-block;
+    margin: 5px auto;
+	font-size: 16px;
+    line-height: 24px;
+}
+.medical_bill_iconbox{
+	display: flex!important;
+	align-items: center!important;
+	justify-content: center!important;
+
+}
+img.medicon {
+    width: 65px;
+}
+.medical_bill_contentbox {
+    padding-left: 20px;
+}
+.medical_bill_contentbox h2{
+font-weight: 600!important;
+line-height: 30px!important;
+}
+.medical_bill_contentbox p {
+	margin-bottom: 0px;
+	line-height: 1.6!important;
+}
+@media (max-width: 480px) {
+	.login_row{
+		display: flex!important;
+		flex-direction: column!important;
+		width: 100%!important;
+	  }
+	  .loginleftside{
+		width: 100%!important;
+		margin: 0px!important;
+	  }
+	  
+	  .loginrightside{
+		width: 100%!important;
+		margin: 0px!important;
+	  }
+	  .medical_bill_listbox{
+		min-height: 200px!important;
+		height: auto;
+		display: flex!important;
+		flex-direction: column!important;
+		align-items: center!important;
+		justify-content: center!important;
+		padding: 20px 10px!important;
+		text-align: center;
+	}
+	.medical_bill_contentbox h2{
+		line-height: 24px!important;
+	}
+	.medical_bill_contentbox p {
+		margin-top: 5px!important;
+	}
+	.medical_bill_contentbox{
+		padding-left: 0px!important;
+		margin-top: 10px;
+	}
+	.medical_bill_listbox2{
+		display:  block!important;
+		text-align: center!important;
+	}
+	span.login-checkbox {
+		margin-top: 10px;
+		margin-bottom: 8px;
+	}
+	.login-actions.new .button{
+		float: none!important;
+		text-align: center!important;
+	}
+	h1.newlogin{
+		text-align: center;
+		font-size: 1.4rem;
+	}
+	.loginleftside {
+		order:2!important;
+	}
+  
+	.loginrightside {
+		order:1!important;
+	}
+	.account-container-left {
+		margin: 5px auto 10px auto!important;}
+		.account-container{
+			margin: 10px auto 0px auto!important;
+			padding: 10px 0!important;
+		}
+
+		.login-actions.new{
+			width: 70%!important;
+		}
+		span.login-checkbox > input[type='checkbox'] + label{
+			padding: 0px;
+		}
+		.navbar .brand{
+			font-size: 16px!important;
+		}
+}
+  /* login new page css END */
+
+
+  .modal-header h3{
+	color: #122867;
+  }

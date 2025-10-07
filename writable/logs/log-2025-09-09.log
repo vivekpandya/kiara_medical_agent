@@ -1,0 +1,430 @@
+ERROR - 2025-09-09 06:00:22 --> mysqli_sql_exception: Unknown column 'Phd.phd_credentials' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `Phd`.`p...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`p...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`p...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`p...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-09 06:00:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 2 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:00:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 4 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:00:22 --> [Caused by] mysqli_sql_exception: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 5 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-09 06:00:35 --> mysqli_sql_exception: Unknown column 'Phd.phd_credentials' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `Phd`.`p...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`p...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`p...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`p...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-09 06:00:35 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 2 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:00:35 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 4 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:00:35 --> [Caused by] mysqli_sql_exception: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 5 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-09 06:01:14 --> mysqli_sql_exception: Unknown column 'Phd.phd_credentials' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `Phd`.`p...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`p...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`p...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`p...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-09 06:01:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 2 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:01:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 4 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:01:14 --> [Caused by] mysqli_sql_exception: Unknown column 'Phd.phd_credentials' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = \'ACTIVE\'
+AND `Phd`.`phd_status` = \'ACTIVE\'
+AND `CPD`.`cpd_is_primary` = \'YES\'
+AND `Phd`.`phd_id` = \'6465\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `Phd`.`phd_id`, `CPD`.`cpd_cli_id`, `Phd`.`phd_speciality`, `Phd`.`phd_email`, `Phd`.`phd_name`, `Phd`.`phd_address1`, `Phd`.`phd_address2`, `Phd`.`phd_phone`, `Phd`.`phd_fax`, `Phd`.`phd_phone`, `Phd`.`phd_zip`, `C`.`city_name`, `S`.`state_name`, `CN`.`country_name`, `Phd`.`phd_npi`, `Phd`.`phd_credentials`
+FROM `tbl_client_physician_details` As `CPD`
+LEFT JOIN `tbl_clients` AS `Cli` ON `Cli`.`cli_id`=`CPD`.`cpd_cli_id`
+LEFT JOIN `tbl_physician_details` AS `Phd` ON `Phd`.`phd_id`=`CPD`.`cpd_phd_id`
+LEFT JOIN `tbl_city` AS `C` ON `C`.`city_id`=`Phd`.`phd_city`
+LEFT JOIN `tbl_state` AS `S` ON `S`.`state_id`=`Phd`.`phd_state`
+LEFT JOIN `tbl_country` AS `CN` ON `CN`.`country_id`=`Phd`.`phd_country`
+WHERE `CPD`.`cpd_status` = :CPD.cpd_status:
+AND `Phd`.`phd_status` = :Phd.phd_status:
+AND `CPD`.`cpd_is_primary` = :CPD.cpd_is_primary:
+AND `Phd`.`phd_id` = :Phd.phd_id:', [...], false)
+ 5 APPPATH\Models\Clients_model.php(1333): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Clients.php(2883): App\Models\Clients_model->getPrimaryPhysicianInfo('6465')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Clients->getfacesheetData()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Clients))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:03:06 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 884.
+ 1 SYSTEMPATH\Model.php(662): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(864): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\ClientsAdmission.php(10814): CodeIgniter\Model->__call('getAllEmergencyContacts', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsAdmission->get_systemFormData()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsAdmission))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:03:23 --> CodeIgniter\Database\Exceptions\DatabaseException: You must set the database table to be used with your query.
+in SYSTEMPATH\Database\BaseConnection.php on line 884.
+ 1 SYSTEMPATH\Model.php(662): CodeIgniter\Database\BaseConnection->table(null)
+ 2 SYSTEMPATH\Model.php(864): CodeIgniter\Model->builder()
+ 3 APPPATH\Controllers\ClientsAdmission.php(10814): CodeIgniter\Model->__call('getAllEmergencyContacts', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsAdmission->get_systemFormData()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsAdmission))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:05:20 --> ErrorException: Undefined variable $print_header
+in APPPATH\Controllers\ClientsAdmission.php on line 12209.
+ 1 APPPATH\Controllers\ClientsAdmission.php(12209): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $print_header', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\ClientsAdmission.php', 12209)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsAdmission->print_system_form()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsAdmission))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 06:05:33 --> ErrorException: Undefined variable $print_header
+in APPPATH\Controllers\ClientsAdmission.php on line 12209.
+ 1 APPPATH\Controllers\ClientsAdmission.php(12209): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $print_header', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\ClientsAdmission.php', 12209)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsAdmission->print_system_form()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsAdmission))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 07:26:41 --> ErrorException: Undefined variable $cli_id
+in APPPATH\Controllers\ClientsNursing.php on line 13438.
+ 1 APPPATH\Controllers\ClientsNursing.php(13438): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $cli_id', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\ClientsNursing.php', 13438)
+ 2 APPPATH\Controllers\ClientsNursing.php(8482): App\Controllers\ClientsNursing->save_individual_emergency_plan([...], 'Review')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsNursing->save_systemFormData()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsNursing))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 07:31:12 --> ErrorException: Undefined array key "iep_shelter_plan"
+in APPPATH\Controllers\ClientsNursing.php on line 13459.
+ 1 APPPATH\Controllers\ClientsNursing.php(13459): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "iep_shelter_plan"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\ClientsNursing.php', 13459)
+ 2 APPPATH\Controllers\ClientsNursing.php(8482): App\Controllers\ClientsNursing->save_individual_emergency_plan([...], 'Review')
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsNursing->save_systemFormData()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsNursing))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-09 07:36:26 --> ErrorException: Undefined variable $print_header
+in APPPATH\Controllers\ClientsAdmission.php on line 12186.
+ 1 APPPATH\Controllers\ClientsAdmission.php(12186): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $print_header', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\ClientsAdmission.php', 12186)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsAdmission->print_system_form()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsAdmission))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

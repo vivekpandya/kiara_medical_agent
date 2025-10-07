@@ -1,0 +1,1680 @@
+CRITICAL - 2025-09-23 00:42:25 --> ErrorException: Undefined property: stdClass::$vacation_scheduled_days
+in APPPATH\Views\reports\leave_record_report\leave_record_report_pagi.php on line 56.
+ 1 APPPATH\Views\reports\leave_record_report\leave_record_report_pagi.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$vacation_scheduled_days', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\leave_record_report\\leave_record_report_pagi.php', 56)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\leave_record_report\\leave_record_report_pagi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/leave_record_report/leave_record_report_pagi', [], true)
+ 5 APPPATH\Controllers\Reports.php(22775): view('reports/leave_record_report/leave_record_report_pagi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 00:42:40 --> ErrorException: Undefined property: stdClass::$vacation_scheduled_days
+in APPPATH\Views\reports\leave_record_report\leave_record_report_pagi.php on line 56.
+ 1 APPPATH\Views\reports\leave_record_report\leave_record_report_pagi.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$vacation_scheduled_days', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\leave_record_report\\leave_record_report_pagi.php', 56)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\leave_record_report\\leave_record_report_pagi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/leave_record_report/leave_record_report_pagi', [], true)
+ 5 APPPATH\Controllers\Reports.php(22775): view('reports/leave_record_report/leave_record_report_pagi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-23 01:15:52 --> mysqli_sql_exception: Unknown column 'nonmed_stipend.stipend_hcpc_name' in 'on clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12681): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData(Array, '', '', '', 'count')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-23 01:15:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nonmed_stipend.stipend_hcpc_name' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = :c.cli_dcc_id:
+AND `pp`.`year` = :pp.year:', [...], false)
+ 2 APPPATH\Models\Reports_model.php(12681): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 01:15:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nonmed_stipend.stipend_hcpc_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = :c.cli_dcc_id:
+AND `pp`.`year` = :pp.year:', [...], false)
+ 4 APPPATH\Models\Reports_model.php(12681): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 01:15:52 --> [Caused by] mysqli_sql_exception: Unknown column 'nonmed_stipend.stipend_hcpc_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = :c.cli_dcc_id:
+AND `pp`.`year` = :pp.year:', [...], false)
+ 5 APPPATH\Models\Reports_model.php(12681): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-23 01:16:03 --> mysqli_sql_exception: Unknown column 'nonmed_stipend.stipend_hcpc_name' in 'on clause' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(12681): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData(Array, '', '', '', 'count')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-23 01:16:03 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nonmed_stipend.stipend_hcpc_name' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = :c.cli_dcc_id:
+AND `pp`.`year` = :pp.year:', [...], false)
+ 2 APPPATH\Models\Reports_model.php(12681): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 01:16:03 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'nonmed_stipend.stipend_hcpc_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = :c.cli_dcc_id:
+AND `pp`.`year` = :pp.year:', [...], false)
+ 4 APPPATH\Models\Reports_model.php(12681): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 01:16:03 --> [Caused by] mysqli_sql_exception: Unknown column 'nonmed_stipend.stipend_hcpc_name' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = \'68\'
+AND `pp`.`year` = \'2025\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tbl_pa_policy_client` `pp`
+JOIN `tbl_clients` `c` ON `pp`.`client_id` = `c`.`cli_id`
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status = "Pending"
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_pending ON `vac_pending`.`cs_patient_id` = `pp`.`client_id` AND `vac_pending`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_pending`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_pending`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Rej_payer", "Paid", "Denied")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) vac_submitted ON `vac_submitted`.`cs_patient_id` = `pp`.`client_id` AND `vac_submitted`.`cs_healthcare_code_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_submitted`.`cs_eli_modifier_1` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_2` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_3` = `pp`.`alternative_placement_modifier` OR `vac_submitted`.`cs_eli_modifier_4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) vac_stipend ON `vac_stipend`.`stipend_client_id` = `pp`.`client_id` AND `vac_stipend`.`stipend_hcpc_name` = `pp`.`alternative_placement_hcpcs_code` AND (`vac_stipend`.`stipend_hcpc_modifier1` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier2` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier3` = `pp`.`alternative_placement_modifier` OR `vac_stipend`.`stipend_hcpc_modifier4` = pp.alternative_placement_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_pending ON `med_pending`.`cs_patient_id` = `pp`.`client_id` AND `med_pending`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_pending`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_pending`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) med_submitted ON `med_submitted`.`cs_patient_id` = `pp`.`client_id` AND `med_submitted`.`cs_healthcare_code_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_submitted`.`cs_eli_modifier_1` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_2` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_3` = `pp`.`medical_leave_modifier` OR `med_submitted`.`cs_eli_modifier_4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) med_stipend ON `med_stipend`.`stipend_client_id` = `pp`.`client_id` AND `med_stipend`.`stipend_hcpc_name` = `pp`.`medical_leave_hcpcs_code` AND (`med_stipend`.`stipend_hcpc_modifier1` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier2` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier3` = `pp`.`medical_leave_modifier` OR `med_stipend`.`stipend_hcpc_modifier4` = pp.medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Pending", "Acknowledged", "Hold", "Denied", "Follow-up", "Rej_payer", "Error", "Ack_final")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_pending ON `nonmed_pending`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_pending`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_pending`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_pending`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT cs_patient_id, COUNT(*) as count
+            FROM tbl_claim_summary 
+            WHERE cs_status = "ACTIVE" 
+            AND cs_claim_status IN ("Submitted", "Submitted - Error", "Paid", "Validated", "Info", "Modified")
+            AND YEAR(cs_shift_date) = 2025
+            GROUP BY cs_patient_id, cs_healthcare_code_name, cs_eli_modifier_1, cs_eli_modifier_2, cs_eli_modifier_3, cs_eli_modifier_4
+        ) nonmed_submitted ON `nonmed_submitted`.`cs_patient_id` = `pp`.`client_id` AND `nonmed_submitted`.`cs_healthcare_code_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_submitted`.`cs_eli_modifier_1` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_2` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_3` = `pp`.`non_medical_leave_modifier` OR `nonmed_submitted`.`cs_eli_modifier_4` = pp.non_medical_leave_modifier)
+LEFT JOIN (
+            SELECT stipend_client_id, COUNT(*) as count
+            FROM tbl_stipend_payment_detail 
+            WHERE YEAR(stipend_date) = 2025
+            GROUP BY stipend_client_id, stipend_hcpc_name, stipend_hcpc_modifier1, stipend_hcpc_modifier2, stipend_hcpc_modifier3, stipend_hcpc_modifier4
+        ) nonmed_stipend ON `nonmed_stipend`.`stipend_client_id` = `pp`.`client_id` AND `nonmed_stipend`.`stipend_hcpc_name` = `pp`.`non_medical_leave_hcpcs_code` AND (`nonmed_stipend`.`stipend_hcpc_modifier1` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier2` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier3` = `pp`.`non_medical_leave_modifier` OR `nonmed_stipend`.`stipend_hcpc_modifier4` = pp.non_medical_leave_modifier)
+WHERE `c`.`cli_dcc_id` = :c.cli_dcc_id:
+AND `pp`.`year` = :pp.year:', [...], false)
+ 5 APPPATH\Models\Reports_model.php(12681): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\Reports.php(22772): App\Models\Reports_model->getLeaveRecordReportData([...], '', '', '', 'count')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->leave_record_report_pagi()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 01:29:14 --> Error: Class "App\Models\DateTime" not found
+in APPPATH\Models\Reports_model.php on line 12496.
+ 1 APPPATH\Controllers\Reports.php(22565): App\Models\Reports_model->getSuspensionReportData([...], 0, '20', '1', '')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 01:29:25 --> Error: Class "App\Models\DateTime" not found
+in APPPATH\Models\Reports_model.php on line 12496.
+ 1 APPPATH\Controllers\Reports.php(22565): App\Models\Reports_model->getSuspensionReportData([...], 0, '20', '1', '')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->suspension_report_pagi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 01:35:45 --> ErrorException: Undefined array key "attach_document"
+in APPPATH\Controllers\ClientsAdmission.php on line 5164.
+ 1 APPPATH\Controllers\ClientsAdmission.php(5164): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "attach_document"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\ClientsAdmission.php', 5164)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsAdmission->attach_hom_document_upload()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsAdmission))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 02:08:57 --> ErrorException: Undefined variable $upddata
+in APPPATH\Controllers\ClientsNotes.php on line 896.
+ 1 APPPATH\Controllers\ClientsNotes.php(896): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $upddata', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\ClientsNotes.php', 896)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\ClientsNotes->attach_NNTS_document_upload()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ClientsNotes))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-23 06:42:37 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `DISTINC...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINC...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINC...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINC...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-23 06:42:37 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 06:42:37 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 06:42:37 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-23 06:42:49 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `DISTINC...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINC...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINC...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINC...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-23 06:42:49 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 06:42:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 06:42:49 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-23 06:44:42 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `DISTINC...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINC...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINC...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINC...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-23 06:44:42 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 06:44:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 06:44:42 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-09-23 06:45:59 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `DISTINC...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINC...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINC...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINC...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-23 06:45:59 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 2 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 06:45:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 4 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-23 06:45:59 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = '68'
+AND `E`.`event_stat' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = \'68\'
+AND `E`.`event_status` = \'ACTIVE\'
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != \'\'
+ORDER BY `E`.`eventTitle` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `DISTINCT` `E`.`eventTitle`
+FROM `events` AS `E`
+WHERE `E`.`dcc_id` = :E.dcc_id:
+AND `E`.`event_status` = :E.event_status:
+AND `E`.`eventTitle` IS NOT NULL
+AND `E`.`eventTitle` != :E.eventTitle:
+ORDER BY `E`.`eventTitle` ASC', [...], false)
+ 5 APPPATH\Models\Reports_model.php(10457): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(22245): App\Models\Reports_model->getDistinctAppointmentTitles()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->appointment_visit_report()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

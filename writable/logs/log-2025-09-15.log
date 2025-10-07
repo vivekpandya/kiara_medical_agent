@@ -1,0 +1,120 @@
+ERROR - 2025-09-15 04:38:28 --> mysqli_sql_exception: Unknown column 'assessment_form_name' in 'field list' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `assessm...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `assessm...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `assessm...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `assessm...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Reports.php(22544): App\Models\Common_model->getDataById('assessment_form...', 'event_assessmen...', Array, '', '', 'assessment_form...')
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-09-15 04:38:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'assessment_form_name' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `assessment_form_id`, `assessment_form_name`
+FROM `event_assessment_forms`
+WHERE `dcc_id` = :dcc_id:
+AND `approval_needed` = :approval_needed:', [...], false)
+ 2 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Reports.php(22544): App\Models\Common_model->getDataById('assessment_form_id, assessment_form_name', 'event_assessment_forms', [...], '', '', 'assessment_form_name ASC')
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 04:38:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'assessment_form_name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `assessment_form_id`, `assessment_form_name`
+FROM `event_assessment_forms`
+WHERE `dcc_id` = \'68\'
+AND `approval_needed` = \'YES\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `assessment_form_id`, `assessment_form_name`
+FROM `event_assessment_forms`
+WHERE `dcc_id` = \'68\'
+AND `approval_needed` = \'YES\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `assessment_form_id`, `assessment_form_name`
+FROM `event_assessment_forms`
+WHERE `dcc_id` = :dcc_id:
+AND `approval_needed` = :approval_needed:', [...], false)
+ 4 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Reports.php(22544): App\Models\Common_model->getDataById('assessment_form_id, assessment_form_name', 'event_assessment_forms', [...], '', '', 'assessment_form_name ASC')
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 04:38:28 --> [Caused by] mysqli_sql_exception: Unknown column 'assessment_form_name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `assessment_form_id`, `assessment_form_name`
+FROM `event_assessment_forms`
+WHERE `dcc_id` = \'68\'
+AND `approval_needed` = \'YES\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `assessment_form_id`, `assessment_form_name`
+FROM `event_assessment_forms`
+WHERE `dcc_id` = \'68\'
+AND `approval_needed` = \'YES\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `assessment_form_id`, `assessment_form_name`
+FROM `event_assessment_forms`
+WHERE `dcc_id` = \'68\'
+AND `approval_needed` = \'YES\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `assessment_form_id`, `assessment_form_name`
+FROM `event_assessment_forms`
+WHERE `dcc_id` = :dcc_id:
+AND `approval_needed` = :approval_needed:', [...], false)
+ 5 APPPATH\Models\Common_model.php(63): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Reports.php(22544): App\Models\Common_model->getDataById('assessment_form_id, assessment_form_name', 'event_assessment_forms', [...], '', '', 'assessment_form_name ASC')
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:01:59 --> TypeError: Unsupported operand types: int * string
+in APPPATH\Controllers\Reports.php on line 22558.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report_pagi()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:06:26 --> DivisionByZeroError: Division by zero
+in APPPATH\Views\reports\rejected_assessment_report\rejected_assessment_report_pagi.php on line 3.
+ 1 SYSTEMPATH\View\View.php(228): include()
+ 2 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/rejected_assessment_report/rejected_assessment_report_pagi', [], true)
+ 4 APPPATH\Controllers\Reports.php(22581): view('reports/rejected_assessment_report/rejected_assessment_report_pagi', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report_pagi()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:09:14 --> TypeError: Unsupported operand types: int * string
+in APPPATH\Controllers\Reports.php on line 22562.
+ 1 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report_pagi()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 05:10:16 --> ErrorException: Undefined variable $start
+in APPPATH\Controllers\Reports.php on line 22578.
+ 1 APPPATH\Controllers\Reports.php(22578): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $start', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Reports.php', 22578)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report_pagi()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 06:08:59 --> ErrorException: Undefined property: stdClass::$qam_type
+in APPPATH\Views\reports\rejected_assessment_report\rejected_assessment_report_pagi.php on line 72.
+ 1 APPPATH\Views\reports\rejected_assessment_report\rejected_assessment_report_pagi.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$qam_type', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\rejected_assessment_report\\rejected_assessment_report_pagi.php', 72)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\rejected_assessment_report\\rejected_assessment_report_pagi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/rejected_assessment_report/rejected_assessment_report_pagi', [], true)
+ 5 APPPATH\Controllers\Reports.php(22582): view('reports/rejected_assessment_report/rejected_assessment_report_pagi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-15 06:09:13 --> ErrorException: Undefined property: stdClass::$qam_type
+in APPPATH\Views\reports\rejected_assessment_report\rejected_assessment_report_pagi.php on line 72.
+ 1 APPPATH\Views\reports\rejected_assessment_report\rejected_assessment_report_pagi.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$qam_type', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\rejected_assessment_report\\rejected_assessment_report_pagi.php', 72)
+ 2 SYSTEMPATH\View\View.php(228): include('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Views\\reports\\rejected_assessment_report\\rejected_assessment_report_pagi.php')
+ 3 SYSTEMPATH\View\View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1178): CodeIgniter\View\View->render('reports/rejected_assessment_report/rejected_assessment_report_pagi', [], true)
+ 5 APPPATH\Controllers\Reports.php(22582): view('reports/rejected_assessment_report/rejected_assessment_report_pagi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Reports->rejected_assessment_report_pagi()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reports))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

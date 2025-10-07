@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "allowJs": true,
+    "checkJs": false
+  },
+  "include": [
+    "public/js/**/*",
+    "app/Views/**/*.php"
+  ]
+}

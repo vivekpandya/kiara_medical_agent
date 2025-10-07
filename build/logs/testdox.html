@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Test Documentation</title>
+        <style>
+            body {
+                text-rendering: optimizeLegibility;
+                font-family: Source SansSerif Pro, Arial, sans-serif;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2rem;
+                background-color: #fff;
+                color: #000;
+            }
+
+            body > ul > li {
+                font-size: larger;
+            }
+
+            h2 {
+                font-size: larger;
+                text-decoration-line: underline;
+                text-decoration-thickness: 2px;
+                margin: 0;
+                padding: 0.5rem 0;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0 0 2rem;
+                padding: 0 0 0 1rem;
+                text-indent: -1rem;
+            }
+
+            .success:before {
+                color: #4e9a06;
+                content: '✓';
+                padding-right: 0.5rem;
+            }
+
+            .defect {
+                color: #a40000;
+            }
+
+            .defect:before {
+                color: #a40000;
+                content: '✗';
+                padding-right: 0.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Timecard Cronjob</h2>
+        <ul>
+            <li class="success">Daily total calculation</li>
+            <li class="success">Weekly total calculation</li>
+            <li class="success">Dcc timeclock details retrieval</li>
+            <li class="success">Daily timecards for week retrieval</li>
+            <li class="success">Timecard submitted users retrieval</li>
+            <li class="success">Date validation for cronjob</li>
+            <li class="success">Day of week validation</li>
+            <li class="success">Week start date calculation</li>
+            <li class="success">Week end date calculation</li>
+            <li class="success">Timecard data aggregation</li>
+            <li class="success">Timecard approval status processing</li>
+            <li class="success">Missing timecard detection</li>
+            <li class="success">Timecard data validation</li>
+            <li class="success">Cronjob execution timing</li>
+            <li class="success">Cronjob error handling</li>
+            <li class="success">Timecard processing performance</li>
+        </ul>
+    </body>
+</html>

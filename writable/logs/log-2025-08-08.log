@@ -1,0 +1,181 @@
+ERROR - 2025-08-08 01:16:41 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPun' at line 3 in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*)...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\AttendingCare_model.php(425): CodeIgniter\Database\BaseBuilder->countAllResults()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\AttendingCare.php(4531): App\Models\AttendingCare_model->getEmployeeLogsList('', '', Array)
+#6 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\AttendingCare->get_approval_daily_logs()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AttendingCare))
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-08-08 01:16:41 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPun' at line 3
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT tpl.userId,tpl.inLat,tpl.inLng,tpl.outLat,tpl.outLng,tpl.timecardPunchingLogId, u.usr_id as usr_id, CONCAT(u.usr_first_name," ",u.usr_last_name) as usr_display_name, c.cli_name, tpl.type,date_format(tpl.inTime,"%m/%d/%Y") as inDate, date_format(tpl.inTime,"%h:%i %p") as inTime, tpl.inTimeType, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%m/%d/%Y") END) as outDate, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%h:%i %p") END) as outTime, tpl.outTimeType, (CASE WHEN tplt.totalHrs IS NULL THEN "" ELSE tplt.totalHrs END) AS totalHrs, (CASE WHEN tplt.roundedOffHrs IS NULL THEN "" ELSE tplt.roundedOffHrs END) AS roundedOffHrs (CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPunchingLogTotalId END) as timecardPunchingLogTotalId, (CASE WHEN tpl.eventId > 0 AND tpl.serviceId = 0 THEN "All Services" ELSE (CASE WHEN alv.payer_type="PRIVATE" THEN i.item_description ELSE h1.hcpc_description END) END) as hcpc_description, alv.appointment_log_id, alv.is_claim_generated, e.eventTitle
+FROM `timecard_punching_log` AS `tpl`
+JOIN `tbl_users` AS `u` ON `tpl`.`userId` = `u`.`usr_id`
+LEFT JOIN `timecard_punching_log_total` AS `tplt` ON `tpl`.`timecardPunchingLogId` = `tplt`.`timecardPunchingLogId`
+LEFT JOIN `tbl_clients` AS `c` ON `tpl`.`userProjectId` = `c`.`cli_id`
+LEFT JOIN `appointment_log_views` AS `alv` ON `tpl`.`eventId` = `alv`.`appointment_id`
+LEFT JOIN `events` AS `e` ON `alv`.`appointment_id` = `e`.`eventId`
+LEFT JOIN `tbl_hcpc_codes` AS `h` ON `alv`.`hcpc_id` = `h`.`hcpc_id`
+LEFT JOIN `tbl_hcpc_codes` AS `h1` ON `tpl`.`serviceId` = `h1`.`hcpc_id`
+LEFT JOIN `tbl_items` AS `i` ON `alv`.`service_hcpc_id` = `i`.`item_id`
+WHERE date_format(tpl.inTime, "%Y-%m-%d") = :date_format(tpl.inTime, "%Y-%m-%d"):
+AND `u`.`usr_dcc_id` = :u.usr_dcc_id:
+GROUP BY `tpl`.`timecardPunchingLogId`, `alv`.`appointment_id`
+) CI_count_all_results', [...], false)
+ 2 APPPATH\Models\AttendingCare_model.php(425): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 3 APPPATH\Controllers\AttendingCare.php(4531): App\Models\AttendingCare_model->getEmployeeLogsList('', '', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\AttendingCare->get_approval_daily_logs()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AttendingCare))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-08 01:16:41 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPun' at line 3
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT tpl.userId,tpl.inLat,tpl.inLng,tpl.outLat,tpl.outLng,tpl.timecardPunchingLogId, u.usr_id as usr_id, CONCAT(u.usr_first_name," ",u.usr_last_name) as usr_display_name, c.cli_name, tpl.type,date_format(tpl.inTime,"%m/%d/%Y") as inDate, date_format(tpl.inTime,"%h:%i %p") as inTime, tpl.inTimeType, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%m/%d/%Y") END) as outDate, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%h:%i %p") END) as outTime, tpl.outTimeType, (CASE WHEN tplt.totalHrs IS NULL THEN "" ELSE tplt.totalHrs END) AS totalHrs, (CASE WHEN tplt.roundedOffHrs IS NULL THEN "" ELSE tplt.roundedOffHrs END) AS roundedOffHrs (CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPunchingLogTotalId END) as timecardPunchingLogTotalId, (CASE WHEN tpl.eventId > 0 AND tpl.serviceId = 0 THEN "All Services" ELSE (CASE WHEN alv.payer_type="PRIVATE" THEN i.item_description ELSE h1.hcpc_description END) END) as hcpc_description, alv.appointment_log_id, alv.is_claim_generated, e.eventTitle
+FROM `timecard_punching_log` AS `tpl`
+JOIN `tbl_users` AS `u` ON `tpl`.`userId` = `u`.`usr_id`
+LEFT JOIN `timecard_punching_log_total` AS `tplt` ON `tpl`.`timecardPunchingLogId` = `tplt`.`timecardPunchingLogId`
+LEFT JOIN `tbl_clients` AS `c` ON `tpl`.`userProjectId` = `c`.`cli_id`
+LEFT JOIN `appointment_log_views` AS `alv` ON `tpl`.`eventId` = `alv`.`appointment_id`
+LEFT JOIN `events` AS `e` ON `alv`.`appointment_id` = `e`.`eventId`
+LEFT JOIN `tbl_hcpc_codes` AS `h` ON `alv`.`hcpc_id` = `h`.`hcpc_id`
+LEFT JOIN `tbl_hcpc_codes` AS `h1` ON `tpl`.`serviceId` = `h1`.`hcpc_id`
+LEFT JOIN `tbl_items` AS `i` ON `alv`.`service_hcpc_id` = `i`.`item_id`
+WHERE date_format(tpl.inTime, "%Y-%m-%d") = \'2025-08-08\'
+AND `u`.`usr_dcc_id` = \'68\'
+GROUP BY `tpl`.`timecardPunchingLogId`, `alv`.`appointment_id`
+) CI_count_all_results')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT tpl.userId,tpl.inLat,tpl.inLng,tpl.outLat,tpl.outLng,tpl.timecardPunchingLogId, u.usr_id as usr_id, CONCAT(u.usr_first_name," ",u.usr_last_name) as usr_display_name, c.cli_name, tpl.type,date_format(tpl.inTime,"%m/%d/%Y") as inDate, date_format(tpl.inTime,"%h:%i %p") as inTime, tpl.inTimeType, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%m/%d/%Y") END) as outDate, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%h:%i %p") END) as outTime, tpl.outTimeType, (CASE WHEN tplt.totalHrs IS NULL THEN "" ELSE tplt.totalHrs END) AS totalHrs, (CASE WHEN tplt.roundedOffHrs IS NULL THEN "" ELSE tplt.roundedOffHrs END) AS roundedOffHrs (CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPunchingLogTotalId END) as timecardPunchingLogTotalId, (CASE WHEN tpl.eventId > 0 AND tpl.serviceId = 0 THEN "All Services" ELSE (CASE WHEN alv.payer_type="PRIVATE" THEN i.item_description ELSE h1.hcpc_description END) END) as hcpc_description, alv.appointment_log_id, alv.is_claim_generated, e.eventTitle
+FROM `timecard_punching_log` AS `tpl`
+JOIN `tbl_users` AS `u` ON `tpl`.`userId` = `u`.`usr_id`
+LEFT JOIN `timecard_punching_log_total` AS `tplt` ON `tpl`.`timecardPunchingLogId` = `tplt`.`timecardPunchingLogId`
+LEFT JOIN `tbl_clients` AS `c` ON `tpl`.`userProjectId` = `c`.`cli_id`
+LEFT JOIN `appointment_log_views` AS `alv` ON `tpl`.`eventId` = `alv`.`appointment_id`
+LEFT JOIN `events` AS `e` ON `alv`.`appointment_id` = `e`.`eventId`
+LEFT JOIN `tbl_hcpc_codes` AS `h` ON `alv`.`hcpc_id` = `h`.`hcpc_id`
+LEFT JOIN `tbl_hcpc_codes` AS `h1` ON `tpl`.`serviceId` = `h1`.`hcpc_id`
+LEFT JOIN `tbl_items` AS `i` ON `alv`.`service_hcpc_id` = `i`.`item_id`
+WHERE date_format(tpl.inTime, "%Y-%m-%d") = \'2025-08-08\'
+AND `u`.`usr_dcc_id` = \'68\'
+GROUP BY `tpl`.`timecardPunchingLogId`, `alv`.`appointment_id`
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT tpl.userId,tpl.inLat,tpl.inLng,tpl.outLat,tpl.outLng,tpl.timecardPunchingLogId, u.usr_id as usr_id, CONCAT(u.usr_first_name," ",u.usr_last_name) as usr_display_name, c.cli_name, tpl.type,date_format(tpl.inTime,"%m/%d/%Y") as inDate, date_format(tpl.inTime,"%h:%i %p") as inTime, tpl.inTimeType, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%m/%d/%Y") END) as outDate, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%h:%i %p") END) as outTime, tpl.outTimeType, (CASE WHEN tplt.totalHrs IS NULL THEN "" ELSE tplt.totalHrs END) AS totalHrs, (CASE WHEN tplt.roundedOffHrs IS NULL THEN "" ELSE tplt.roundedOffHrs END) AS roundedOffHrs (CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPunchingLogTotalId END) as timecardPunchingLogTotalId, (CASE WHEN tpl.eventId > 0 AND tpl.serviceId = 0 THEN "All Services" ELSE (CASE WHEN alv.payer_type="PRIVATE" THEN i.item_description ELSE h1.hcpc_description END) END) as hcpc_description, alv.appointment_log_id, alv.is_claim_generated, e.eventTitle
+FROM `timecard_punching_log` AS `tpl`
+JOIN `tbl_users` AS `u` ON `tpl`.`userId` = `u`.`usr_id`
+LEFT JOIN `timecard_punching_log_total` AS `tplt` ON `tpl`.`timecardPunchingLogId` = `tplt`.`timecardPunchingLogId`
+LEFT JOIN `tbl_clients` AS `c` ON `tpl`.`userProjectId` = `c`.`cli_id`
+LEFT JOIN `appointment_log_views` AS `alv` ON `tpl`.`eventId` = `alv`.`appointment_id`
+LEFT JOIN `events` AS `e` ON `alv`.`appointment_id` = `e`.`eventId`
+LEFT JOIN `tbl_hcpc_codes` AS `h` ON `alv`.`hcpc_id` = `h`.`hcpc_id`
+LEFT JOIN `tbl_hcpc_codes` AS `h1` ON `tpl`.`serviceId` = `h1`.`hcpc_id`
+LEFT JOIN `tbl_items` AS `i` ON `alv`.`service_hcpc_id` = `i`.`item_id`
+WHERE date_format(tpl.inTime, "%Y-%m-%d") = :date_format(tpl.inTime, "%Y-%m-%d"):
+AND `u`.`usr_dcc_id` = :u.usr_dcc_id:
+GROUP BY `tpl`.`timecardPunchingLogId`, `alv`.`appointment_id`
+) CI_count_all_results', [...], false)
+ 4 APPPATH\Models\AttendingCare_model.php(425): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 5 APPPATH\Controllers\AttendingCare.php(4531): App\Models\AttendingCare_model->getEmployeeLogsList('', '', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\AttendingCare->get_approval_daily_logs()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AttendingCare))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-08 01:16:41 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPun' at line 3
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT tpl.userId,tpl.inLat,tpl.inLng,tpl.outLat,tpl.outLng,tpl.timecardPunchingLogId, u.usr_id as usr_id, CONCAT(u.usr_first_name," ",u.usr_last_name) as usr_display_name, c.cli_name, tpl.type,date_format(tpl.inTime,"%m/%d/%Y") as inDate, date_format(tpl.inTime,"%h:%i %p") as inTime, tpl.inTimeType, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%m/%d/%Y") END) as outDate, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%h:%i %p") END) as outTime, tpl.outTimeType, (CASE WHEN tplt.totalHrs IS NULL THEN "" ELSE tplt.totalHrs END) AS totalHrs, (CASE WHEN tplt.roundedOffHrs IS NULL THEN "" ELSE tplt.roundedOffHrs END) AS roundedOffHrs (CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPunchingLogTotalId END) as timecardPunchingLogTotalId, (CASE WHEN tpl.eventId > 0 AND tpl.serviceId = 0 THEN "All Services" ELSE (CASE WHEN alv.payer_type="PRIVATE" THEN i.item_description ELSE h1.hcpc_description END) END) as hcpc_description, alv.appointment_log_id, alv.is_claim_generated, e.eventTitle
+FROM `timecard_punching_log` AS `tpl`
+JOIN `tbl_users` AS `u` ON `tpl`.`userId` = `u`.`usr_id`
+LEFT JOIN `timecard_punching_log_total` AS `tplt` ON `tpl`.`timecardPunchingLogId` = `tplt`.`timecardPunchingLogId`
+LEFT JOIN `tbl_clients` AS `c` ON `tpl`.`userProjectId` = `c`.`cli_id`
+LEFT JOIN `appointment_log_views` AS `alv` ON `tpl`.`eventId` = `alv`.`appointment_id`
+LEFT JOIN `events` AS `e` ON `alv`.`appointment_id` = `e`.`eventId`
+LEFT JOIN `tbl_hcpc_codes` AS `h` ON `alv`.`hcpc_id` = `h`.`hcpc_id`
+LEFT JOIN `tbl_hcpc_codes` AS `h1` ON `tpl`.`serviceId` = `h1`.`hcpc_id`
+LEFT JOIN `tbl_items` AS `i` ON `alv`.`service_hcpc_id` = `i`.`item_id`
+WHERE date_format(tpl.inTime, "%Y-%m-%d") = \'2025-08-08\'
+AND `u`.`usr_dcc_id` = \'68\'
+GROUP BY `tpl`.`timecardPunchingLogId`, `alv`.`appointment_id`
+) CI_count_all_results', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT tpl.userId,tpl.inLat,tpl.inLng,tpl.outLat,tpl.outLng,tpl.timecardPunchingLogId, u.usr_id as usr_id, CONCAT(u.usr_first_name," ",u.usr_last_name) as usr_display_name, c.cli_name, tpl.type,date_format(tpl.inTime,"%m/%d/%Y") as inDate, date_format(tpl.inTime,"%h:%i %p") as inTime, tpl.inTimeType, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%m/%d/%Y") END) as outDate, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%h:%i %p") END) as outTime, tpl.outTimeType, (CASE WHEN tplt.totalHrs IS NULL THEN "" ELSE tplt.totalHrs END) AS totalHrs, (CASE WHEN tplt.roundedOffHrs IS NULL THEN "" ELSE tplt.roundedOffHrs END) AS roundedOffHrs (CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPunchingLogTotalId END) as timecardPunchingLogTotalId, (CASE WHEN tpl.eventId > 0 AND tpl.serviceId = 0 THEN "All Services" ELSE (CASE WHEN alv.payer_type="PRIVATE" THEN i.item_description ELSE h1.hcpc_description END) END) as hcpc_description, alv.appointment_log_id, alv.is_claim_generated, e.eventTitle
+FROM `timecard_punching_log` AS `tpl`
+JOIN `tbl_users` AS `u` ON `tpl`.`userId` = `u`.`usr_id`
+LEFT JOIN `timecard_punching_log_total` AS `tplt` ON `tpl`.`timecardPunchingLogId` = `tplt`.`timecardPunchingLogId`
+LEFT JOIN `tbl_clients` AS `c` ON `tpl`.`userProjectId` = `c`.`cli_id`
+LEFT JOIN `appointment_log_views` AS `alv` ON `tpl`.`eventId` = `alv`.`appointment_id`
+LEFT JOIN `events` AS `e` ON `alv`.`appointment_id` = `e`.`eventId`
+LEFT JOIN `tbl_hcpc_codes` AS `h` ON `alv`.`hcpc_id` = `h`.`hcpc_id`
+LEFT JOIN `tbl_hcpc_codes` AS `h1` ON `tpl`.`serviceId` = `h1`.`hcpc_id`
+LEFT JOIN `tbl_items` AS `i` ON `alv`.`service_hcpc_id` = `i`.`item_id`
+WHERE date_format(tpl.inTime, "%Y-%m-%d") = \'2025-08-08\'
+AND `u`.`usr_dcc_id` = \'68\'
+GROUP BY `tpl`.`timecardPunchingLogId`, `alv`.`appointment_id`
+) CI_count_all_results')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT tpl.userId,tpl.inLat,tpl.inLng,tpl.outLat,tpl.outLng,tpl.timecardPunchingLogId, u.usr_id as usr_id, CONCAT(u.usr_first_name," ",u.usr_last_name) as usr_display_name, c.cli_name, tpl.type,date_format(tpl.inTime,"%m/%d/%Y") as inDate, date_format(tpl.inTime,"%h:%i %p") as inTime, tpl.inTimeType, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%m/%d/%Y") END) as outDate, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%h:%i %p") END) as outTime, tpl.outTimeType, (CASE WHEN tplt.totalHrs IS NULL THEN "" ELSE tplt.totalHrs END) AS totalHrs, (CASE WHEN tplt.roundedOffHrs IS NULL THEN "" ELSE tplt.roundedOffHrs END) AS roundedOffHrs (CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPunchingLogTotalId END) as timecardPunchingLogTotalId, (CASE WHEN tpl.eventId > 0 AND tpl.serviceId = 0 THEN "All Services" ELSE (CASE WHEN alv.payer_type="PRIVATE" THEN i.item_description ELSE h1.hcpc_description END) END) as hcpc_description, alv.appointment_log_id, alv.is_claim_generated, e.eventTitle
+FROM `timecard_punching_log` AS `tpl`
+JOIN `tbl_users` AS `u` ON `tpl`.`userId` = `u`.`usr_id`
+LEFT JOIN `timecard_punching_log_total` AS `tplt` ON `tpl`.`timecardPunchingLogId` = `tplt`.`timecardPunchingLogId`
+LEFT JOIN `tbl_clients` AS `c` ON `tpl`.`userProjectId` = `c`.`cli_id`
+LEFT JOIN `appointment_log_views` AS `alv` ON `tpl`.`eventId` = `alv`.`appointment_id`
+LEFT JOIN `events` AS `e` ON `alv`.`appointment_id` = `e`.`eventId`
+LEFT JOIN `tbl_hcpc_codes` AS `h` ON `alv`.`hcpc_id` = `h`.`hcpc_id`
+LEFT JOIN `tbl_hcpc_codes` AS `h1` ON `tpl`.`serviceId` = `h1`.`hcpc_id`
+LEFT JOIN `tbl_items` AS `i` ON `alv`.`service_hcpc_id` = `i`.`item_id`
+WHERE date_format(tpl.inTime, "%Y-%m-%d") = \'2025-08-08\'
+AND `u`.`usr_dcc_id` = \'68\'
+GROUP BY `tpl`.`timecardPunchingLogId`, `alv`.`appointment_id`
+) CI_count_all_results')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM (
+SELECT tpl.userId,tpl.inLat,tpl.inLng,tpl.outLat,tpl.outLng,tpl.timecardPunchingLogId, u.usr_id as usr_id, CONCAT(u.usr_first_name," ",u.usr_last_name) as usr_display_name, c.cli_name, tpl.type,date_format(tpl.inTime,"%m/%d/%Y") as inDate, date_format(tpl.inTime,"%h:%i %p") as inTime, tpl.inTimeType, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%m/%d/%Y") END) as outDate, (CASE WHEN ISNULL(tpl.outTime) THEN "" ELSE date_format(tpl.outTime,"%h:%i %p") END) as outTime, tpl.outTimeType, (CASE WHEN tplt.totalHrs IS NULL THEN "" ELSE tplt.totalHrs END) AS totalHrs, (CASE WHEN tplt.roundedOffHrs IS NULL THEN "" ELSE tplt.roundedOffHrs END) AS roundedOffHrs (CASE WHEN ISNULL(tplt.timecardPunchingLogTotalId) THEN "" ELSE tplt.timecardPunchingLogTotalId END) as timecardPunchingLogTotalId, (CASE WHEN tpl.eventId > 0 AND tpl.serviceId = 0 THEN "All Services" ELSE (CASE WHEN alv.payer_type="PRIVATE" THEN i.item_description ELSE h1.hcpc_description END) END) as hcpc_description, alv.appointment_log_id, alv.is_claim_generated, e.eventTitle
+FROM `timecard_punching_log` AS `tpl`
+JOIN `tbl_users` AS `u` ON `tpl`.`userId` = `u`.`usr_id`
+LEFT JOIN `timecard_punching_log_total` AS `tplt` ON `tpl`.`timecardPunchingLogId` = `tplt`.`timecardPunchingLogId`
+LEFT JOIN `tbl_clients` AS `c` ON `tpl`.`userProjectId` = `c`.`cli_id`
+LEFT JOIN `appointment_log_views` AS `alv` ON `tpl`.`eventId` = `alv`.`appointment_id`
+LEFT JOIN `events` AS `e` ON `alv`.`appointment_id` = `e`.`eventId`
+LEFT JOIN `tbl_hcpc_codes` AS `h` ON `alv`.`hcpc_id` = `h`.`hcpc_id`
+LEFT JOIN `tbl_hcpc_codes` AS `h1` ON `tpl`.`serviceId` = `h1`.`hcpc_id`
+LEFT JOIN `tbl_items` AS `i` ON `alv`.`service_hcpc_id` = `i`.`item_id`
+WHERE date_format(tpl.inTime, "%Y-%m-%d") = :date_format(tpl.inTime, "%Y-%m-%d"):
+AND `u`.`usr_dcc_id` = :u.usr_dcc_id:
+GROUP BY `tpl`.`timecardPunchingLogId`, `alv`.`appointment_id`
+) CI_count_all_results', [...], false)
+ 5 APPPATH\Models\AttendingCare_model.php(425): CodeIgniter\Database\BaseBuilder->countAllResults()
+ 6 APPPATH\Controllers\AttendingCare.php(4531): App\Models\AttendingCare_model->getEmployeeLogsList('', '', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\AttendingCare->get_approval_daily_logs()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AttendingCare))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-08 02:25:24 --> ErrorException: Undefined property: stdClass::$workHours
+in APPPATH\Controllers\AttendingCare.php on line 1999.
+ 1 APPPATH\Controllers\AttendingCare.php(1999): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$workHours', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\AttendingCare.php', 1999)
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\AttendingCare->checkin_out_post()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AttendingCare))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-08 01:34:50 --> ParseError: syntax error, unexpected token "}"
+in APPPATH\Controllers\AttendingCare.php on line 792.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(288): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\AttendingCare.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\AttendingCare')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\AttendingCare')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\AttendingCare', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()

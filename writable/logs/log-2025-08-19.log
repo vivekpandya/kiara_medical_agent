@@ -1,0 +1,121 @@
+CRITICAL - 2025-08-19 01:45:56 --> ErrorException: Undefined array key "claim_amount"
+in APPPATH\Controllers\Billing.php on line 21838.
+ 1 APPPATH\Controllers\Billing.php(21838): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "claim_amount"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Billing.php', 21838)
+ 2 APPPATH\Controllers\Billing.php(21666): App\Controllers\Billing->save_claim_auto_payment_optimized([...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-19 01:59:47 --> ErrorException: Only variables should be passed by reference
+in APPPATH\Controllers\Billing.php on line 21721.
+ 1 APPPATH\Controllers\Billing.php(21721): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Only variables should be passed by reference', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Billing.php', 21721)
+ 2 APPPATH\Controllers\Billing.php(21666): App\Controllers\Billing->save_claim_auto_payment_optimized([...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-19 02:01:17 --> ParseError: Invalid numeric literal
+in APPPATH\Controllers\Billing.php on line 21680.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(288): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Billing.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(266): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Billing')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Billing')
+ 4 SYSTEMPATH\CodeIgniter.php(899): class_exists('\\App\\Controllers\\Billing', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-19 05:36:45 --> ArgumentCountError: Too few arguments to function App\Controllers\Billing::save_claim_auto_payment_optimized_version_2(), 0 passed in D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Billing.php on line 21242 and exactly 1 expected
+in APPPATH\Controllers\Billing.php on line 21674.
+ 1 APPPATH\Controllers\Billing.php(21242): App\Controllers\Billing->save_claim_auto_payment_optimized_version_2()
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-08-19 05:47:54 --> mysqli_sql_exception: Incorrect DATETIME value: '2025-06-14,2025-06-15' in D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `cs_id`,...', 0)
+#1 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cs_id`,...')
+#2 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cs_id`,...')
+#3 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cs_id`,...', Array, false)
+#4 D:\wamp\www\new_adult_foster_care_pro\app\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Billing.php(22171): App\Models\Common_model->getAllData('cs_id, cs_patie...', 'tbl_claim_summa...', '((cs_shift_date...', '', '', '')
+#6 D:\wamp\www\new_adult_foster_care_pro\app\Controllers\Billing.php(21242): App\Controllers\Billing->save_claim_auto_payment_optimized_version_2()
+#7 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+#8 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+#9 D:\wamp\www\new_adult_foster_care_pro\vendor\codeigniter4\framework\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\wamp\www\new_adult_foster_care_pro\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2025-08-19 05:47:54 --> CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATETIME value: '2025-06-14,2025-06-15'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cs_id`, `cs_patient_name`, `cs_payer_name`, `cs_claim_status`, `cs_shift_date`, `cs_patient_control`, `cs_total_paid_amount`, `cs_allowed_amount`, `cs_discount_amount`, `cs_total_balance_amount`
+FROM `tbl_claim_summary`
+WHERE ((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND `cs_status` = \'ACTIVE\'', [], false)
+ 2 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Billing.php(22171): App\Models\Common_model->getAllData('cs_id, cs_patient_name, cs_payer_name, cs_claim_status, cs_shift_date, cs_patient_control, cs_total_paid_amount, cs_allowed_amount, cs_discount_amount, cs_total_balance_amount', 'tbl_claim_summary', '((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND cs_status = \'ACTIVE\'', '', '', '')
+ 4 APPPATH\Controllers\Billing.php(21242): App\Controllers\Billing->save_claim_auto_payment_optimized_version_2()
+ 5 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-19 05:47:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Incorrect DATETIME value: '2025-06-14,2025-06-15'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cs_id`, `cs_patient_name`, `cs_payer_name`, `cs_claim_status`, `cs_shift_date`, `cs_patient_control`, `cs_total_paid_amount`, `cs_allowed_amount`, `cs_discount_amount`, `cs_total_balance_amount`
+FROM `tbl_claim_summary`
+WHERE ((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND `cs_status` = \'ACTIVE\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cs_id`, `cs_patient_name`, `cs_payer_name`, `cs_claim_status`, `cs_shift_date`, `cs_patient_control`, `cs_total_paid_amount`, `cs_allowed_amount`, `cs_discount_amount`, `cs_total_balance_amount`
+FROM `tbl_claim_summary`
+WHERE ((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND `cs_status` = \'ACTIVE\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cs_id`, `cs_patient_name`, `cs_payer_name`, `cs_claim_status`, `cs_shift_date`, `cs_patient_control`, `cs_total_paid_amount`, `cs_allowed_amount`, `cs_discount_amount`, `cs_total_balance_amount`
+FROM `tbl_claim_summary`
+WHERE ((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND `cs_status` = \'ACTIVE\'', [], false)
+ 4 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Billing.php(22171): App\Models\Common_model->getAllData('cs_id, cs_patient_name, cs_payer_name, cs_claim_status, cs_shift_date, cs_patient_control, cs_total_paid_amount, cs_allowed_amount, cs_discount_amount, cs_total_balance_amount', 'tbl_claim_summary', '((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND cs_status = \'ACTIVE\'', '', '', '')
+ 6 APPPATH\Controllers\Billing.php(21242): App\Controllers\Billing->save_claim_auto_payment_optimized_version_2()
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-19 05:47:54 --> [Caused by] mysqli_sql_exception: Incorrect DATETIME value: '2025-06-14,2025-06-15'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT `cs_id`, `cs_patient_name`, `cs_payer_name`, `cs_claim_status`, `cs_shift_date`, `cs_patient_control`, `cs_total_paid_amount`, `cs_allowed_amount`, `cs_discount_amount`, `cs_total_balance_amount`
+FROM `tbl_claim_summary`
+WHERE ((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND `cs_status` = \'ACTIVE\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `cs_id`, `cs_patient_name`, `cs_payer_name`, `cs_claim_status`, `cs_shift_date`, `cs_patient_control`, `cs_total_paid_amount`, `cs_allowed_amount`, `cs_discount_amount`, `cs_total_balance_amount`
+FROM `tbl_claim_summary`
+WHERE ((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND `cs_status` = \'ACTIVE\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `cs_id`, `cs_patient_name`, `cs_payer_name`, `cs_claim_status`, `cs_shift_date`, `cs_patient_control`, `cs_total_paid_amount`, `cs_allowed_amount`, `cs_discount_amount`, `cs_total_balance_amount`
+FROM `tbl_claim_summary`
+WHERE ((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND `cs_status` = \'ACTIVE\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT `cs_id`, `cs_patient_name`, `cs_payer_name`, `cs_claim_status`, `cs_shift_date`, `cs_patient_control`, `cs_total_paid_amount`, `cs_allowed_amount`, `cs_discount_amount`, `cs_total_balance_amount`
+FROM `tbl_claim_summary`
+WHERE ((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND `cs_status` = \'ACTIVE\'', [], false)
+ 5 APPPATH\Models\Common_model.php(110): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Billing.php(22171): App\Models\Common_model->getAllData('cs_id, cs_patient_name, cs_payer_name, cs_claim_status, cs_shift_date, cs_patient_control, cs_total_paid_amount, cs_allowed_amount, cs_discount_amount, cs_total_balance_amount', 'tbl_claim_summary', '((cs_shift_date = \'2025-06-14,2025-06-15\' AND cs_patient_control = \'97355\')) AND cs_status = \'ACTIVE\'', '', '', '')
+ 7 APPPATH\Controllers\Billing.php(21242): App\Controllers\Billing->save_claim_auto_payment_optimized_version_2()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-19 07:18:19 --> ErrorException: Trying to access array offset on value of type int
+in APPPATH\Controllers\Billing.php on line 22251.
+ 1 APPPATH\Controllers\Billing.php(22251): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type int', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Billing.php', 22251)
+ 2 APPPATH\Controllers\Billing.php(21242): App\Controllers\Billing->save_claim_auto_payment_optimized_version_2()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-19 07:20:53 --> ErrorException: Undefined array key "claim_amount"
+in APPPATH\Controllers\Billing.php on line 22279.
+ 1 APPPATH\Controllers\Billing.php(22279): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "claim_amount"', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Billing.php', 22279)
+ 2 APPPATH\Controllers\Billing.php(21242): App\Controllers\Billing->save_claim_auto_payment_optimized_version_2()
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-08-19 09:22:27 --> ErrorException: Attempt to read property "cs_id" on array
+in APPPATH\Controllers\Billing.php on line 21944.
+ 1 APPPATH\Controllers\Billing.php(21944): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "cs_id" on array', 'D:\\wamp\\www\\new_adult_foster_care_pro\\app\\Controllers\\Billing.php', 21944)
+ 2 APPPATH\Controllers\Billing.php(21667): App\Controllers\Billing->save_claim_auto_payment_optimized_version_2([...])
+ 3 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Billing->get_auto_payment_list()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Billing))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
