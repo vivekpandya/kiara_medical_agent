@@ -123,12 +123,14 @@
         /* Voice Chat Styling Improvements */
         .voice-chat-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 60px 0;
+            padding: 20px 0;
+            min-height: calc(100vh - 120px);
         }
         
         .voice-chat-card {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             border-radius: 20px;
             overflow: hidden;
@@ -137,7 +139,7 @@
         .voice-chat-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 25px;
+            padding: 15px;
             text-align: center;
         }
         
@@ -148,9 +150,29 @@
         }
         
         .voice-chat-content {
-            padding: 30px;
+            padding: 0;
             background: white;
-            min-height: 400px;
+            min-height: calc(100vh - 200px);
+            height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .left-column {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #e9ecef;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .right-column {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
         
         #voiceChatContainer {
@@ -284,15 +306,18 @@
         .transcript-section {
             background: white;
             border-radius: 10px;
-            margin: 20px 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
         .transcript-header {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 15px 20px;
             border-bottom: 1px solid #e9ecef;
             border-radius: 10px 10px 0 0;
+            flex-shrink: 0;
         }
         
         .transcript-header h6 {
@@ -302,28 +327,40 @@
         }
         
         .transcript-container {
-            height: 200px;
+            flex: 1;
             overflow-y: auto;
             background: #fff;
             border: 1px solid #e9ecef;
-            border-radius: 8px;
+            border-radius: 0 0 10px 10px;
             padding: 20px;
             font-family: 'Courier New', monospace;
             font-size: 14px;
             line-height: 1.5;
+            min-height: calc(100vh - 400px);
+            max-height: calc(100vh - 400px);
+        }
+        
+        .transcript-actions {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+            border-radius: 0 0 10px 10px;
+            flex-shrink: 0;
         }
         
         .voice-chat-controls {
-            background: #f8f9fa;
-            padding: 25px;
-            border-top: 1px solid #e9ecef;
+            background: transparent;
+            padding: 0;
+            border: none;
+            margin-top: auto;
         }
         
         .control-buttons {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: center;
         }
         
         .btn-success {
@@ -383,7 +420,23 @@
             }
             
             .voice-chat-content {
-                padding: 20px;
+                flex-direction: column;
+                min-height: calc(100vh - 150px);
+                height: auto;
+            }
+            
+            .left-column, .right-column {
+                flex: none;
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+                max-height: none;
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .right-column {
+                border-bottom: none;
             }
             
             .control-buttons {
@@ -393,7 +446,12 @@
             
             .status-info {
                 text-align: center;
-                margin-top: 20px;
+                margin-top: 10px;
+            }
+            
+            .transcript-container {
+                min-height: 300px;
+                max-height: 400px;
             }
         }
     </style>
@@ -411,111 +469,108 @@
         </button>
     </div>
 </nav>
-
-
-
-
 <!-- LiveKit Voice Chat Agent Section -->
 <section id="voice-chat" class="voice-chat-section">
-    <div class="container">
+    <div class="container-fluid px-3">
         <div class="voice-chat-card">
             <div class="voice-chat-header">
                 <h5><i class="fas fa-microphone"></i> Voice Chat with Our Agent</h5>
             </div>
             <div class="voice-chat-content">
-                <!-- Voice Chat Container -->
-                <div id="voiceChatContainer">
-                    <div id="voiceChatContent">
-                        <i class="fas fa-microphone fa-3x text-muted mb-3"></i>
-                        <h6 class="text-muted">Click "Start Voice Chat" to begin talking with our agent</h6>
-                        <p class="small text-muted">You can speak directly to our support agent or type messages</p>
-                    </div>
-                            
-                    <!-- Audio Controls -->
-                    <div id="audioControls" style="display: none;">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="audio-control-group">
-                                    <div class="microphone-controls">
-                                        <i class="fas fa-microphone fa-2x"></i>
-                                        <div class="control-label">Your Microphone</div>
-                                        <button class="btn btn-sm btn-outline-danger" id="muteBtn">
-                                            <i class="fas fa-microphone-slash"></i> Mute
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="audio-control-group">
-                                    <div class="agent-controls">
-                                        <i class="fas fa-headphones fa-2x"></i>
-                                        <div class="control-label">Agent Audio</div>
-                                        <button class="btn btn-sm btn-outline-secondary" id="volumeBtn">
-                                            <i class="fas fa-volume-up"></i> Volume
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                <!-- Left Column: Actions and Controls -->
+                <div class="left-column">
+                    <div id="voiceChatContainer">
+                        <div id="voiceChatContent" class="text-center mb-3">
+                            <i class="fas fa-microphone fa-2x text-muted mb-2"></i>
+                            <h6 class="text-muted mb-2">Click "Start Voice Chat" to begin talking with our agent</h6>
+                            <p class="small text-muted mb-0">You can speak directly to our support agent or type messages</p>
                         </div>
                                 
-                        <!-- Speaking Indicator -->
-                        <div id="speakingIndicator" style="display: none;">
-                            <div class="alert alert-info">
-                                <i class="fas fa-comment-dots"></i> <span id="speakingText">Agent is speaking...</span>
+                        <!-- Audio Controls -->
+                        <div id="audioControls" style="display: none;">
+                            <div class="audio-control-group mb-3">
+                                <div class="microphone-controls text-center">
+                                    <i class="fas fa-microphone fa-2x mb-1"></i>
+                                    <div class="control-label mb-1">Your Microphone</div>
+                                    <button class="btn btn-sm btn-outline-danger" id="muteBtn">
+                                        <i class="fas fa-microphone-slash"></i> Mute
+                                    </button>
+                                </div>
+                                <div class="volume-controls text-center">
+                                    <i class="fas fa-volume-up fa-2x mb-1"></i>
+                                    <div class="control-label mb-1">Volume</div>
+                                    <button class="btn btn-sm btn-outline-secondary" id="volumeBtn">
+                                        <i class="fas fa-volume-mute"></i> Mute
+                                    </button>
+                                </div>
+                            </div>
+                                    
+                            <!-- Speaking Indicator -->
+                            <div id="speakingIndicator" style="display: none;" class="mb-3">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-comment-dots"></i> <span id="speakingText">Agent is speaking...</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Developer Notice for Local Environment -->
+                            <div class="developer-notice mb-3" style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 8px; font-size: 0.8rem;">
+                                <i class="fas fa-info-circle text-warning"></i>
+                                <strong>Note:</strong> Response delay is due to local setup. Performance will improve in production.
+                            </div>
+                            
+                            <!-- Tool Selection Section -->
+                            <div class="tool-selection-section mb-3" style="background: #f8f9fa; padding: 12px; border-radius: 8px;">
+                                <h6 class="mb-2"><i class="fas fa-tools"></i> Quick Actions</h6>
+                                <div class="row">
+                                    <div class="col-6 mb-2">
+                                        <button class="btn btn-primary btn-sm w-100" id="toolDrugInfoBtn" title="Get drug information">
+                                            <i class="fas fa-pills"></i><br><small>Drug Info</small>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <button class="btn btn-outline-warning btn-sm w-100" id="toolDrugInteractionBtn" title="Check drug interactions">
+                                            <i class="fas fa-exclamation-triangle"></i><br><small>Interactions</small>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <button class="btn btn-outline-info btn-sm w-100" id="toolSymptomCheckerBtn" title="Check symptoms">
+                                            <i class="fas fa-stethoscope"></i><br><small>Symptoms</small>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 mb-2">
+                                        <button class="btn btn-outline-success btn-sm w-100" id="toolReminderBtn" title="Set medication reminder">
+                                            <i class="fas fa-bell"></i><br><small>Reminder</small>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Text Input Section -->
+                            <div class="text-input-section mb-3">
+                                <h6 class="mb-2"><i class="fas fa-keyboard"></i> Or Type Your Message</h6>
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" id="textMessageInput" 
+                                           placeholder="Type your message here..." 
+                                           maxlength="500">
+                                    <button class="btn btn-primary" type="button" id="sendTextBtn">
+                                        <i class="fas fa-paper-plane"></i> Send
+                                    </button>
+                                </div>
+                                <small class="text-muted">You can type messages instead of speaking</small>
                             </div>
                         </div>
-                        
-                        <!-- Text Input Section -->
-                        <div class="text-input-section">
-                            <h6><i class="fas fa-keyboard"></i> Or Type Your Message</h6>
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="textMessageInput" 
-                                       placeholder="Type your message here..." 
-                                       maxlength="500">
-                                <button class="btn btn-primary" type="button" id="sendTextBtn">
-                                    <i class="fas fa-paper-plane"></i> Send
-                                </button>
-                            </div>
-                            <small class="text-muted">You can type messages instead of speaking</small>
-                        </div>
-                            </div>
-                    </div>
-                    
-                    <!-- Transcript Section -->
-                    <div id="transcriptSection" class="transcript-section" style="display: none;">
-                        <div class="transcript-header">
-                            <h6><i class="fas fa-comments"></i> Conversation Transcript</h6>
-                        </div>
-                        <div class="p-3">
-                            <div id="transcriptContainer" class="transcript-container">
-                                <div class="text-muted text-center">Conversation will appear here...</div>
-                            </div>
-                            <div class="mt-3">
-                                <button class="btn btn-sm btn-outline-secondary" id="clearTranscriptBtn">
-                                    <i class="fas fa-trash"></i> Clear Transcript
-                                </button>
-                                <button class="btn btn-sm btn-outline-primary" id="copyTranscriptBtn">
-                                    <i class="fas fa-copy"></i> Copy Transcript
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                        
-                <!-- Voice Chat Controls -->
-                <div class="voice-chat-controls">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="control-buttons">
-                                <button class="btn btn-success btn-lg" id="startVoiceChatBtn">
+                            
+                        <!-- Voice Chat Controls -->
+                        <div class="voice-chat-controls mt-3">
+                            <div class="control-buttons text-center mb-2">
+                                <button class="btn btn-success btn-lg mb-2" id="startVoiceChatBtn">
                                     <i class="fas fa-play"></i> Start Voice Chat
                                 </button>
-                                <button class="btn btn-danger btn-lg" id="endVoiceChatBtn" disabled>
+                                <button class="btn btn-danger btn-lg mb-2" id="endVoiceChatBtn" disabled>
                                     <i class="fas fa-stop"></i> End Call
                                 </button>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="status-info">
+                            <div class="status-info text-center">
                                 <small class="text-muted">
                                     Status: <span id="voiceChatStatus" class="badge bg-secondary">Disconnected</span>
                                 </small>
@@ -526,6 +581,34 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Right Column: Transcript -->
+                <div class="right-column">
+                    <!-- Transcript Section -->
+                    <div id="transcriptSection" class="transcript-section" style="display: none;">
+                        <div class="transcript-header">
+                            <h6><i class="fas fa-comments"></i> Conversation Transcript</h6>
+                        </div>
+                        <div id="transcriptContainer" class="transcript-container">
+                            <div class="text-muted text-center">Conversation will appear here...</div>
+                        </div>
+                        <div class="transcript-actions">
+                            <button class="btn btn-sm btn-outline-secondary" id="clearTranscriptBtn">
+                                <i class="fas fa-trash"></i> Clear Transcript
+                            </button>
+                            <button class="btn btn-sm btn-outline-primary" id="copyTranscriptBtn">
+                                <i class="fas fa-copy"></i> Copy Transcript
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Placeholder when transcript is hidden -->
+                    <div id="transcriptPlaceholder" style="display: flex; align-items: center; justify-content: center; height: 100%; text-align: center; color: #6c757d;">
+                        <div>
+                            <i class="fas fa-comments fa-3x mb-3"></i>
+                            <h6>Conversation Transcript</h6>
+                            <p>Start a voice chat to see the conversation here</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -645,11 +728,32 @@
             this.textMessageInput = document.getElementById('textMessageInput');
             this.sendTextBtn = document.getElementById('sendTextBtn');
             
+            // Tool selection elements
+            this.toolDrugInfoBtn = document.getElementById('toolDrugInfoBtn');
+            this.toolDrugInteractionBtn = document.getElementById('toolDrugInteractionBtn');
+            this.toolSymptomCheckerBtn = document.getElementById('toolSymptomCheckerBtn');
+            this.toolReminderBtn = document.getElementById('toolReminderBtn');
+            
             // Transcript elements
             this.transcriptSection = document.getElementById('transcriptSection');
             this.transcriptContainer = document.getElementById('transcriptContainer');
+            this.transcriptPlaceholder = document.getElementById('transcriptPlaceholder');
             this.clearTranscriptBtn = document.getElementById('clearTranscriptBtn');
             this.copyTranscriptBtn = document.getElementById('copyTranscriptBtn');
+            
+            // Validate that all required elements exist
+            const requiredElements = [
+                'startVoiceChatBtn', 'endVoiceChatBtn', 'voiceChatStatus', 'connectionInfo',
+                'textMessageInput', 'sendTextBtn', 'toolDrugInfoBtn', 'toolDrugInteractionBtn',
+                'toolSymptomCheckerBtn', 'toolReminderBtn', 'transcriptSection', 'transcriptContainer',
+                'transcriptPlaceholder', 'clearTranscriptBtn', 'copyTranscriptBtn', 'muteBtn', 'volumeBtn'
+            ];
+            
+            const missingElements = requiredElements.filter(elementName => !this[elementName]);
+            if (missingElements.length > 0) {
+                console.error('[VoiceChat] Missing required DOM elements:', missingElements);
+                throw new Error(`Missing required DOM elements: ${missingElements.join(', ')}`);
+            }
             
             // Transcript data
             this.transcript = [];
@@ -658,26 +762,106 @@
             this.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || null;
             this.recognition = null;
             this.isRecognizing = false;
+            
+            // Auto-termination on inactivity (20 seconds of silence)
+            this.inactivityTimer = null;
+            this.inactivityTimeout = 20000; // 20 seconds in milliseconds
+            this.warningTimer = null;
+            this.lastUserActivity = Date.now();
+            this.warningShown = false;
+            this.agentSpeaking = false; // Track if agent is currently speaking
+            this.agentLastSpoke = 0; // Timestamp of agent's last speech
+            
+            // Default tool selection
+            this.defaultTool = 'drug_information';
+            this.selectedTool = this.defaultTool;
         }
 
         attachEventListeners() {
-            this.startVoiceChatBtn.addEventListener('click', () => this.startVoiceChat());
-            this.endVoiceChatBtn.addEventListener('click', () => this.endVoiceChat());
-            this.muteBtn.addEventListener('click', () => this.toggleMute());
-            this.volumeBtn.addEventListener('click', () => this.toggleVolume());
-            this.clearTranscriptBtn.addEventListener('click', () => this.clearTranscript());
-            this.copyTranscriptBtn.addEventListener('click', () => this.copyTranscript());
-            this.sendTextBtn.addEventListener('click', () => this.sendTextMessage());
-            this.textMessageInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    this.sendTextMessage();
-                }
-            });
+            // Global click handler to enable audio on user interaction
+            document.addEventListener('click', () => {
+                this.enableAudioOnUserInteraction();
+            }, { once: false });
+            
+            // Core event listeners
+            if (this.startVoiceChatBtn) {
+                this.startVoiceChatBtn.addEventListener('click', () => this.startVoiceChat());
+            }
+            if (this.endVoiceChatBtn) {
+                this.endVoiceChatBtn.addEventListener('click', () => this.endVoiceChat());
+            }
+            if (this.muteBtn) {
+                this.muteBtn.addEventListener('click', () => this.toggleMute());
+            }
+            if (this.volumeBtn) {
+                this.volumeBtn.addEventListener('click', () => this.toggleVolume());
+            }
+            if (this.clearTranscriptBtn) {
+                this.clearTranscriptBtn.addEventListener('click', () => this.clearTranscript());
+            }
+            if (this.copyTranscriptBtn) {
+                this.copyTranscriptBtn.addEventListener('click', () => this.copyTranscript());
+            }
+            if (this.sendTextBtn) {
+                this.sendTextBtn.addEventListener('click', () => this.sendTextMessage());
+            }
+            if (this.textMessageInput) {
+                this.textMessageInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.sendTextMessage();
+                    }
+                });
+            }
+            
+            // Tool selection event listeners
+            if (this.toolDrugInfoBtn) {
+                this.toolDrugInfoBtn.addEventListener('click', () => {
+                    this.selectedTool = 'drug_information';
+                    this.updateToolButtonStates('drug_information');
+                    this.triggerTool('drug_information');
+                });
+            }
+            if (this.toolDrugInteractionBtn) {
+                this.toolDrugInteractionBtn.addEventListener('click', () => {
+                    this.selectedTool = 'drug_interaction';
+                    this.updateToolButtonStates('drug_interaction');
+                    this.triggerTool('drug_interaction');
+                });
+            }
+            if (this.toolSymptomCheckerBtn) {
+                this.toolSymptomCheckerBtn.addEventListener('click', () => {
+                    this.selectedTool = 'symptom_checker';
+                    this.updateToolButtonStates('symptom_checker');
+                    this.triggerTool('symptom_checker');
+                });
+            }
+            if (this.toolReminderBtn) {
+                this.toolReminderBtn.addEventListener('click', () => {
+                    this.selectedTool = 'drug_reminder';
+                    this.updateToolButtonStates('drug_reminder');
+                    this.triggerTool('drug_reminder');
+                });
+            }
         }
 
             async startVoiceChat(autoStart = false) {
                 try {
                     console.log('[VoiceChat] startVoiceChat() called, autoStart:', autoStart);
+                    
+                    // Enable AudioContext on user interaction
+                    if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                        try {
+                            const AudioContextClass = AudioContext || webkitAudioContext;
+                            const audioContext = new AudioContextClass();
+                            if (audioContext.state === 'suspended') {
+                                await audioContext.resume();
+                                console.log('[VoiceChat] AudioContext resumed successfully');
+                            }
+                        } catch (audioError) {
+                            console.warn('[VoiceChat] AudioContext setup warning:', audioError);
+                        }
+                    }
+                    
                     this.updateStatus('connecting', 'Connecting...');
                     this.connectionInfo.textContent = 'Connecting to voice chat...';
                     
@@ -738,7 +922,9 @@
                     } catch (permError) {
                         console.error('[VoiceChat] microphone permission error', permError);
                         this.updateStatus('disconnected', 'Microphone blocked');
-                        this.connectionInfo.textContent = 'Microphone permission is required. Please allow access and try again.';
+                        if (this.connectionInfo) {
+                            this.connectionInfo.textContent = 'Microphone permission is required. Please allow access and try again.';
+                        }
                         alert('Microphone permission denied. Click the lock icon in the address bar and set Microphone to Allow, then reload.');
                         await this.room.disconnect().catch(() => {});
                         return;
@@ -752,22 +938,34 @@
                     this.updateUI();
                     this.showAudioControls();
                     this.showTranscript();
-                    this.connectionInfo.textContent = `Connected to room: ${roomName}. You can now speak with our agent.`;
+                    if (this.connectionInfo) {
+                        this.connectionInfo.textContent = `Connected to room: ${roomName}. You can now speak with our agent.`;
+                    }
 
                     // Start local (USER) live transcription via Web Speech API if available
                     this.startUserTranscription();
+                    
+                    // Start inactivity monitoring (auto-disconnect after 20 seconds of silence)
+                    this.startInactivityTimer();
+                    
+                    // Auto-trigger default tool selection
+                    await this.autoTriggerDefaultTool();
                     
                 } catch (error) {
                     console.error('[VoiceChat] Failed to start voice chat:', error);
                     if (error && (error.name === 'NotAllowedError' || error.message?.includes('Permission'))) {
                         this.updateStatus('disconnected', 'Microphone blocked');
-                        this.connectionInfo.textContent = 'Please allow microphone access and try again.';
+                        if (this.connectionInfo) {
+                            this.connectionInfo.textContent = 'Please allow microphone access and try again.';
+                        }
                         alert('Permission denied. Allow microphone access in your browser and reload.');
                         return;
                     }
                     // For other errors, show a message instead of silently switching to demo mode
                     this.updateStatus('disconnected', 'Connection failed');
-                    this.connectionInfo.textContent = 'Unable to start voice chat. Please try again.';
+                    if (this.connectionInfo) {
+                        this.connectionInfo.textContent = 'Unable to start voice chat. Please try again.';
+                    }
                 }
             }
 
@@ -809,18 +1007,73 @@
                 if (track.kind === 'audio' && participant.identity !== this.userIdentity) {
                     // Agent is speaking
                     console.log('[VoiceChat] remote audio subscribed from', participant.identity, 'track:', publication?.trackSid || 'unknown');
+                    this.agentSpeaking = true;
+                    this.agentLastSpoke = Date.now();
                     this.showSpeakingIndicator('Agent is speaking...');
+                    
+                    // Clear any pending inactivity timers since agent is speaking
+                    if (this.inactivityTimer) {
+                        clearTimeout(this.inactivityTimer);
+                        this.inactivityTimer = null;
+                    }
+                    if (this.warningTimer) {
+                        clearTimeout(this.warningTimer);
+                        this.warningTimer = null;
+                    }
+                    
                     // Ensure audio element is created and attached to DOM so browsers will play it
                     const audioEl = track.attach();
                     try {
                         audioEl.autoplay = true;
                         audioEl.playsInline = true;
                         audioEl.muted = false;
+                        audioEl.volume = 1.0;
+                        // Optimize for faster playback
+                        audioEl.preload = 'auto';
+                        audioEl.loadstart = () => console.log('[VoiceChat] Audio loading started');
+                        
                         // Append once; avoid duplicates if event fires multiple times
                         if (!audioEl.isConnected) {
                             document.body.appendChild(audioEl);
                         }
-                        audioEl.play().catch((e) => { console.warn('[VoiceChat] autoplay blocked until gesture', e); });
+                        
+                        // Enhanced audio play with AudioContext handling
+                        const playAudio = async () => {
+                            try {
+                                // Ensure AudioContext is resumed for better audio handling
+                                if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                                    const AudioContextClass = AudioContext || webkitAudioContext;
+                                    const audioContext = new AudioContextClass();
+                                    if (audioContext.state === 'suspended') {
+                                        await audioContext.resume();
+                                        console.log('[VoiceChat] AudioContext resumed for agent audio');
+                                    }
+                                }
+                                
+                                const playPromise = audioEl.play();
+                                if (playPromise !== undefined) {
+                                    await playPromise;
+                                    console.log('[VoiceChat] Agent audio started playing successfully');
+                                }
+                            } catch (error) {
+                                console.warn('[VoiceChat] Audio play failed:', error);
+                                this.showSpeakingIndicator('🔊 Click anywhere to enable agent voice');
+                            }
+                        };
+                        
+                        playAudio();
+                        
+                        // Listen for audio end to reset agent speaking state
+                        audioEl.addEventListener('ended', () => {
+                            this.agentSpeaking = false;
+                            console.log('[VoiceChat] Agent finished speaking');
+                            // Restart inactivity timer after agent stops speaking
+                            setTimeout(() => {
+                                if (this.isConnected) {
+                                    this.resetInactivityTimer();
+                                }
+                            }, 1000); // 1 second grace period
+                        });
                     } catch (e) {
                         console.warn('[VoiceChat] Failed to attach/play remote audio:', e);
                     }
@@ -847,6 +1100,12 @@
                     if (isTranscription) {
                         // Determine speaker based on participant identity
                         const speaker = participantInfo.identity === this.userIdentity ? 'USER' : 'AGENT';
+                        
+                        // Reset inactivity timer when either user or agent speaks
+                        // This keeps the conversation alive as long as dialogue continues
+                        if (speaker === 'USER' || (speaker === 'AGENT' && isFinal)) {
+                            this.resetInactivityTimer();
+                        }
                         
                         if (isFinal) {
                             // Final transcription - add to transcript
@@ -877,6 +1136,9 @@
                         message: message
                     });
                     
+                    // Reset inactivity timer when chat messages are exchanged
+                    this.resetInactivityTimer();
+                    
                     // Add chat messages to transcript
                     const speaker = participantInfo.identity === this.userIdentity ? 'USER' : 'AGENT';
                     this.addToTranscript(speaker, message, new Date().toLocaleTimeString(), true);
@@ -890,7 +1152,16 @@
             
             this.room.on(LiveKit.RoomEvent.TrackUnsubscribed, (track, publication, participant) => {
                 if (track.kind === 'audio' && participant.identity !== this.userIdentity) {
+                    this.agentSpeaking = false;
+                    console.log('[VoiceChat] Agent audio track unsubscribed');
                     this.hideSpeakingIndicator();
+                    
+                    // Restart inactivity timer after agent stops speaking
+                    setTimeout(() => {
+                        if (this.isConnected) {
+                            this.resetInactivityTimer();
+                        }
+                    }, 1000); // 1 second grace period
                 }
             });
             
@@ -946,6 +1217,9 @@
             try {
                 console.log('[VoiceChat] Sending text message:', message);
                 
+                // Reset inactivity timer when user sends a text message
+                this.resetInactivityTimer();
+                
                 // Send text message using LiveKit's sendText method with lk.chat topic
                 const info = await this.room.localParticipant.sendText(message, {
                     topic: 'lk.chat'
@@ -968,18 +1242,191 @@
             }
         }
 
+        /**
+         * Trigger Tool Selection
+         * Sends a special message to the agent to use a specific tool
+         */
+        async triggerTool(toolName) {
+            if (!this.room || !this.isConnected) {
+                alert('Please start a voice chat first');
+                return;
+            }
+
+            try {
+                console.log(`[VoiceChat] Triggering tool: ${toolName}`);
+                
+                // Reset inactivity timer
+                this.resetInactivityTimer();
+                
+                // Send natural language message instead of tool request
+                const message = this.getToolPrompt(toolName);
+                
+                const info = await this.room.localParticipant.sendText(message, {
+                    topic: 'lk.chat'
+                });
+                
+                console.log(`[VoiceChat] Tool request sent: ${toolName}`);
+                
+                // Add user action to transcript
+                this.addToTranscript('USER', this.getToolPrompt(toolName), new Date().toLocaleTimeString(), true);
+                
+                // Show tool-specific indicator
+                this.showSpeakingIndicator(`${this.getToolDisplayName(toolName)} - Processing...`);
+                
+            } catch (error) {
+                console.error(`[VoiceChat] Failed to trigger tool ${toolName}:`, error);
+                alert('Failed to trigger tool. Please try again.');
+            }
+        }
+
+        /**
+         * Get Tool Prompt
+         * Returns appropriate prompt text for each tool
+         */
+        getToolPrompt(toolName) {
+            const prompts = {
+                'drug_information': 'Tell me about paracetamol. I need information about this medication.',
+                'drug_interaction': 'I want to check for drug interactions between my medications.',
+                'symptom_checker': 'I have some symptoms I\'d like to discuss.',
+                'drug_reminder': 'I need help setting up a medication reminder.'
+            };
+            return prompts[toolName] || 'I need help with a medical question.';
+        }
+
+        /**
+         * Get Tool Display Name
+         * Returns user-friendly name for each tool
+         */
+        getToolDisplayName(toolName) {
+            const names = {
+                'drug_information': 'Drug Information',
+                'drug_interaction': 'Drug Interactions',
+                'symptom_checker': 'Symptom Checker',
+                'drug_reminder': 'Medication Reminder'
+            };
+            return names[toolName] || 'Medical Tool';
+        }
+
+        /**
+         * Update Tool Button States
+         * Highlights the selected tool and dims others
+         */
+        updateToolButtonStates(selectedTool) {
+            const toolButtons = {
+                'drug_information': this.toolDrugInfoBtn,
+                'drug_interaction': this.toolDrugInteractionBtn,
+                'symptom_checker': this.toolSymptomCheckerBtn,
+                'drug_reminder': this.toolReminderBtn
+            };
+
+            const buttonStyles = {
+                'drug_information': { selected: 'btn btn-primary btn-sm w-100', unselected: 'btn btn-outline-primary btn-sm w-100' },
+                'drug_interaction': { selected: 'btn btn-warning btn-sm w-100', unselected: 'btn btn-outline-warning btn-sm w-100' },
+                'symptom_checker': { selected: 'btn btn-info btn-sm w-100', unselected: 'btn btn-outline-info btn-sm w-100' },
+                'drug_reminder': { selected: 'btn btn-success btn-sm w-100', unselected: 'btn btn-outline-success btn-sm w-100' }
+            };
+
+            Object.entries(toolButtons).forEach(([toolName, button]) => {
+                if (button && buttonStyles[toolName]) {
+                    const styles = buttonStyles[toolName];
+                    if (toolName === selectedTool) {
+                        button.className = styles.selected;
+                        button.style.opacity = '1';
+                    } else {
+                        button.className = styles.unselected;
+                        button.style.opacity = '0.7';
+                    }
+                }
+            });
+        }
+
+        /**
+         * Enable Audio on User Interaction
+         * Resumes AudioContext and plays any pending audio when user interacts
+         */
+        async enableAudioOnUserInteraction() {
+            try {
+                if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                    const AudioContextClass = AudioContext || webkitAudioContext;
+                    const audioContext = new AudioContextClass();
+                    if (audioContext.state === 'suspended') {
+                        await audioContext.resume();
+                        console.log('[VoiceChat] AudioContext resumed on user interaction');
+                        
+                        // Try to play any pending audio elements
+                        const audioElements = document.querySelectorAll('audio');
+                        for (const audio of audioElements) {
+                            if (audio.paused && audio.src) {
+                                try {
+                                    await audio.play();
+                                    console.log('[VoiceChat] Pending audio started playing');
+                                } catch (e) {
+                                    console.warn('[VoiceChat] Failed to play pending audio:', e);
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                console.warn('[VoiceChat] AudioContext resume failed:', error);
+            }
+        }
+
+        /**
+         * Auto-trigger Default Tool
+         * Automatically selects and triggers the default tool when voice chat starts
+         */
+        async autoTriggerDefaultTool() {
+            if (this.isConnected && this.defaultTool) {
+                console.log(`[VoiceChat] Auto-triggering default tool: ${this.defaultTool}`);
+                this.selectedTool = this.defaultTool;
+                
+                // Only update button states if elements exist
+                if (this.toolDrugInfoBtn || this.toolDrugInteractionBtn || this.toolSymptomCheckerBtn || this.toolReminderBtn) {
+                    this.updateToolButtonStates(this.defaultTool);
+                }
+                
+                // Send the default tool request immediately after connection
+                setTimeout(async () => {
+                    await this.triggerTool(this.defaultTool);
+                }, 1000); // Wait 1 second for connection to stabilize
+            }
+        }
+
         showAudioControls() {
-            this.voiceChatContent.style.display = 'none';
-            this.audioControls.style.display = 'block';
+            if (this.voiceChatContent) {
+                this.voiceChatContent.style.display = 'none';
+            }
+            if (this.audioControls) {
+                this.audioControls.style.display = 'block';
+            }
         }
 
         showSpeakingIndicator(text) {
-            this.speakingText.textContent = text;
-            this.speakingIndicator.style.display = 'block';
+            if (this.speakingText) {
+                this.speakingText.textContent = text;
+            }
+            if (this.speakingIndicator) {
+                this.speakingIndicator.style.display = 'block';
+                
+                // Reset styling for normal indicators
+                if (!text.includes('⚠️') && !text.includes('inactive')) {
+                    this.speakingIndicator.style.backgroundColor = '';
+                    this.speakingIndicator.style.border = '';
+                    this.speakingIndicator.style.color = '';
+                }
+            }
         }
 
         hideSpeakingIndicator() {
-            this.speakingIndicator.style.display = 'none';
+            if (this.speakingIndicator) {
+                this.speakingIndicator.style.display = 'none';
+                
+                // Reset styling
+                this.speakingIndicator.style.backgroundColor = '';
+                this.speakingIndicator.style.border = '';
+                this.speakingIndicator.style.color = '';
+            }
         }
 
         async endVoiceChat() {
@@ -1003,25 +1450,44 @@
             this.audioControls.style.display = 'none';
             this.hideSpeakingIndicator();
             this.hideTranscript();
+            
+            // Stop inactivity monitoring when call ends
+            this.stopInactivityTimer();
         }
 
         updateStatus(status, text) {
-            this.voiceChatStatus.className = `badge bg-${status === 'connected' ? 'success' : status === 'connecting' ? 'warning' : 'secondary'}`;
-            this.voiceChatStatus.textContent = text;
+            if (this.voiceChatStatus) {
+                this.voiceChatStatus.className = `badge bg-${status === 'connected' ? 'success' : status === 'connecting' ? 'warning' : 'secondary'}`;
+                this.voiceChatStatus.textContent = text;
+            }
         }
 
         updateUI() {
-            this.startVoiceChatBtn.disabled = this.isConnected;
-            this.endVoiceChatBtn.disabled = !this.isConnected;
+            if (this.startVoiceChatBtn) {
+                this.startVoiceChatBtn.disabled = this.isConnected;
+            }
+            if (this.endVoiceChatBtn) {
+                this.endVoiceChatBtn.disabled = !this.isConnected;
+            }
         }
 
         // Transcript methods
         showTranscript() {
-            this.transcriptSection.style.display = 'block';
+            if (this.transcriptSection) {
+                this.transcriptSection.style.display = 'block';
+            }
+            if (this.transcriptPlaceholder) {
+                this.transcriptPlaceholder.style.display = 'none';
+            }
         }
 
         hideTranscript() {
-            this.transcriptSection.style.display = 'none';
+            if (this.transcriptSection) {
+                this.transcriptSection.style.display = 'none';
+            }
+            if (this.transcriptPlaceholder) {
+                this.transcriptPlaceholder.style.display = 'flex';
+            }
         }
 
         addToTranscript(speaker, text, timestamp, final=false) {
@@ -1059,6 +1525,8 @@
         }
 
         renderTranscript() {
+            if (!this.transcriptContainer) return;
+            
             if (this.transcript.length === 0) {
                 this.transcriptContainer.innerHTML = '<div class="text-muted text-center">Conversation will appear here...</div>';
                 return;
@@ -1142,6 +1610,10 @@
                         interim += res[0].transcript;
                     }
                 }
+                
+                // Reset inactivity timer when user speaks
+                this.resetInactivityTimer();
+                
                 if (interim) {
                     // merge/update partial line
                     const last = this.transcript[this.transcript.length - 1];
@@ -1193,12 +1665,153 @@
                 this.isRecognizing = false;
             }
         }
+
+        /**
+         * Start Inactivity Timer
+         * Monitors user silence and auto-terminates after 20 seconds of inactivity
+         */
+        startInactivityTimer() {
+            this.resetInactivityTimer();
+            console.log('[VoiceChat] Inactivity monitoring started (20 second timeout)');
+        }
+
+        /**
+         * Reset Inactivity Timer
+         * Called when user speaks or interacts with the chat
+         */
+        resetInactivityTimer() {
+            // Clear existing timers
+            if (this.inactivityTimer) {
+                clearTimeout(this.inactivityTimer);
+                this.inactivityTimer = null;
+            }
+            if (this.warningTimer) {
+                clearTimeout(this.warningTimer);
+                this.warningTimer = null;
+            }
+            
+            // Reset warning state
+            this.warningShown = false;
+            this.lastUserActivity = Date.now();
+            
+            // Hide any warning messages
+            if (this.speakingIndicator && this.speakingIndicator.style.display === 'block') {
+                const currentText = this.speakingText.textContent;
+                if (currentText.includes('inactive') || currentText.includes('disconnect') || currentText.includes('⚠️')) {
+                    this.hideSpeakingIndicator();
+                }
+            }
+            
+            // Start new inactivity timer only if connected and not during agent speech
+            if (this.isConnected && !this.agentSpeaking) {
+                console.log('[VoiceChat] Starting inactivity timer (20 seconds)');
+                
+                // Show warning at 15 seconds (5 seconds before disconnect)
+                this.warningTimer = setTimeout(() => {
+                    // Double-check agent isn't speaking before showing warning
+                    if (!this.agentSpeaking) {
+                        this.showInactivityWarning();
+                    } else {
+                        console.log('[VoiceChat] Skipping warning - agent is speaking');
+                        // Reset timer for when agent finishes
+                        this.resetInactivityTimer();
+                    }
+                }, 15000);
+                
+                // Auto-disconnect at 20 seconds
+                this.inactivityTimer = setTimeout(() => {
+                    // Double-check agent isn't speaking before terminating
+                    if (!this.agentSpeaking) {
+                        this.autoTerminateCall();
+                    } else {
+                        console.log('[VoiceChat] Skipping auto-termination - agent is speaking');
+                        // Reset timer for when agent finishes
+                        this.resetInactivityTimer();
+                    }
+                }, this.inactivityTimeout);
+            }
+        }
+
+        /**
+         * Show Inactivity Warning
+         * Displays a warning 5 seconds before auto-disconnect
+         */
+        showInactivityWarning() {
+            if (!this.isConnected || this.warningShown || this.agentSpeaking) return;
+            
+            this.warningShown = true;
+            console.log('[VoiceChat] Showing inactivity warning (5 seconds until disconnect)');
+            
+            // Force show the warning with enhanced styling
+            this.showSpeakingIndicator('⚠️ Call will end in 5 seconds due to inactivity. Say something to continue...');
+            this.connectionInfo.textContent = 'Inactivity detected - Call ending soon';
+            
+            // Add visual emphasis to the warning
+            if (this.speakingIndicator) {
+                this.speakingIndicator.style.backgroundColor = '#fff3cd';
+                this.speakingIndicator.style.border = '2px solid #ffc107';
+                this.speakingIndicator.style.color = '#856404';
+            }
+            
+            // Play a subtle audio alert if possible
+            try {
+                const beep = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBSuBzvLZiTYIGGS56OeYSQ0NVKzn77FcGAg+ltryxHYmBS16yO/glEILEWO56+mjUBELTKXh8bllHAU2jdXyzn0pBSd+zPLaizsIHGi47OihUBELTKXh8bllHAU2jdXyzn0pBSd+zPDbizsIG2m67OmjTxIKSqPg8bllHAU2jdXyzn0pBSd+zPDbizsIG2m67OmjTxIKSqPg8bllHAU2jdXyzn0pBSd+zPDbizsIG2m67OmjTxIKSqPg8bllHAU2jdXyzn0pBSd+zPDbizsIG2m67OmjTxIKSqPg8bllHAU2jdXy');
+                beep.volume = 0.3;
+                beep.play().catch(() => {}); // Ignore if autoplay is blocked
+            } catch (e) {}
+        }
+
+        /**
+         * Auto Terminate Call
+         * Automatically ends the call after 20 seconds of user inactivity
+         */
+        async autoTerminateCall() {
+            if (!this.isConnected) return;
+            
+            console.log('[VoiceChat] Auto-terminating call due to 20 seconds of inactivity');
+            
+            this.showSpeakingIndicator('Call ended due to inactivity. Thank you!');
+            this.connectionInfo.textContent = 'Auto-disconnected due to inactivity';
+            
+            // Wait a moment for user to see the message
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // End the call
+            await this.endVoiceChat();
+        }
+
+        /**
+         * Stop Inactivity Timer
+         * Stops monitoring for inactivity (called when call ends)
+         */
+        stopInactivityTimer() {
+            if (this.inactivityTimer) {
+                clearTimeout(this.inactivityTimer);
+                this.inactivityTimer = null;
+            }
+            if (this.warningTimer) {
+                clearTimeout(this.warningTimer);
+                this.warningTimer = null;
+            }
+            this.warningShown = false;
+            this.agentSpeaking = false;
+            this.agentLastSpoke = 0;
+            console.log('[VoiceChat] Inactivity monitoring stopped');
+        }
     }
 
-    // Initialize voice chat agent when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        // Wait a bit for scripts to load
-        setTimeout(function() {
+            // Initialize voice chat agent when page loads
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize transcript placeholder visibility
+                const transcriptPlaceholder = document.getElementById('transcriptPlaceholder');
+                const transcriptSection = document.getElementById('transcriptSection');
+                if (transcriptPlaceholder && transcriptSection) {
+                    transcriptPlaceholder.style.display = 'flex';
+                    transcriptSection.style.display = 'none';
+                }
+                
+                // Wait a bit for scripts to load
+                setTimeout(function() {
             // Check if LiveKit is loaded
             if (typeof LiveKit === 'undefined') {
                 console.error('LiveKit SDK not loaded! Trying fallback...');
