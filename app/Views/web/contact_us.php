@@ -605,7 +605,7 @@
                         <!-- Transcript Section -->
                         <div id="transcriptSection" class="transcript-section" style="display: none;">
                             <div class="transcript-header">
-                                <h6><i class="fas fa-comments"></i> Conversation Transcript</h6>
+                            <h6><i class="fas fa-comments"></i> Conversation Transcript</h6>
                             </div>
                             <div id="transcriptContainer" class="transcript-container">
                                 <div class="text-muted text-center">Conversation will appear here...</div>
@@ -628,6 +628,16 @@
                                 <p>Start a voice chat to see the conversation here</p>
                             </div>
                         </div>
+
+                    <!-- Medication Details Panel -->
+                    <div id="medicationPanel" class="transcript-section mt-3" style="display:none;">
+                        <div class="transcript-header">
+                            <h6><i class="fas fa-pills"></i> Medication Details</h6>
+                        </div>
+                        <div id="medicationContent" class="transcript-container" style="min-height:auto; max-height:unset;">
+                            <div class="text-muted">Drug information will appear here...</div>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -1170,6 +1180,19 @@
                     }
                 });
 
+            // Custom JSON stream for medication details
+            this.room.registerTextStreamHandler('kiara.drug_info', async (reader, participantInfo) => {
+                try {
+                    const message = await reader.readAll();
+                    console.log('[VoiceChat] Drug info json received:', message);
+                    let data = null;
+                    try { data = JSON.parse(message); } catch (e) { return; }
+                    this.renderMedicationDetails(data);
+                } catch (e) {
+                    console.warn('[VoiceChat] Failed to handle drug info json:', e);
+                }
+            });
+
                 // Keep Web Speech API for user transcription as backup
                 // The official LiveKit text streams should handle both user and agent transcriptions
 
@@ -1617,6 +1640,24 @@
                     document.body.removeChild(textArea);
                     alert('Transcript copied to clipboard!');
                 });
+            }
+
+            // Render medication JSON into right panel
+            renderMedicationDetails(data) {
+                const panel = document.getElementById('medicationPanel');
+                const content = document.getElementById('medicationContent');
+                if (!panel || !content) return;
+                panel.style.display = 'block';
+
+                const lines = [];
+                const safe = (v) => (v && typeof v === 'string') ? v : '';
+                lines.push(`<div><strong>Name:</strong> ${safe(data.name || data.query)}</div>`);
+                if (data.usage) lines.push(`<div class="mt-2"><strong>Use / Indications:</strong><br>${safe(data.usage)}</div>`);
+                if (data.dosage) lines.push(`<div class=\"mt-2\"><strong>Dosage & Administration:</strong><br>${safe(data.dosage)}</div>`);
+                if (data.warnings) lines.push(`<div class=\"mt-2\"><strong>Warnings / Precautions:</strong><br>${safe(data.warnings)}</div>`);
+                if (data.sideEffects) lines.push(`<div class=\"mt-2\"><strong>Adverse Reactions:</strong><br>${safe(data.sideEffects)}</div>`);
+
+                content.innerHTML = `<div style=\"white-space: pre-wrap;\">${lines.join('\n')}</div>`;
             }
 
             // USER live transcription using Web Speech API (Chrome/Edge)

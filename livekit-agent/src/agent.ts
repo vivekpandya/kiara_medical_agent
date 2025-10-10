@@ -29,7 +29,7 @@ import {
   metrics,
   voice,
 } from '@livekit/agents';
-import * as cartesia from '@livekit/agents-plugin-cartesia';
+import * as elevenlabs from '@livekit/agents-plugin-elevenlabs';
 import * as deepgram from '@livekit/agents-plugin-deepgram';
 import * as livekit from '@livekit/agents-plugin-livekit';
 import * as openai from '@livekit/agents-plugin-openai';
@@ -49,6 +49,33 @@ dotenv.config({ path: '.env.local' });
  * medication management, drug interactions, and symptom checking.
  */
 class KiaraAgent extends voice.Agent {
+  static sessionRef: any;
+
+  static setSession(session: any) {
+    KiaraAgent.sessionRef = session;
+  }
+
+  static async emitJson(topic: string, payload: any) {
+    try {
+      const session: any = KiaraAgent.sessionRef;
+      if (!session) return;
+      const text = JSON.stringify(payload);
+      if (typeof session.sendText === 'function') {
+        await session.sendText(text, { topic });
+        return;
+      }
+      if (session.room?.localParticipant?.sendText) {
+        await session.room.localParticipant.sendText(text, { topic });
+        return;
+      }
+      if (session.room?.localParticipant?.publishData) {
+        const enc = new TextEncoder();
+        await session.room.localParticipant.publishData(enc.encode(text), 'reliable', [], { topic });
+      }
+    } catch (e) {
+      console.warn('[Agent:EmitJson] Failed to send json message:', e);
+    }
+  }
   constructor() {
     super({
       instructions: `You are Kiara, a helpful and empathetic voice AI assistant for healthcare support.
@@ -56,10 +83,10 @@ class KiaraAgent extends voice.Agent {
       When you first connect, greet the user warmly. Since drug information is the default tool, say: "Hi, I am Kiara, your medical information assistant. I'm ready to help you with drug information, medication details, and other healthcare questions. What medication would you like to know about?"
       
       CRITICAL BEHAVIOR RULES:
-      - When a user mentions ANY medication name (paracetamol, ibuprofen, aspirin, etc.), IMMEDIATELY use the drug_information tool to provide complete information
-      - NEVER ask "what medication do you want to know about?" if they already mentioned one
-      - ALWAYS provide comprehensive drug information including dosage, side effects, usage, and warnings
-      - Be direct and helpful - don't ask unnecessary questions
+      - When a user mentions ANY medication name (including misspellings), IMMEDIATELY use the drug_information tool with the normalized drug name and provide complete information.
+      - NEVER ask what medication they want if they already mentioned one; do not ask clarifying questions first when a likely drug is present.
+      - ALWAYS provide concise but complete drug information: dosage (adult standard range and max), common side effects, important warnings/contraindications, and a short safety reminder.
+      - Be direct and helpful - avoid deflecting questions or asking unnecessary questions.
       
       You can help users with:
       - Providing detailed drug information including dosage, side effects, and usage (USE drug_information tool automatically)
@@ -211,9 +238,47 @@ Typical adult dosage: 5-10mg once daily, taken at the same time each day.
 Common side effects: Swelling in ankles and feet, dizziness, flushing, headache.
 Important: Take regularly even if you feel well. Don't miss doses.
 Always consult your doctor before use.`;
-                } else {
-                  return `I'd be happy to help with information about ${normalizedDrug}. For detailed information including dosage, side effects, and interactions, please consult with your healthcare provider or pharmacist. They can provide personalized advice based on your specific health conditions and other medications you may be taking.`;
+              }
+
+              // Fallback: query public APIs for broader coverage with retries
+              const lookupWithRetry = async (q: string, attempts = 2) => {
+                let last: any = null;
+                for (let i = 0; i < attempts; i++) {
+                  try {
+                    const info = await this.fetchDrugInfoFromPublicApis(q);
+                    if (info) return info;
+                  } catch (e) { last = e; }
                 }
+                if (last) console.warn('[Tool:DrugInformation] lookup retries exhausted');
+                return null;
+              };
+
+              const apiInfo = await lookupWithRetry(normalizedDrug);
+                if (apiInfo) {
+                const parts: string[] = [];
+                parts.push(`${apiInfo.name || normalizedDrug}:`);
+                if (apiInfo.usage) parts.push(`Use/Indications: ${apiInfo.usage}`);
+                if (apiInfo.dosage) parts.push(`Dosage & Administration: ${apiInfo.dosage}`);
+                if (apiInfo.warnings) parts.push(`Warnings/Precautions: ${apiInfo.warnings}`);
+                if (apiInfo.sideEffects) parts.push(`Adverse Reactions: ${apiInfo.sideEffects}`);
+                parts.push('Note: This information is general and not a substitute for medical advice. Consult your healthcare provider for personalized guidance.');
+                // Emit JSON to frontend for rendering panel
+                await KiaraAgent.emitJson('kiara.drug_info', {
+                  type: 'drug_information',
+                  query: normalizedDrug,
+                  name: apiInfo.name || normalizedDrug,
+                  usage: apiInfo.usage || null,
+                  dosage: apiInfo.dosage || null,
+                  warnings: apiInfo.warnings || null,
+                  sideEffects: apiInfo.sideEffects || null,
+                  ts: Date.now()
+                });
+                // Also speak a concise acknowledgement
+                return `Here is the medication information for ${apiInfo.name || normalizedDrug}. ${apiInfo.dosage ? 'Dosage: ' + apiInfo.dosage + '. ' : ''}${apiInfo.warnings ? 'Warnings: ' + apiInfo.warnings : ''}`;
+              }
+
+              // If nothing found, give minimal helpful answer while asking to repeat clearly
+              return `I couldn't find details for ${normalizedDrug}. Please say the medication name clearly, for example: "Ibuprofen" or "Paracetamol". You can also say "drug information for <name>".`;
               })();
 
               // Race between drug info lookup and timeout
@@ -356,6 +421,14 @@ Remember: This is a reminder system to help you stay on track. Always follow you
       'pantoprazole': 'pantoprazole',
       'vantoprazole': 'pantoprazole',
       'caracitamone': 'paracetamol', // STT error for paracetamol
+      'peracitamol': 'paracetamol',
+      'peracetamol': 'paracetamol',
+      'paracitamol': 'paracetamol',
+      'parasitamol': 'paracetamol',
+      'peracicamol': 'paracetamol',
+      'peracicamol.': 'paracetamol',
+      'peracitamole': 'paracetamol',
+      'paracetamole': 'paracetamol',
 
       // Paracetamol/Acetaminophen variations
       'acetaminophen': 'paracetamol',
@@ -386,16 +459,83 @@ Remember: This is a reminder system to help you stay on track. Always follow you
       return drugMappings[normalized];
     }
 
-    // Fuzzy matching for partial matches
-    for (const [incorrect, correct] of Object.entries(drugMappings)) {
-      if (normalized.includes(incorrect) || incorrect.includes(normalized)) {
-        console.log(`[DrugNormalizer] Corrected "${drugName}" to "${correct}"`);
-        return correct;
-      }
-    }
+    
 
     // Return original if no correction found
     return drugName;
+  }
+
+  /**
+   * Fetch drug info from public sources (RxNorm + DailyMed)
+   * Tries to normalize the drug and return concise sections
+   */
+  async fetchDrugInfoFromPublicApis(drugName: string): Promise<{
+    name?: string;
+    dosage?: string;
+    usage?: string;
+    warnings?: string;
+    sideEffects?: string;
+  } | null> {
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
+      const encoded = encodeURIComponent(drugName);
+
+      // 1) Try RxNorm to get RXCUI (normalizes many brand/generic names)
+      const rxnormRes = await fetch(`https://rxnav.nlm.nih.gov/REST/rxcui.json?name=${encoded}`, { signal: controller.signal });
+      const rxnorm = await rxnormRes.json().catch(() => ({} as any));
+      const rxcui: string | undefined = rxnorm?.idGroup?.rxnormId?.[0];
+
+      // 2) Find DailyMed SPL by name (or rxcui if available)
+      // Name search is more permissive and needs no auth
+      const dmSearchUrl = `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?drug_name=${encoded}&pagesize=1`;
+      const dmSearchRes = await fetch(dmSearchUrl, { signal: controller.signal });
+      const dmSearch = await dmSearchRes.json().catch(() => ({} as any));
+      const setid: string | undefined = dmSearch?.data?.[0]?.setid;
+
+      if (!setid && !rxcui) {
+        clearTimeout(timeout);
+        return null;
+      }
+
+      // 3) Fetch SPL details
+      const detailsUrl = setid
+        ? `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/${setid}.json`
+        : `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?rxcui=${rxcui}&pagesize=1`;
+      const dmDetailRes = await fetch(detailsUrl, { signal: controller.signal });
+      const dmDetail = await dmDetailRes.json().catch(() => ({} as any));
+      clearTimeout(timeout);
+
+      // DailyMed response structures can vary; try to find common sections
+      const title = dmDetail?.data?.[0]?.title || dmSearch?.data?.[0]?.title || drugName;
+      const monographs = dmDetail?.data?.[0]?.monograph || dmDetail?.data?.monograph;
+      const sections: Array<{ section?: string; text?: string }> = monographs?.sections || monographs || [];
+
+      const pick = (keys: string[]): string | undefined => {
+        const s = sections.find((sec: any) => keys.some(k => (sec?.section || '').toLowerCase().includes(k)));
+        const raw = (s && typeof s.text === 'string') ? s.text : '';
+        const txt = raw.replace(/\s+/g, ' ').trim();
+        return txt || undefined;
+      };
+
+      const usage = pick(['indications', 'usage', 'uses']);
+      const dosage = pick(['dosage', 'administration']);
+      const warnings = pick(['warnings', 'precautions', 'contraindications']);
+      const sideEffects = pick(['adverse reactions', 'side effects']);
+
+      if (!usage && !dosage && !warnings && !sideEffects) {
+        return { name: title };
+      }
+      const result: { name?: string; usage?: string; dosage?: string; warnings?: string; sideEffects?: string } = { name: title };
+      if (usage) result.usage = usage;
+      if (dosage) result.dosage = dosage;
+      if (warnings) result.warnings = warnings;
+      if (sideEffects) result.sideEffects = sideEffects;
+      return result;
+    } catch (e) {
+      console.warn('[Tool:DrugInformation] Public API lookup failed:', e);
+      return null;
+    }
   }
 }
 
@@ -432,9 +572,7 @@ export default defineAgent({
       ? rawBaseUrl.replace(/\/$/, '')
       : `${rawBaseUrl.replace(/\/$/, '')}/v1`;
     const envModel = (process.env.OPENAI_MODEL || '').trim();
-    const chosenModel = !envModel || /instruct/i.test(envModel)
-      ? 'llama-3.3-70b-versatile'  // Groq's recommended model for conversational AI
-      : envModel;
+    const chosenModel = envModel && envModel.length > 0 ? envModel : 'llama-3.1-8b-instant';
 
     console.log('[Agent:Config] LLM Configuration:');
     console.log(`  ├─ Base URL: ${normalizedBaseUrl}`);
@@ -476,15 +614,15 @@ export default defineAgent({
       }),
 
       /**
-       * TTS (Text-to-Speech) - Agent's Voice
-       * Converts LLM's text responses into natural-sounding speech
-       * Using Cartesia with optimized settings for faster response
+      * TTS (Text-to-Speech) - Agent's Voice
+      * Converts LLM's text responses into natural-sounding speech
+      * Using ElevenLabs for more tolerant WebSocket handling on free tier
        * Documentation: https://docs.livekit.io/agents/integrations/tts/
        */
-      tts: new cartesia.TTS({
-        voice: '6f84f4b8-58a2-430c-8c79-688dad597532', // Friendly female voice
-        // Remove speed setting to avoid sonic-2 model compatibility issues
-        // Speed controls are only supported in sonic-2-2025-03-07 model
+      tts: new elevenlabs.TTS({
+        apiKey: (process.env.ELEVENLABS_API_KEY || '').trim(),
+        // Voice requires an object; supply id only
+        voice: { id: (process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL').trim() } as any,
       }),
 
       /**
@@ -561,6 +699,30 @@ export default defineAgent({
     ctx.addShutdownCallback(logUsage);
 
     /**
+     * Helper: Speak with retry for transient TTS transport errors
+     */
+    const speakWithRetry = async (text: string, attempts = 3) => {
+      let lastError: any = null;
+      for (let i = 0; i < attempts; i++) {
+        try {
+          await session.say(text);
+          // small post-say delay to let audio start before next turn
+          await new Promise((r) => setTimeout(r, 300));
+          return;
+        } catch (e: any) {
+          lastError = e;
+          const msg = (e?.message || '').toString();
+          // Retry only on transient timeouts / ws close 1005
+          const isTransient = /timeout|1005|network|temporar/i.test(msg);
+          console.warn(`[Agent:TTS] speak attempt ${i + 1} failed${isTransient ? ' (transient)' : ''}:`, msg);
+          if (!isTransient) break;
+          await new Promise((r) => setTimeout(r, 500 + i * 250));
+        }
+      }
+      if (lastError) throw lastError;
+    };
+
+    /**
      * Start Agent Session
      * Initializes the Kiara agent with room connection and audio processing
      */
@@ -579,6 +741,8 @@ export default defineAgent({
       },
     });
     console.log('[Agent:Session] Agent session started successfully');
+    // Store session for emitting JSON events to frontend
+    KiaraAgent.setSession(session);
 
     /**
      * Transcription Setup
@@ -607,7 +771,7 @@ export default defineAgent({
 
       // Check if session is still active before greeting
       if (session) {
-        await session.say('Hi, I am Kiara, your medical information assistant. I am ready to help you with drug information, medication details, and other healthcare questions. What medication would you like to know about?');
+        await speakWithRetry('Hi, I am Kiara, your medical information assistant. I am ready to help you with drug information, medication details, and other healthcare questions. What medication would you like to know about?');
         console.log('[Agent:Greeting] Welcome message sent successfully');
       } else {
         console.warn('[Agent:Greeting] Session not active, skipping greeting');
@@ -625,7 +789,7 @@ export default defineAgent({
           await new Promise(resolve => setTimeout(resolve, 1000 + (recoveryAttempts * 500)));
 
           if (session) {
-            await session.say('Hi, I am Kiara, your medical information assistant. I am ready to help you with drug information, medication details, and other healthcare questions. What medication would you like to know about?');
+            await speakWithRetry('Hi, I am Kiara, your medical information assistant. I am ready to help you with drug information, medication details, and other healthcare questions. What medication would you like to know about?');
             console.log('[Agent:Recovery] Greeting sent after recovery');
             break;
           }
